@@ -1,0 +1,142 @@
+.faq-wrapper {
+
+    .faq-items {
+        position: relative;
+        z-index: 9;
+
+        .accordion {
+            .accordion-item {
+                border: none;
+                border-radius: 5px;
+                margin-bottom: 18px;
+                background: $bg-color;
+
+            h2 {
+                button {
+                font-size: 20px;
+                line-height: 1;
+                font-weight: 400;
+                box-shadow: none;
+                border-radius: 20px !important; 
+                padding: 29px 30px;
+                color: $header-color;
+                cursor: pointer;
+
+                @include breakpoint(max-sm) {
+                    font-size: 16px;
+                    line-height: 1.6;
+                    padding: 22px 20px;
+                  }
+                }
+            }
+
+            .accordion-body {
+                padding: 20px 0;
+                background-color: white;
+
+                p {
+                    color: #666;
+                    font-size: 16px;
+                    line-height: 32px;
+                    font-weight: 400;
+
+                   @include breakpoint(max-sm) {
+                    width: 100%;
+                    font-size: 14px;
+                    line-height: 28px;
+                 }
+                }
+              }
+            }
+
+            .accordion-button {
+                background-color: transparent;
+                color: $header-color;
+                border-radius: 5px !important; 
+
+            &::after {
+                content: "\f078";
+                font-family: "Font Awesome 6 Pro";
+                background: transparent;
+                font-weight: 900;
+                transition: all 0.3s ease-in-out !important;
+                color: $header-color;
+            }
+
+            &:not(.collapsed) {
+                background-color: $theme-color-2;
+                color: $theme-color;
+                border-radius: 5px !important;
+
+                &::after {
+                    content: "\f077";
+                    font-family: "Font Awesome 6 Pro";
+                    background: transparent;
+                    font-weight: 900;
+                    color: $theme-color;
+                    transform: rotate(0);
+                }
+            }
+        }
+    }
+}
+    .faq-content {
+        margin-left: 40px;
+
+        @include breakpoint (max-xxl) {
+            margin-left: 0;
+        }
+
+        .text {
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+
+        .faq-image {
+            position: relative;
+
+            &::after {
+                content: "";
+                position: absolute;
+                width: 200%;
+                height: 0%;
+                left: 50%;
+                top: 50%;
+                background-color: rgba(255,255,255,.3);
+                transform: translate(-50%,-50%) rotate(-45deg);
+                z-index: 1;
+            }
+
+            img {
+                @include imgw;
+                border-radius: 20px;
+            }
+
+            .video-btn {
+                background-color: $white;
+                color: $theme-color;
+                display: inline-block;
+                font-size: 20px;
+                height: 80px;
+                width: 80px;
+                line-height: 70px;
+                border-radius: 100px;
+                text-align: center;
+                border: 6px solid $theme-color;
+                position: absolute;
+                bottom: 30px;
+                left: 50px;
+            }
+        }
+
+        &:hover {
+            .faq-image {
+                &::after {
+                    height: 250%;
+                    transition: all 600ms linear;
+                    background-color: transparent;
+                }
+            }
+        }
+    }
+}

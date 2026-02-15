@@ -1,0 +1,367 @@
+.contact-wrapper {
+   
+    .contact-image {
+         margin-left: -175px;
+         margin-top: -120px;
+         overflow: hidden;
+         position: relative;
+
+         @include breakpoint (max-xl4) {
+            margin-left: -310px;
+         }
+
+
+         @include breakpoint (max-xxxl) {
+            margin-left: -280px;
+         }
+
+         @include breakpoint (max-xxl) {
+            margin-left: 0;
+            margin-top: 0;
+         }
+
+          &::after {
+            content: "";
+            position: absolute;
+            width: 200%;
+            height: 0%;
+            left: 50%;
+            top: 50%;
+            background-color: rgba(255,255,255,.3);
+            transform: translate(-50%,-50%) rotate(-45deg);
+            z-index: 1;
+        }
+
+        img {
+            @include imgw;
+            border-radius: 0 20px 20px 0;
+        }
+    }
+
+    .contact-content {
+        margin-left: 30px;
+
+        @include breakpoint (max-xl4) {
+            padding-top: 110px;
+         }
+
+        @include breakpoint (max-xxl) {
+            margin-left: 0;
+            padding-top: 0;
+         }
+
+        .logo-image {
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            h2 {
+
+                 @include breakpoint(max-xl4){
+                    font-size: 40px;
+                }
+
+                @include breakpoint(max-xxxl){
+                    font-size: 42px;
+                }
+
+                @include breakpoint(max-xl){
+                    font-size: 33px;
+                }
+
+                @include breakpoint(max-lg){
+                    font-size: 40px;
+                }
+
+                @include breakpoint(max-md){
+                    font-size: 35px;
+                }
+
+                @include breakpoint(max-sm){
+                    font-size: 30px;
+                }
+
+                @include breakpoint(max-xxs){
+                    font-size: 25px;
+                }
+
+                br {
+                     @include breakpoint (max-xl4) {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        .text {
+            color: $white;
+            margin-top: 20px;
+            margin-bottom: 40px;
+        }
+
+        .contact-item {
+            @include flex;
+            gap: 20px;
+
+            @include breakpoint (max-xxl) {
+                flex-wrap: wrap;
+            }
+
+            .theme-btn {
+                background-color: $theme-color;
+                color: $theme-color-2;
+
+                &::before {
+                    background-color: $theme-color-2;
+                }
+
+                &:hover {
+                    color: $white;
+                }
+            }
+
+            h6 {
+                a {
+                    color: $white;
+                }
+
+                span {
+                    color: $white;
+                    font-family: $heading-font;
+                }
+            }
+        }
+    }
+
+    &:hover {
+        .contact-image {
+             &::after {
+                height: 250%;
+                transition: all 600ms linear;
+                background-color: transparent;
+            }
+        }
+    }
+}
+
+.contact-section {
+    position: relative;
+    z-index: 9;
+
+     @include breakpoint (max-xxl) {
+        padding-bottom: 100px !important;
+    }
+
+    @include breakpoint (max-lg) {
+        padding-bottom: 80px !important;
+    }
+
+
+    .container-fluid {
+        padding: 0 175px;
+
+        @include breakpoint (max-xxxl) {
+            padding: 0 50px;
+         }
+
+        @include breakpoint (max-xxl) {
+            padding: 0 40px;
+         }
+
+        @include breakpoint (max-lg) {
+            padding: 0 30px;
+         }
+
+
+        @include breakpoint (max-sm) {
+            padding: 0 15px;
+         }
+    }
+
+    &::before {
+        @include before;
+        background-color: $header-color;
+        z-index: -1;
+        top: 120px;
+
+        @include breakpoint (max-xxl) {
+            top: initial;
+         }
+    }
+}
+
+.contact-us-wrapper {
+
+    .contact-us-content {
+        .text {
+            margin-top: 20px;
+            margin-bottom: 40px;
+        }
+
+        .theme-btn {
+            background-color: $theme-color;
+            color: $theme-color-2;
+
+            &::before {
+                background-color: $theme-color-2;
+            }
+
+            &:hover {
+                color: $white;
+            }
+        }
+    }
+
+    .contact-us-item {
+        .form-clt {
+            input,textarea {
+                width: 100%;
+                outline: none;
+                border: none;
+                background-color: transparent;
+                padding-bottom: 20px;
+                padding: 16px 20px;
+                @include transition;
+                color: $text-color;
+                font-size: 16px;
+                border: 1px solid #C9C9C9;
+                border-radius: 10px;
+    
+                &::placeholder {
+                    color: $text-color;
+                }
+            }
+    
+            textarea {
+                padding-bottom: 120px;
+                resize: none;
+            }
+        }
+    }
+}
+
+.contact-us-wrapper-2 {
+     .contact-us-box {
+        @include flex;
+        gap: 24px;
+        background: #F7F7F7;
+        padding: 25px;
+        margin-bottom: 20px;
+        max-width: 420px;
+        @include transition;
+        border-radius: 10px;
+
+        @include breakpoint (max-xl) {
+            display: grid;
+        }
+
+         @include breakpoint (max-lg) {
+            max-width: initial;
+             @include flex;
+        }
+
+        @include breakpoint (max-md) {
+           display: grid;
+        }
+
+        .icon {
+            width: 64px;
+            height: 64px;
+            line-height: 64px;
+            text-align: center;
+            background-color: $theme-color-2;
+            font-size: 30px;
+            color: $white;
+            @include transition;
+            border-radius: 6px;
+
+            i {
+                @include transition;
+                display: inline-block;
+            }
+        }
+
+        .contact-us-content {
+            span {
+                color: $header-color;
+                margin-bottom: 5px;
+            }
+
+            h5 {
+                br {
+
+                    @include breakpoint (max-xl) {
+                        display: none;
+                    }
+
+                    @include breakpoint (max-lg) {
+                        display: initial;
+                    }
+                }
+            }
+        }
+
+        &:hover {
+            .icon {
+                background-color: $theme-color;
+                color: $white;
+
+                i {
+                    transform: scaleX(-1) !important;
+                     filter: brightness(0) invert(1);
+                }
+            }
+        }
+    }
+
+    .from-fill-up-box {
+        border: 1px solid #C9C9C9;
+        padding: 60px 40px;
+        border-radius: 20px;
+
+        @include breakpoint (max-xxl) {
+            padding: 30px;
+        }
+
+        h4 {
+            margin-bottom: 40px;
+        }
+
+         .form-clt {
+            input,textarea {
+                width: 100%;
+                outline: none;
+                border: none;
+                background-color: #F7F7F7;
+                padding-bottom: 20px;
+                padding: 16px 20px;
+                @include transition;
+                color: $header-color;
+                font-size: 16px;
+                border-radius: 10px;
+    
+                &::placeholder {
+                    color: $header-color;
+                }
+            }
+    
+            textarea {
+                padding-bottom: 120px;
+                resize: none;
+            }
+        }
+
+        .theme-btn {
+            background-color: $theme-color;
+            color: $theme-color-2;
+
+            &::before {
+                background-color: $theme-color-2;
+            }
+
+            &:hover {
+                color: $white;
+            }
+        }
+    }
+}

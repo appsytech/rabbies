@@ -1,0 +1,52 @@
+  .banner-image {
+        position: relative;
+        height: 330px;
+
+        img {
+            @include imgw;
+            object-fit: cover;
+        }
+
+        &::before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            content: "";
+            background: rgba(255, 193, 7, 0.30);
+            opacity: 0.6;
+            transform: scale(1, 0);
+            transition: transform 500ms ease;
+            transform-origin: left center;
+            z-index: 1;
+        }
+
+        .icon {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, .5);
+            font-size: 28px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            z-index: 99;
+            color: $white;
+            opacity: 0;
+            @include transition;
+        }
+
+        &:hover {
+            &::before {
+                transform: scale(1, 1);
+                transform-origin: left center;
+            }
+            .icon {
+                opacity: 1;
+            }
+        }
+    }

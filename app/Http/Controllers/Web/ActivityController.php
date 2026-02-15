@@ -9,22 +9,15 @@ use Illuminate\View\View;
 
 class ActivityController extends Controller
 {
-    public function __construct(
-        protected ActivityService $activityService
-    ) {}
 
-    public function show(Request $request): View
+    public function index()
     {
-        $activity = $this->activityService->find($request->id);
+        return view('web.pages.activity.index');
+    }
 
-        $data = [
-            'activity' => $activity,
-            'relatedActivities' => $this->activityService->getActivitiesByType($activity->type, [
-                'exceptId' => $activity->id,
-                'limit' => 5,
-            ], ['id', 'title', 'author', 'created_at', 'images']),
-        ];
 
-        return view('web.pages.activity.activity-show', compact('data'));
+    public function show()
+    {
+        return view('web.pages.activity.show');
     }
 }

@@ -8,10 +8,34 @@ use App\Http\Controllers\Admin\HomeSliderController;
 use App\Http\Controllers\Admin\PackageController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\PublicationController;
+use App\Http\Controllers\Web\ActivityController as WebActivityController;
+use App\Http\Controllers\Web\BlogController;
+use App\Http\Controllers\Web\PageController;
 use Illuminate\Support\Facades\Route;
 
+
+
+/* ====================== Website ====================== */
+
+Route::get('/', [PageController::class, 'home'])->name('web.homepage');
+Route::get('about-us', [PageController::class, 'aboutUs'])->name('web.about-us');
+Route::get('contact', [PageController::class, 'contact'])->name('web.contact');
+Route::get('contact/service/detail', [PageController::class, 'serviceDetail'])->name('web.service.show');
+
+
+/* ====================== Web > ACtivity ====================== */
+Route::get('/activities', [WebActivityController::class, 'index'])->name('web.activity.index');
+Route::get('activity/details', [WebActivityController::class, 'show'])->name('web.activity.show');
+
+
+/* ======================  Web > Blog ====================== */
+Route::get('blog', [BlogController::class, 'index'])->name('web.blog.index');
+Route::get('blog/details', [BlogController::class, 'show'])->name('web.blog.show');
+
+
 /* ======================Dashboard====================== */
-Route::get('/', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
+
+Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
 
 /* ======================Dashboard > Auth ====================== */
 Route::get('login', [AuthController::class, 'login'])->name('login');
