@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\HomeSliderController;
 use App\Http\Controllers\Admin\PackageController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\PublicationController;
+use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Web\ActivityController as WebActivityController;
 use App\Http\Controllers\Web\BlogController;
 use App\Http\Controllers\Web\PageController;
@@ -92,3 +93,12 @@ Route::delete('dashboard/publication/delete', [PublicationController::class, 'de
 Route::get('dashboard/publication/edit/{id}', [PublicationController::class, 'edit'])->name('publication.edit')->middleware('auth');
 Route::put('dashboard/publication/update', [PublicationController::class, 'update'])->name('publication.update')->middleware('auth');
 Route::post('dashboard/publication/status/update', [PublicationController::class, 'updateStatus'])->name('publication.status.update')->middleware('auth');
+
+
+/* ====================== Dashboard > Service ====================== */
+Route::get('dashboard/service', [ServiceController::class, 'index'])->name('service.index')->middleware('auth');
+Route::post('dashboard/service/store', [ServiceController::class, 'store'])->name('service.store')->middleware('auth');
+Route::delete('dashboard/service/delete', [ServiceController::class, 'delete'])->name('service.delete')->middleware('auth');
+Route::get('dashboard/service/edit/{id}', [ServiceController::class, 'edit'])->name('service.edit')->middleware('auth');
+Route::put('dashboard/service/update', [ServiceController::class, 'update'])->name('service.update')->middleware('auth');
+Route::post('dashboard/service/status/update', [ServiceController::class, 'updateStatus'])->name('service.status.update')->middleware('auth');

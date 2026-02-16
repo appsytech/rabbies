@@ -10,8 +10,10 @@ use App\Repositories\Admin\Interfaces\AdminRepositoryInterface;
 use App\Repositories\Admin\Interfaces\HomeSliderRepositoryInterface;
 use App\Repositories\Admin\Interfaces\PackageRepositoryInterface;
 use App\Repositories\Admin\Interfaces\PublicationRepositoryInterface;
+use App\Repositories\Admin\Interfaces\ServiceRepositoryInterface;
 use App\Repositories\Admin\PackageRepository;
 use App\Repositories\Admin\PublicationRepository;
+use App\Repositories\Admin\ServiceRepository;
 use App\Repositories\Web\ActivityRepository as WebActivityRepository;
 use App\Repositories\Web\AdminRepository as WebAdminRepository;
 use App\Repositories\Web\Interface\ActivityRepositoryInterface as InterfaceActivityRepositoryInterface;
@@ -35,7 +37,7 @@ class AppServiceProvider extends ServiceProvider
             AdminRepositoryInterface::class => AdminRepository::class,
             HomeSliderRepositoryInterface::class => HomeSliderRepository::class,
             PublicationRepositoryInterface::class => PublicationRepository::class,
-
+            ServiceRepositoryInterface::class => ServiceRepository::class,
 
             /* ============ Web bindings ============ */
             InterfaceActivityRepositoryInterface::class => WebActivityRepository::class,

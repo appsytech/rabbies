@@ -39,6 +39,15 @@
             </a>
         </div>
 
+        <!--========== Service ===========-->
+        <div>
+            <a href="{{ route('service.index') }}"
+                class="flex items-center gap-3 px-4 py-3 text-sm font-medium  rounded-lg hover:bg-[#EEF2FF] transition-colors {{ Route::currentRouteName() == 'service.index' || Route::currentRouteName() == 'service.edit'  ? 'bg-blue-100 text-black' : 'text-gray-700' }}">
+                <img src="{{ asset('assets/svg/package.svg') }}" class="h-5 w-5 pointer-events-none">
+                <span class="sidebar-text">Service</span>
+            </a>
+        </div>
+
         <!--========== Extra Events ===========-->
         <div>
             <button id="extra-events"

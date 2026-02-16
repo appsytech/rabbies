@@ -131,14 +131,14 @@ class AdminService
     ==============================================================================*/
     public function updateStatus(int $id): bool
     {
-        $notice = $this->adminRepo->find($id, ['id', 'status']);
+        $admin = $this->adminRepo->find($id, ['id', 'status']);
 
-        if (! $notice) {
+        if (! $admin) {
             return false;
         }
 
         return $this->adminRepo->updateColumns($id, [
-            'status' => ! $notice->status,
+            'status' => ! $admin->status,
         ]);
     }
 
