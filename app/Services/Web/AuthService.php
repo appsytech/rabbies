@@ -46,6 +46,5 @@ class AuthService
             'message' => 'Please recheck your credentials',
 
         ];
-
     }
 }
