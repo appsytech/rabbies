@@ -31,6 +31,32 @@
     <!--<< Main.css >>-->
     <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
 
+
+    <style>
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #0e3b2e;
+            color: #fff;
+            padding: 9px 21px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .download-btn i {
+            font-size: 14px;
+        }
+
+        .download-btn:hover {
+            background: #fdb913;
+            color: #000;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -225,8 +251,8 @@
                 <div class="header-main">
                     <div class="header-left">
                         <div class="logo">
-                            <a href="/" class="header-logo">
-                                <img src="assets/img/logo/black-logo.png" alt="logo-img">
+                            <a href="{{ route('web.homepage') }}" class="header-logo">
+                                <img src="{{ asset('assets/img/logo/black-logo.png') }}" alt="logo-img">
                             </a>
                         </div>
                     </div>
@@ -248,8 +274,8 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('web.blog.index') }}">
-                                            Blog
+                                        <a href="{{ route('web.publication.index') }}">
+                                            Publication
                                         </a>
                                     </li>
                                     <li>

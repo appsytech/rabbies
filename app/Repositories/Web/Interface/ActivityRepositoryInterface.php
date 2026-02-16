@@ -3,6 +3,7 @@
 namespace App\Repositories\Web\Interface;
 
 use App\Models\Admin\Activity;
+use Illuminate\Database\Eloquent\Collection;
 
 interface ActivityRepositoryInterface
 {
@@ -12,7 +13,7 @@ interface ActivityRepositoryInterface
     public function find(int $id, ?array $selectedColumns = null): ?Activity;
 
     /* ============================================================================
-        |Retrieve activities filtered by type and active status.
-    ==============================================================================*/
-    public function getActivitiesByType(string $type = 'current', ?array $filterData = null, ?array $selectedColumns = []);
+     |Retrieve activities with active status.
+     ==============================================================================*/
+    public function getActivities(?array $filterData = null, ?array $selectedColumns = []): ?Collection;
 }

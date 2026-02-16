@@ -5,12 +5,23 @@ namespace App\Http\Controllers\Web;
 use App\Http\Controllers\Controller;
 use App\Services\Web\PublicationService;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class PublicationController extends Controller
 {
     public function __construct(
         protected PublicationService $publicationService
     ) {}
+
+
+    public function index(): View
+    {
+        $data = [
+            'publications' => $this->publicationService->getPublications()
+        ];
+
+        return view('web.pages.publication.index', compact('data'));
+    }
 
     public function show(Request $request)
     {

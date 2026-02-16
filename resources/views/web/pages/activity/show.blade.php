@@ -13,7 +13,7 @@
             </div>
             <ul class="breadcrumb-items wow fadeInUp" data-wow-delay=".5s">
                 <li>
-                    <a href="/">
+                    <a href="{{ route('web.homepage') }}">
                         Home
                     </a>
                 </li>
@@ -36,12 +36,12 @@
                 <div class="col-lg-8 col-12">
                     <div class="event-details-post">
                         <div class="event-details-image">
-                            <img src="assets/img/inner-page/event-details/details-1.jpg" alt="img">
+                            <img src="{{ asset('storage/' . $data['activity']->images) }}" alt="img">
                         </div>
                         <div class="event-details-content">
-                            <h3>Rebecca's New Album Aid for the Needy</h3>
+                            <h3>{{ $data['activity']->title }}</h3>
                             <ul class="event-list">
-                                <li>
+                                <!-- <li>
                                     <i class="fa-regular fa-location-dot"></i>
                                     New york, USA
                                 </li>
@@ -52,62 +52,36 @@
                                 <li>
                                     <i class="fa-regular fa-clock"></i>
                                     09:00 PM
-                                </li>
+                                </li> -->
                             </ul>
                             <p>
-                                Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore of
-                                magna aliqua. Ut enim ad minim veniam, made of owl the quis nostrud exercitation ullamco
-                                laboris nisi ut aliquip ex ea dolor commodo consequat. Duis aute irure and dolor in
-                                reprehenderit.
+                                {{ $data['activity']->description }}
                             </p>
-                            <p class="mt-3 mb-3">
-                                The is ipsum dolor sit amet consectetur adipiscing elit. Fusce eleifend porta arcu In
-                                hac habitasse the is platea augue thelorem turpoi dictumst. In lacus libero faucibus at
-                                malesuada sagittis placerat eros sed istincidunt augue ac ante rutrum sed the is sodales
-                                augue consequat.
-                            </p>
-                            <p class="mb-3">
-                                Nulla facilisi. Vestibulum tristique sem in eros eleifend imperdiet. Donec quis
-                                convallis neque. In id lacus pulvinar lacus, eget vulputate lectus. Ut viverra bibendum
-                                lorem, at tempus nibh mattis in. Sed a massa eget lacus consequat auctor
-                            </p>
-                            <h3>Requirements for the Event</h3>
-                            <p class="mt-3 mb-3">
-                                Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore of
-                                magna aliqua. Ut enim ad minim veniam, made of owl the quis nostrud exercitation ullamco
-                                laboris nisi ut aliquip ex ea dolor commodo consequat. Duis aute irure and dolor in
-                                reprehenderit.
-                            </p>
-                            <p class="mb-4">
-                                The is ipsum dolor sit amet consectetur adipiscing elit. Fusce eleifend porta arcu In
-                                hac habitasse the is platea augue thelorem turpoi dictumst. In lacus libero faucibus at
-                                malesuada sagittis placerat eros sed istincidunt augue ac ante rutrum sed the is sodales
-                                augue consequat.
-                            </p>
-                            <div class="row g-4">
+
+                            <!-- <div class="row g-4">
                                 <div class="col-lg-6">
                                     <div class="details-thumb">
-                                        <img src="assets/img/inner-page/event-details/details-2.jpg" alt="img">
+                                        <img src="{{ asset('assets/img/inner-page/event-details/details-2.jpg') }}" alt="img">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="details-thumb">
-                                        <img src="assets/img/inner-page/event-details/details-3.jpg" alt="img">
+                                        <img src="{{ asset('assets/img/inner-page/event-details/details-3.jpg') }}" alt="img">
                                     </div>
                                 </div>
-                            </div>
-                            <p class="mt-4">
+                            </div> -->
+                            <!-- <p class="mt-4">
                                 The is ipsum dolor sit amet consectetur adipiscing elit. Fusce eleifend porta arcu In
                                 hac habitasse the is platea augue thelorem turpoi dictumst. In lacus libero faucibus at
                                 malesuada sagittis placerat eros sed istincidunt augue ac ante rutrum sed the is sodales
                                 augue consequat.
-                            </p>
+                            </p> -->
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="event-main-sideber">
-                        <div class="event-sideber-box">
+                        <!-- <div class="event-sideber-box">
                             <div class="client-image">
                                 <img src="assets/img/inner-page/event-details/user.png" alt="img">
                             </div>
@@ -159,7 +133,7 @@
                                     <span>Event Date:</span>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="event-contact-box">
                             <div class="icon">
                                 <i class="fa-regular fa-phone"></i>

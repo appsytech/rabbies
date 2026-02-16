@@ -60,13 +60,13 @@ class ActivityRepository implements ActivityRepositoryInterface
             ->when(
                 isset($filterData['title']),
                 function ($query) use ($filterData) {
-                    $query->where('title', 'LIKE', '%'.$filterData['title'].'%');
+                    $query->where('title', 'LIKE', '%' . $filterData['title'] . '%');
                 }
             )
             ->when(
                 isset($filterData['author']),
                 function ($query) use ($filterData) {
-                    $query->where('author', 'LIKE', '%'.$filterData['author'].'%');
+                    $query->where('author', 'LIKE', '%' . $filterData['author'] . '%');
                 }
             )
             ->when(

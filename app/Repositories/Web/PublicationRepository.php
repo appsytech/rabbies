@@ -24,7 +24,7 @@ class PublicationRepository implements PublicationRepositoryInterface
         return Publication::when(
             isset($filterData['type']),
             function ($query) use ($filterData) {
-                $query->where('type', 'LIKE', '%'.$filterData['type'].'%');
+                $query->where('type', 'LIKE', '%' . $filterData['type'] . '%');
             }
         )
             ->when(
@@ -36,7 +36,7 @@ class PublicationRepository implements PublicationRepositoryInterface
             ->when(
                 isset($filterData['author']),
                 function ($query) use ($filterData) {
-                    $query->where('author', 'LIKE', '%'.$filterData['author'].'%');
+                    $query->where('author', 'LIKE', '%' . $filterData['author'] . '%');
                 }
             )
             ->when(

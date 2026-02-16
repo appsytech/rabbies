@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\PublicationController;
 use App\Http\Controllers\Web\ActivityController as WebActivityController;
 use App\Http\Controllers\Web\BlogController;
 use App\Http\Controllers\Web\PageController;
+use App\Http\Controllers\Web\PublicationController as WebPublicationController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -25,12 +26,17 @@ Route::get('contact/service/detail', [PageController::class, 'serviceDetail'])->
 
 /* ====================== Web > ACtivity ====================== */
 Route::get('/activities', [WebActivityController::class, 'index'])->name('web.activity.index');
-Route::get('activity/details', [WebActivityController::class, 'show'])->name('web.activity.show');
+Route::get('activity/details/{id}', [WebActivityController::class, 'show'])->name('web.activity.show');
 
 
 /* ======================  Web > Blog ====================== */
 Route::get('blog', [BlogController::class, 'index'])->name('web.blog.index');
 Route::get('blog/details', [BlogController::class, 'show'])->name('web.blog.show');
+
+
+/* ======================  Web > Publication ====================== */
+Route::get('publication', [WebPublicationController::class, 'index'])->name('web.publication.index');
+Route::get('publication/details/{id}', [WebPublicationController::class, 'show'])->name('web.publication.show');
 
 
 /* ======================Dashboard====================== */

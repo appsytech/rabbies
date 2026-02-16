@@ -3,7 +3,7 @@
 namespace App\Services\Web;
 
 use App\Models\Admin\Activity;
-use App\Repositories\Web\ActivityRepository;
+use App\Repositories\Web\Interface\ActivityRepositoryInterface;
 use Illuminate\Database\Eloquent\Collection;
 
 class ActivityService
@@ -12,18 +12,18 @@ class ActivityService
      * Create a new class instance.
      */
     public function __construct(
-        protected ActivityRepository $activityRepo
+        protected ActivityRepositoryInterface $activityRepo
     ) {}
 
     /* ============================================================================
-     |Retrieve activities filtered by type and active status.
+     |Retrieve activities with active status.
      ==============================================================================*/
-    public function getActivitiesByType(string $type = 'current', ?array $filterData = null,?array $selectedColumns = []): ?Collection
+    public function getActivities(?array $filterData = null, ?array $selectedColumns = []): ?Collection
     {
-        return $this->activityRepo->getActivitiesByType($type, $filterData,$selectedColumns);
+        return $this->activityRepo->getActivities($filterData, $selectedColumns);
     }
 
-    public function find(string $encryptedId, ?array $selectedColumns = null):?Activity
+    public function find(string $encryptedId, ?array $selectedColumns = null): ?Activity
     {
         $id = decrypt($encryptedId);
 

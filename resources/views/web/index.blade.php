@@ -15,26 +15,37 @@
     </div>
     <div class="swiper hero-slider">
         <div class="swiper-wrapper">
+
+            @if ($data['sliders']->isNotEmpty())
+            @foreach ($data['sliders'] as $slider)
+            @php
+            $jumpRoutes = [
+            'ABOUT' => route('web.about-us'),
+            'ACTIVITY' => route('web.activity.index'),
+            ];
+
+            $jumpUrl = $jumpRoutes[$slider->jump_type] ?? '#';
+            @endphp
             <div class="swiper-slide">
                 <div class="hero-1">
                     <div class="shape">
                         <img src="assets/img/home-1/hero/shape.png" alt="img">
                     </div>
-                    <div class="hero-bg bg-cover" style="background-image: url(assets/img/home-1/hero/hero-bg.jpg);">
+                    <div class="hero-bg bg-cover" style="background-image: url('{{ asset('storage/' . $slider->images) }}');">
                     </div>
                     <div class="container hero-height">
                         <div class="row g-4 justify-content-center">
                             <div class="col-lg-10">
                                 <div class="hero-content">
-                                    <h6 data-animation="fadeInUp" data-delay="1.3s">Become a Volunteer for Animal Welfare</h6>
+                                    <h6 data-animation="fadeInUp" data-delay="1.3s">{{ $slider->type ?? '' }}</h6>
                                     <h1 data-animation="fadeInUp" data-delay="1.5s">
-                                        University Initiative for Animal Care & Compassion
+                                        {{ $slider->title ?? '' }}
                                     </h1>
                                     <p data-animation="fadeInUp" data-delay="1.3s">
-                                        Our university students and faculty work together as volunteers to rescue, feed, and protect animals in need. Join us in creating a kinder world through education, empathy, and action.
+                                        {{ $slider->description ?? '' }}
                                     </p>
                                     <div class="hero-button" data-animation="fadeInUp" data-delay="1.5s">
-                                        <a href="{{ route('web.contact') }}" class="theme-btn">Join With Us <i class="fa-solid fa-arrow-right-long"></i></a>
+                                        <a href="{{ $jumpUrl }}" class="theme-btn">Join With Us <i class="fa-solid fa-arrow-right-long"></i></a>
                                         <a href="{{ route('web.about-us') }}" class="theme-btn border-btn">About Our Program <i class="fa-solid fa-arrow-right-long"></i></a>
                                     </div>
                                 </div>
@@ -43,7 +54,10 @@
                     </div>
                 </div>
             </div>
-            <div class="swiper-slide">
+            @endforeach
+            @endif
+
+            <!-- <div class="swiper-slide">
                 <div class="hero-1">
                     <div class="shape">
                         <img src="assets/img/home-1/hero/shape.png" alt="img">
@@ -71,6 +85,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="swiper-slide">
                 <div class="hero-1">
                     <div class="shape">
@@ -97,7 +112,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </section>
@@ -269,20 +284,22 @@
         </div>
         <div class="donation-wrapper">
             <div class="row">
+                @if ($data['activities']->isNotEmpty())
+                @foreach ($data['activities'] as $activity)
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay=".2s">
                     <div class="donation-card-item">
                         <div class="donation-image">
-                            <img src="assets/img/home-1/donation/01.jpg" alt="img">
+                            <img src="{{ asset('storage/' . $activity->images) }}" alt="img">
                             <div class="right-shape">
                                 <img src="assets/img/home-1/donation/shape.png" alt="img">
                             </div>
                         </div>
                         <div class="donation-content">
                             <h4>
-                                <a href="{{ route('web.activity.show') }}">Give African Children a Good Education</a>
+                                <a href="{{ route('web.activity.show', encrypt($activity->id)) }}">{{ $activity->title }}</a>
                             </h4>
                             <p>
-                                Looking for a restaurant that serves delicious, beautifully presented dishes with impeccable service.
+                                {{ $activity->description ?? '' }}
                             </p>
                             <!-- <div class="pro-items">
                                         <div class="progress">
@@ -291,112 +308,20 @@
                                     </div> -->
                             <ul class="donate-list">
                                 <li>
-                                    <span>Author :</span> Admin
+                                    <span>Author :</span> {{ $activity->author ?? '' }}
                                 </li>
                                 <li>
-                                    <span>Date:</span> 12/01/2026
+                                    <span>Date:</span> {{ \Illuminate\Support\Carbon::parse($activity->created_at)->format('Y/m/d') }}
                                 </li>
                             </ul>
-                            <a href="{{ route('web.activity.show') }}" class="theme-btn">See more <i class="fa-solid fa-arrow-right-long"></i></a>
+                            <a href="{{ route('web.activity.show', encrypt($activity->id)) }}" class="theme-btn">See more <i class="fa-solid fa-arrow-right-long"></i></a>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 wow fadeInUp" data-wow-delay=".4s">
-                    <div class="donation-card-item">
-                        <div class="donation-image">
-                            <img src="assets/img/home-1/donation/02.jpg" alt="img">
-                            <div class="right-shape">
-                                <img src="assets/img/home-1/donation/shape.png" alt="img">
-                            </div>
-                        </div>
-                        <div class="donation-content">
-                            <h4>
-                                <a href="{{ route('web.activity.show') }}">Support Learning, Inspire Hope in Africa</a>
-                            </h4>
-                            <p>
-                                Looking for a restaurant that serves delicious, beautifully presented dishes with impeccable service.
-                            </p>
-                            <!-- <div class="pro-items style-2">
-                                        <div class="progress">
-                                            <div class="progress-value style-two"></div>
-                                        </div>
-                                    </div> -->
-                            <ul class="donate-list">
-                                <li>
-                                    <span>Author :</span> Admin
-                                </li>
-                                <li>
-                                    <span>Date:</span> 24/12/2025
-                                </li>
-                            </ul>
-                            <a href="{{ route('web.activity.show') }}" class="theme-btn style-2">See more <i class="fa-solid fa-arrow-right-long"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 wow fadeInUp" data-wow-delay=".6s">
-                    <div class="donation-card-item">
-                        <div class="donation-image">
-                            <img src="assets/img/home-1/donation/03.jpg" alt="img">
-                            <div class="right-shape">
-                                <img src="assets/img/home-1/donation/shape.png" alt="img">
-                            </div>
-                        </div>
-                        <div class="donation-content">
-                            <h4>
-                                <a href="{{ route('web.activity.show') }}">Building Bright Futures With Every Lesson</a>
-                            </h4>
-                            <p>
-                                Looking for a restaurant that serves delicious, beautifully presented dishes with impeccable service.
-                            </p>
-                            <!-- <div class="pro-items style-3">
-                                        <div class="progress">
-                                            <div class="progress-value style-two"></div>
-                                        </div>
-                                    </div> -->
-                            <ul class="donate-list">
-                                <li>
-                                    <span>Author :</span> Admin
-                                </li>
-                                <li>
-                                    <span>Date:</span> 11/09/2025
-                                </li>
-                            </ul>
-                            <a href="{{ route('web.activity.show') }}" class="theme-btn style-3">See more <i class="fa-solid fa-arrow-right-long"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 wow fadeInUp" data-wow-delay=".8s">
-                    <div class="donation-card-item">
-                        <div class="donation-image">
-                            <img src="assets/img/home-1/donation/04.jpg" alt="img">
-                            <div class="right-shape">
-                                <img src="assets/img/home-1/donation/shape.png" alt="img">
-                            </div>
-                        </div>
-                        <div class="donation-content">
-                            <h4>
-                                <a href="{{ route('web.activity.show') }}">Help Children Dream Bigger With Education</a>
-                            </h4>
-                            <p>
-                                Looking for a restaurant that serves delicious, beautifully presented dishes with impeccable service.
-                            </p>
-                            <!-- <div class="pro-items style-4">
-                                        <div class="progress">
-                                            <div class="progress-value style-two"></div>
-                                        </div>
-                                    </div> -->
-                            <ul class="donate-list">
-                                <li>
-                                    <span>Author :</span> Admin
-                                </li>
-                                <li>
-                                    <span>Date:</span> 17/08/2025
-                                </li>
-                            </ul>
-                            <a href="{{ route('web.activity.show') }}" class="theme-btn style-4">See more <i class="fa-solid fa-arrow-right-long"></i></a>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
+                @endif
+
+
             </div>
         </div>
     </div>
@@ -562,14 +487,21 @@
         <div class="swiper team-slider">
             <div class="swiper-wrapper">
 
+                @if ($data['admins']->isNotEmpty())
+                @foreach ($data['admins'] as $admin)
                 <div class="swiper-slide">
                     <div class="team-card-items">
                         <div class="team-image">
+                            @if(isset($admin->profile_image))
+                            <img src="{{ asset('storage/' . $admin->profile_image) }}" alt="">
+                            @else
                             <img src="assets/img/home-1/team/01.jpg" alt="">
+                            @endif
+
                         </div>
                         <div class="team-content">
-                            <h5><a href="#">Darrell Steward</a></h5>
-                            <p>Software Developer</p>
+                            <h5><a href="#">{{ $admin->name ?? '' }}</a></h5>
+                            <p>{{ $admin->email ?? '' }}</p>
                             <div class="social-icon">
                                 <a href="#">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
@@ -584,8 +516,10 @@
                         </div>
                     </div>
                 </div>
+                @endforeach
+                @endif
 
-                <div class="swiper-slide">
+                <!-- <div class="swiper-slide">
                     <div class="team-card-items">
                         <div class="team-image">
                             <img src="assets/img/home-1/team/02.jpg" alt="">
@@ -651,7 +585,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
             </div>
 
@@ -943,8 +877,70 @@
     </div>
 </section>
 
-<!-- News Section Start -->
+<!-- Publication Section Start -->
 <section class="news-section section-padding pt-0 fix">
+    <div class="container">
+        <div class="section-title text-center">
+            <span class="sub-title wow fadeInUp">Publications</span>
+            <h2 class="wow fadeInUp" data-wow-delay=".3s">
+                <span>I</span>nsights from latest Publications
+            </h2>
+        </div>
+        <div class="row">
+            @if ($data['publications']->isNotEmpty())
+            @foreach ($data['publications'] as $publication)
+            <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".3s">
+                <div class="news-card-items">
+                    <div class="news-image">
+                        <img src="{{ asset('storage/' . $publication->thumbnail) }}" alt="img">
+                        <div class="news-layer-wrapper">
+                            <div class="news-layer-image" style="background-image: url('{{ asset('storage/' . $publication->thumbnail) }}');"></div>
+                            <div class="news-layer-image" style="background-image: url('{{ asset('storage/' . $publication->thumbnail) }}');"></div>
+                            <div class="news-layer-image" style="background-image: url('{{ asset('storage/' . $publication->thumbnail) }}');"></div>
+                            <div class="news-layer-image" style="background-image: url('{{ asset('storage/' . $publication->thumbnail) }}');"></div>
+                        </div>
+                        <div class="bottom-shape">
+                            <img src="{{ asset('assets/img/home-1/news/shape.png') }}" alt="img">
+                        </div>
+                    </div>
+                    <div class="news-content">
+                        <ul class="news-meta">
+                            <li>
+                                <i class="fa-regular fa-user"></i>
+                                By : {{ $publication->author ?? '' }}
+                            </li>
+                            <!-- <li>
+                                <i class="fa-regular fa-comment"></i>
+                                By : Comment
+                            </li> -->
+                        </ul>
+                        <h4>
+                            <a href="{{ route('web.blog.show') }}">
+                                {{ $publication->title ?? '' }}
+                            </a>
+                        </h4>
+                        <a href="{{ route('web.blog.show') }}" class="link-btn">Read More <i class="fa-solid fa-arrow-right-long"></i></a>
+                        @isset($publication->document)
+                        <div class="mt-3">
+                            <a href="{{ asset('storage/' . $publication->document) }}"
+                                download
+                                class="download-btn">
+                                Download File
+                            </a>
+                        </div>
+                        @endisset
+                    </div>
+                </div>
+            </div>
+            @endforeach
+            @endif
+
+        </div>
+    </div>
+</section>
+
+<!-- News Section Start -->
+<!-- <section class="news-section section-padding pt-0 fix">
     <div class="container">
         <div class="section-title text-center">
             <span class="sub-title wow fadeInUp">bLOG & nEWS</span>
@@ -1057,7 +1053,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 
 <!-- Contact Section Start -->
 <section class="contact-section section-padding pb-0">

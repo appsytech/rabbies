@@ -42,7 +42,7 @@ class AdminController extends Controller
             'username' => 'nullable|string|max:100|unique:admins,username',
             'phone' => 'nullable|string',
             'password' => 'nullable|string|min:8|max:40|confirmed',
-            'admin_role' => 'required|in:1,2,3,4',
+            'admin_role' => 'required|in:1,2,3,4,5',
             'status' => 'required|in:0,1',
             'profile_image' => 'nullable',
         ]);
@@ -78,7 +78,7 @@ class AdminController extends Controller
             'username' => 'nullable|string|max:100',
             'phone' => 'nullable|string',
             'password' => 'nullable|string|min:8|confirmed',
-            'admin_role' => 'required|in:1,2,3,4',
+            'admin_role' => 'required|in:1,2,3,4,5',
             'status' => 'required|in:0,1',
             'profile_image' => 'nullable',
         ]);

@@ -31,7 +31,7 @@ function togglePasswordSection(roleValue) {
     const confirmPassword = document.getElementById("password_confirmation");
     const passWordSections = document.querySelectorAll(".password-section");
 
-    const isTeacher = roleValue === "4";
+    const isTeacher = roleValue === "4" || roleValue == "5";
 
     passWordSections.forEach((section) => {
         section.style.display = isTeacher ? "none" : "block";

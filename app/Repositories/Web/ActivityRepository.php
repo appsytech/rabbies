@@ -32,13 +32,12 @@ class ActivityRepository implements ActivityRepositoryInterface
     }
 
     /* ============================================================================
-     |Retrieve activities filtered by type and active status.
+     |Retrieve activities with active status.
      ==============================================================================*/
-    public function getActivitiesByType(string $type = 'current', ?array $filterData = null, ?array $selectedColumns = []): ?Collection
+    public function getActivities(?array $filterData = null, ?array $selectedColumns = []): ?Collection
     {
         return Activity::where([
             ['status', true],
-            ['type', $type],
         ])
             ->when(
                 isset($filterData['exceptId']) && is_numeric($filterData['exceptId']),

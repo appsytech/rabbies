@@ -25,7 +25,7 @@ class AdminService
     ================================================================*/
     public function create($request)
     {
-        if ($request->admin_role != 4) {
+        if ($request->admin_role != 4 && $request->admin_role != 5) {
             $validator = Validator::make($request->all(), [
                 'password' => 'required|string|min:8|max:40|confirmed',
             ]);
@@ -154,7 +154,6 @@ class AdminService
         }
 
         return $this->adminRepo->delete($id);
-
     }
 
     /* ================================================

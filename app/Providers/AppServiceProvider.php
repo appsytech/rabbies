@@ -12,6 +12,12 @@ use App\Repositories\Admin\Interfaces\PackageRepositoryInterface;
 use App\Repositories\Admin\Interfaces\PublicationRepositoryInterface;
 use App\Repositories\Admin\PackageRepository;
 use App\Repositories\Admin\PublicationRepository;
+use App\Repositories\Web\ActivityRepository as WebActivityRepository;
+use App\Repositories\Web\AdminRepository as WebAdminRepository;
+use App\Repositories\Web\Interface\ActivityRepositoryInterface as InterfaceActivityRepositoryInterface;
+use App\Repositories\Web\Interface\AdminRepositoryInterface as InterfaceAdminRepositoryInterface;
+use App\Repositories\Web\Interface\PublicationRepositoryInterface as InterfacePublicationRepositoryInterface;
+use App\Repositories\Web\PublicationRepository as WebPublicationRepository;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
@@ -29,6 +35,13 @@ class AppServiceProvider extends ServiceProvider
             AdminRepositoryInterface::class => AdminRepository::class,
             HomeSliderRepositoryInterface::class => HomeSliderRepository::class,
             PublicationRepositoryInterface::class => PublicationRepository::class,
+
+
+            /* ============ Web bindings ============ */
+            InterfaceActivityRepositoryInterface::class => WebActivityRepository::class,
+            InterfaceAdminRepositoryInterface::class => WebAdminRepository::class,
+            InterfacePublicationRepositoryInterface::class => WebPublicationRepository::class
+
         ];
 
         foreach ($bindings as $interface => $repository) {
