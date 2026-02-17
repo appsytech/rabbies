@@ -4,6 +4,7 @@ namespace App\Repositories\Admin\Interfaces;
 
 use App\Models\Admin\GalleryImage;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 interface GalleryRepositoryInterface
 {
@@ -20,7 +21,7 @@ interface GalleryRepositoryInterface
     /* ============================================================================
     |  Fetch gallery images with optional filters and selected columns.
     ==============================================================================*/
-    public function getGalleryImages(?array $filterData = null, ?array $selectedcolumns = null): ?Collection;
+    public function getGalleryImages(?array $filterData = null, ?array $selectedcolumns = null): ?LengthAwarePaginator;
 
     /* ============================================================================
     |Update specific columns of an existing agllery image record.

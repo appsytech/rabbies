@@ -44,7 +44,6 @@ class InquiryController extends Controller
                 'errors' => null,
                 'data' => null,
             ], 200);
-
         } else {
             return response()->json([
                 'status' => false,
@@ -53,8 +52,6 @@ class InquiryController extends Controller
                 'errors' => ['Something went wrong'],
                 'data' => null,
             ], 500);
-
         }
-
     }
 }

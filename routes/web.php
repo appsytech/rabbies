@@ -1,18 +1,24 @@
 <?php
 
+use App\Http\Controllers\Admin\AboutFeatureController;
+use App\Http\Controllers\Admin\AboutUsController;
 use App\Http\Controllers\Admin\ActivityController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\HomeSliderController;
+use App\Http\Controllers\Admin\InquiryController as AdminInquiryController;
 use App\Http\Controllers\Admin\PackageController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\PublicationController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Web\ActivityController as WebActivityController;
 use App\Http\Controllers\Web\BlogController;
+use App\Http\Controllers\web\InquiryController;
 use App\Http\Controllers\Web\PageController;
 use App\Http\Controllers\Web\PublicationController as WebPublicationController;
+use App\Http\Controllers\Web\ServiceController as WebServiceController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -22,17 +28,23 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [PageController::class, 'home'])->name('web.homepage');
 Route::get('about-us', [PageController::class, 'aboutUs'])->name('web.about-us');
 Route::get('contact', [PageController::class, 'contact'])->name('web.contact');
-Route::get('contact/service/detail', [PageController::class, 'serviceDetail'])->name('web.service.show');
 
 
-/* ====================== Web > ACtivity ====================== */
+/* ====================== Web > Activity ====================== */
 Route::get('/activities', [WebActivityController::class, 'index'])->name('web.activity.index');
 Route::get('activity/details/{id}', [WebActivityController::class, 'show'])->name('web.activity.show');
+
+
+/* ====================== Web > Services ====================== */
+Route::get('service/details/{id}', [WebServiceController::class, 'show'])->name('web.service.show');
 
 
 /* ======================  Web > Blog ====================== */
 Route::get('blog', [BlogController::class, 'index'])->name('web.blog.index');
 Route::get('blog/details', [BlogController::class, 'show'])->name('web.blog.show');
+
+/* ======================Web Routes > Inquiry====================== */
+Route::post('inquiry/store', [InquiryController::class, 'store'])->name('inquiry.store');
 
 
 /* ======================  Web > Publication ====================== */
@@ -102,3 +114,33 @@ Route::delete('dashboard/service/delete', [ServiceController::class, 'delete'])-
 Route::get('dashboard/service/edit/{id}', [ServiceController::class, 'edit'])->name('service.edit')->middleware('auth');
 Route::put('dashboard/service/update', [ServiceController::class, 'update'])->name('service.update')->middleware('auth');
 Route::post('dashboard/service/status/update', [ServiceController::class, 'updateStatus'])->name('service.status.update')->middleware('auth');
+
+
+/* ====================== Dashboard > About us ====================== */
+Route::get('dashboard/about-us', [AboutUsController::class, 'index'])->name('about-us.index')->middleware('auth');
+Route::get('dashboard/about-us/edit/{id}', [AboutUsController::class, 'edit'])->name('about-us.edit')->middleware('auth');
+Route::put('dashboard/about-us/update', [AboutUsController::class, 'update'])->name('about-us.update')->middleware('auth');
+
+
+/* ====================== Dashboard > About us feature ====================== */
+Route::get('dashboard/about-feature', [AboutFeatureController::class, 'index'])->name('about-feature.index')->middleware('auth');
+Route::post('dashboard/about-feature/store', [AboutFeatureController::class, 'store'])->name('about-feature.store')->middleware('auth');
+Route::delete('dashboard/about-feature/delete', [AboutFeatureController::class, 'delete'])->name('about-feature.delete')->middleware('auth');
+Route::get('dashboard/about-feature/edit/{id}', [AboutFeatureController::class, 'edit'])->name('about-feature.edit')->middleware('auth');
+Route::put('dashboard/about-feature/update', [AboutFeatureController::class, 'update'])->name('about-feature.update')->middleware('auth');
+
+
+
+/* ====================== Dashboard > Gallery Images====================== */
+Route::get('dashboard/gallery', [GalleryController::class, 'index'])->name('gallery.index')->middleware('auth');
+Route::get('dashboard/gallery/edit/{id}', [GalleryController::class, 'edit'])->name('gallery.edit')->middleware('auth');
+Route::put('dashboard/gallery/update', [GalleryController::class, 'update'])->name('gallery.update')->middleware('auth');
+Route::post('dashboard/gallery/store', [GalleryController::class, 'store'])->name('gallery.store')->middleware('auth');
+Route::delete('dashboard/gallery/delete', [GalleryController::class, 'delete'])->name('gallery.delete')->middleware('auth');
+Route::post('dashboard/gallery/status/update', [GalleryController::class, 'updateStatus'])->name('gallery.status.update')->middleware('auth');
+
+
+
+/* ====================== Dashboard > Inquiries ====================== */
+Route::get('dashboard/inquiries', [AdminInquiryController::class, 'index'])->name('inquiry.index')->middleware('auth');
+Route::delete('dashboard/inquiry/delete', [AdminInquiryController::class, 'delete'])->name('inquiry.delete')->middleware('auth');

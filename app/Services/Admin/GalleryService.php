@@ -6,6 +6,7 @@ use App\Models\Admin\GalleryImage;
 use App\Repositories\Admin\Interfaces\GalleryRepositoryInterface;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Storage;
 
 class GalleryService
@@ -46,7 +47,6 @@ class GalleryService
             $mimeType = $file->getMimeType();
 
             $data['type'] = str_starts_with($mimeType, 'video/') ? 'video' : 'images';
-
         }
 
         return $this->galleryRepo->create($data);
@@ -63,7 +63,7 @@ class GalleryService
     /* ============================================================================
     |  Fetch gallery images with optional filters and selected columns.
     ==============================================================================*/
-    public function getGalleryImages(?array $filterData = null, ?array $selectedcolumns = null): ?Collection
+    public function getGalleryImages(?array $filterData = null, ?array $selectedcolumns = null): ?LengthAwarePaginator
     {
         return $this->galleryRepo->getGalleryImages($filterData, $selectedcolumns);
     }

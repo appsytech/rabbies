@@ -41,7 +41,7 @@
     <div class="rounded-sm shadow-md border border-gray-200">
         <div class="border-b border-gray-200">
             <!--=========== Filter Form ============-->
-            <form action="{{ route('admin.index') }}" method="GET" class="p-2 border-b border-gray-200">
+            <form action="{{ route('service.index') }}" method="GET" class="p-2 border-b border-gray-200">
                 <div
                     class="grid grid-cols-4  gap-3 xl:gap-0 bg-linear-to-br from-gray-50 to-gray-100 rounded-xl p-3 border border-gray-200 shadow-sm">
                     <div
@@ -231,12 +231,12 @@
                         {{-- Action --}}
                         <td class="p-4">
                             <div class="flex items-center space-x-2">
-                                <a href="{{ route('services.edit', $service->id) }}">
+                                <a href="{{ route('service.edit', $service->id) }}">
                                     <img src="{{ asset('assets/svg/pencil.svg') }}"
                                         class="w-4 h-4 cursor-pointer">
                                 </a>
 
-                                <form action="{{ route('services.delete') }}" method="POST">
+                                <form action="{{ route('service.delete') }}" method="POST">
                                     @csrf
                                     @method('delete')
                                     <input type="hidden" name="id" value="{{ $service->id }}">
@@ -324,113 +324,167 @@
 
             <!-- ======== Modal Body ======== -->
             <div class="px-8 py-6 overflow-y-auto h-[90%]">
-                <form action="{{ route('admin.store') }}" method="POST" class="ajax-form reload-on-success"
+                <form action="{{ route('service.store') }}" method="POST" class="ajax-form reload-on-success"
                     id="dataForm" enctype="multipart/form-data">
                     @csrf
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 mb-5">
 
-                        <!--====== Name ======-->
+                        <!--====== Title ======-->
                         <div>
                             <label class="text-xs font-semibold text-gray-700 mb-2 flex items-center gap-1.5">
-                                <img src="{{ asset('assets/svg/user-check.svg') }}"
+                                <img src="{{ asset('assets/svg/hash.svg') }}"
                                     class="w-3.5 h-3.5 pointer-events-none" alt="">
-                                Name
+                                Title
                             </label>
                             <div class="relative">
-                                <input type="text" placeholder="Enter Name..." name="name" required
+                                <input type="text" placeholder="Enter Title..." name="title" required
                                     class="w-full px-4 py-2.5 text-sm text-gray-700 bg-white border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all shadow-sm hover:shadow-md placeholder-gray-400">
                             </div>
                         </div>
 
-                        <!--====== Username  ======-->
+                        <!--====== Location ======-->
                         <div>
                             <label class="text-xs font-semibold text-gray-700 mb-2 flex items-center gap-1.5">
-                                <img src="{{ asset('assets/svg/user.svg') }}" class="w-3.5 h-3.5 pointer-events-none"
-                                    alt="">
-                                Username
-                            </label>
-                            <div class="relative">
-                                <input type="text" placeholder="Enter username..." name="username"
-                                    class="w-full px-4 py-2.5 text-sm text-gray-700 bg-white border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all shadow-sm hover:shadow-md placeholder-gray-400">
-                            </div>
-                        </div>
-
-                        <!--====== Email  ======-->
-                        <div>
-                            <label class="text-xs font-semibold text-gray-700 mb-2 flex items-center gap-1.5">
-                                <img src="{{ asset('assets/svg/mail.svg') }}" class="w-3.5 h-3.5 pointer-events-none"
-                                    alt="">
-                                Email
-                            </label>
-                            <div class="relative">
-                                <input type="email" placeholder="Enter email..." name="email" required
-                                    class="w-full px-4 py-2.5 text-sm text-gray-700 bg-white border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all shadow-sm hover:shadow-md placeholder-gray-400">
-                            </div>
-                        </div>
-
-                        <!--====== Phone  ======-->
-                        <div>
-                            <label class="text-xs font-semibold text-gray-700 mb-2 flex items-center gap-1.5">
-                                <img src="{{ asset('assets/svg/phone.svg') }}"
+                                <img src="{{ asset('assets/svg/map-pin.svg') }}"
                                     class="w-3.5 h-3.5 pointer-events-none" alt="">
-                                Phone
+                                Location
                             </label>
                             <div class="relative">
-                                <input type="text" placeholder="Enter email..." name="phone"
+                                <input type="text" placeholder="Enter Location..." name="location"
                                     class="w-full px-4 py-2.5 text-sm text-gray-700 bg-white border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all shadow-sm hover:shadow-md placeholder-gray-400">
                             </div>
                         </div>
 
-
-                        <!--====== Role ======-->
-                        <div>
+                        <!--====== Icon Field ======-->
+                        <div class="col-span-2">
                             <label class="text-xs font-semibold text-gray-700 mb-2 flex items-center gap-1.5">
-                                <img src="{{ asset('assets/svg/shield-user.svg') }}" class="w-3.5 h-3.5">
-                                Role
+                                <img src="{{ asset('assets/svg/image-plus.svg') }}" class="w-3.5 h-3.5">
+                                Upload Icon
                             </label>
                             <div class="relative">
-                                <select id="admin_role" name="admin_role" required
-                                    class="toggle-password-section w-full px-4 py-2.5 text-sm text-gray-700 bg-white border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all shadow-sm hover:shadow-md appearance-none cursor-pointer">
-                                    <option value="1">Super Admin</option>
-                                    <option value="2">Admin</option>
-                                    <option value="3">Editor</option>
-                                    <option value="4">Teacher</option>
-                                    <option value="5">Member</option>
-                                </select>
-                                <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                                    <img src="{{ asset('assets/svg/cheveron-down.svg') }}"
-                                        class="w-4 h-4 pointer-events-none" alt="">
-                                </div>
+                                <input type="file" id="iconUpload" name="icon" required
+                                    data-previewSectionId="iconPreviewContainer" accept=".ico,.svg,.png"
+                                    class="hidden image-upload&preview" />
+                                <label for="iconUpload"
+                                    class="flex items-center justify-center w-full px-4 py-2.5 text-sm text-gray-700 bg-white border-2 border-gray-200 rounded-lg cursor-pointer transition-all shadow-sm hover:shadow-md hover:border-blue-500 focus-within:ring-2 focus-within:ring-blue-500 focus-within:border-blue-500 group">
+                                    <img src="{{ asset('assets/svg/upload-cloud.svg') }}" class="w-5 h-5 mr-2"
+                                        alt="">
+                                    <span class="font-medium">Click to upload icon</span>
+                                    <span class="text-gray-400 ml-1">(svg, png)</span>
+                                </label>
                             </div>
                         </div>
 
-                        <!--====== password ======-->
-                        <div class="password-section">
+                        <!--=== Image Preview Section ====-->
+                        <div id="iconPreviewContainer" class="hidden col-span-2">
+
+                        </div>
+
+
+                        <!--====== Description Field ======-->
+                        <div class="col-span-2">
                             <label class="text-xs font-semibold text-gray-700 mb-2 flex items-center gap-1.5">
-                                <img src="{{ asset('assets/svg/lock.svg') }}" class="w-3.5 h-3.5 pointer-events-none"
-                                    alt="">
-                                Password
+                                <img src="{{ asset('assets/svg/file-text.svg') }}"
+                                    class="w-3.5 h-3.5 pointer-events-none" alt="">
+                                Description
                             </label>
                             <div class="relative">
-                                <input id="password" type="password" minlength="8" placeholder="enter password"
-                                    name="password" required
-                                    class="w-full px-4 py-2.5 text-sm text-gray-700 bg-white border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all shadow-sm hover:shadow-md placeholder-gray-400">
+                                <textarea type="text" name="description" placeholder="Enter description..."
+                                    class="w-full px-4 py-2.5 text-sm text-gray-700 bg-white border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all shadow-sm hover:shadow-md placeholder-gray-400"></textarea>
                             </div>
                         </div>
 
-                        <!--====== password confirmation  ======-->
-                        <div class="password-section">
+
+                        <!--====== Mission Description  ======-->
+                        <div class="col-span-2">
                             <label class="text-xs font-semibold text-gray-700 mb-2 flex items-center gap-1.5">
-                                <img src="{{ asset('assets/svg/lock.svg') }}" class="w-3.5 h-3.5 pointer-events-none"
-                                    alt="">
-                                Confirm Password
+                                <img src="{{ asset('assets/svg/file-text.svg') }}"
+                                    class="w-3.5 h-3.5 pointer-events-none" alt="">
+                                Mission Description
                             </label>
                             <div class="relative">
-                                <input id="password_confirmation" type="password" minlength="8"
-                                    placeholder="enter confirm password" name="password_confirmation" required
-                                    class="w-full px-4 py-2.5 text-sm text-gray-700 bg-white border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all shadow-sm hover:shadow-md placeholder-gray-400">
+                                <textarea name="mission_description"  placeholder="Enter mission description..."
+                                    class="w-full px-4 py-2.5 text-sm text-gray-700 bg-white border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all shadow-sm hover:shadow-md placeholder-gray-400"></textarea>
                             </div>
                         </div>
+
+
+                        <!--====== Image 1 ======-->
+                        <div class="col-span-2">
+                            <label class="text-xs font-semibold text-gray-700 mb-2 flex items-center gap-1.5">
+                                <img src="{{ asset('assets/svg/image-plus.svg') }}" class="w-3.5 h-3.5">
+                                Image1
+                            </label>
+                            <div class="relative">
+                                <input type="file" id="image1Upload" name="images1"
+                                    data-previewSectionId="image1PreviewContainer" accept="image/*"
+                                    class="hidden image-upload&preview" />
+                                <label for="image1Upload"
+                                    class="flex items-center justify-center w-full px-4 py-2.5 text-sm text-gray-700 bg-white border-2 border-gray-200 rounded-lg cursor-pointer transition-all shadow-sm hover:shadow-md hover:border-blue-500 focus-within:ring-2 focus-within:ring-blue-500 focus-within:border-blue-500 group">
+                                    <img src="{{ asset('assets/svg/upload-cloud.svg') }}" class="w-5 h-5 mr-2"
+                                        alt="">
+                                    <span class="font-medium">Click to upload image</span>
+                                    <span class="text-gray-400 ml-1">(PNG, JPG, GIF)</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!--=== Image 1 Preview Section ====-->
+                        <div id="image1PreviewContainer" class="hidden col-span-2">
+
+                        </div>
+
+                        <!--====== Image 2 ======-->
+                        <div class="col-span-2">
+                            <label class="text-xs font-semibold text-gray-700 mb-2 flex items-center gap-1.5">
+                                <img src="{{ asset('assets/svg/image-plus.svg') }}" class="w-3.5 h-3.5">
+                                Image2
+                            </label>
+                            <div class="relative">
+                                <input type="file" id="image2Upload" name="images2"
+                                    data-previewSectionId="image2PreviewContainer" accept="image/*"
+                                    class="hidden image-upload&preview" />
+                                <label for="image2Upload"
+                                    class="flex items-center justify-center w-full px-4 py-2.5 text-sm text-gray-700 bg-white border-2 border-gray-200 rounded-lg cursor-pointer transition-all shadow-sm hover:shadow-md hover:border-blue-500 focus-within:ring-2 focus-within:ring-blue-500 focus-within:border-blue-500 group">
+                                    <img src="{{ asset('assets/svg/upload-cloud.svg') }}" class="w-5 h-5 mr-2"
+                                        alt="">
+                                    <span class="font-medium">Click to upload image</span>
+                                    <span class="text-gray-400 ml-1">(PNG, JPG, GIF)</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!--=== Image 2 Preview Section ====-->
+                        <div id="image2PreviewContainer" class="hidden col-span-2">
+
+                        </div>
+
+
+                        <!--====== Image 3 ======-->
+                        <div class="col-span-2">
+                            <label class="text-xs font-semibold text-gray-700 mb-2 flex items-center gap-1.5">
+                                <img src="{{ asset('assets/svg/image-plus.svg') }}" class="w-3.5 h-3.5">
+                                Image3
+                            </label>
+                            <div class="relative">
+                                <input type="file" id="image3Upload" name="images3"
+                                    data-previewSectionId="image3PreviewContainer" accept="image/*"
+                                    class="hidden image-upload&preview" />
+                                <label for="image3Upload"
+                                    class="flex items-center justify-center w-full px-4 py-2.5 text-sm text-gray-700 bg-white border-2 border-gray-200 rounded-lg cursor-pointer transition-all shadow-sm hover:shadow-md hover:border-blue-500 focus-within:ring-2 focus-within:ring-blue-500 focus-within:border-blue-500 group">
+                                    <img src="{{ asset('assets/svg/upload-cloud.svg') }}" class="w-5 h-5 mr-2"
+                                        alt="">
+                                    <span class="font-medium">Click to upload icon</span>
+                                    <span class="text-gray-400 ml-1">(svg, png)</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!--=== Image 2 Preview Section ====-->
+                        <div id="image3PreviewContainer" class="hidden col-span-2">
+
+                        </div>
+
 
                         <!--====== Status ======-->
                         <div>
@@ -452,30 +506,6 @@
                             </div>
                         </div>
 
-                        <!--====== Profile Field ======-->
-                        <div class="col-span-2">
-                            <label class="text-xs font-semibold text-gray-700 mb-2 flex items-center gap-1.5">
-                                <img src="{{ asset('assets/svg/image-plus.svg') }}" class="w-3.5 h-3.5">
-                                Upload Profile
-                            </label>
-                            <div class="relative">
-                                <input type="file" id="imageUpload" name="profile_image"
-                                    data-previewSectionId="profileimagePreviewContainer" accept="image/*"
-                                    class="hidden image-upload&preview" />
-                                <label for="imageUpload"
-                                    class="flex items-center justify-center w-full px-4 py-2.5 text-sm text-gray-700 bg-white border-2 border-gray-200 rounded-lg cursor-pointer transition-all shadow-sm hover:shadow-md hover:border-blue-500 focus-within:ring-2 focus-within:ring-blue-500 focus-within:border-blue-500 group">
-                                    <img src="{{ asset('assets/svg/upload-cloud.svg') }}" class="w-5 h-5 mr-2"
-                                        alt="">
-                                    <span class="font-medium">Click to upload image</span>
-                                    <span class="text-gray-400 ml-1">(PNG, JPG, GIF)</span>
-                                </label>
-                            </div>
-                        </div>
-
-                        <!--=== Image Preview Section ====-->
-                        <div id="profileimagePreviewContainer" class="hidden col-span-2">
-
-                        </div>
 
                     </div>
 

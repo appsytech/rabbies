@@ -5,6 +5,7 @@ namespace App\Repositories\Admin;
 use App\Models\Admin\GalleryImage;
 use App\Repositories\Admin\Interfaces\GalleryRepositoryInterface;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class GalleryRepository implements GalleryRepositoryInterface
 {
@@ -42,7 +43,7 @@ class GalleryRepository implements GalleryRepositoryInterface
     /* ============================================================================
     |  Fetch gallery images with optional filters and selected columns.
     ==============================================================================*/
-    public function getGalleryImages(?array $filterData = null, ?array $selectedcolumns = null): ?Collection
+    public function getGalleryImages(?array $filterData = null, ?array $selectedcolumns = null): ?LengthAwarePaginator
     {
         return GalleryImage::when(
             isset($filterData['title']),
@@ -62,7 +63,7 @@ class GalleryRepository implements GalleryRepositoryInterface
                 }
             )
             ->orderBy('sort', 'asc')
-            ->get();
+            ->paginate($filterData['paginateLimit'] ?? 10);
     }
 
     /* ============================================================================

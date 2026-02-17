@@ -22,6 +22,14 @@
             $jumpRoutes = [
             'ABOUT' => route('web.about-us'),
             'ACTIVITY' => route('web.activity.index'),
+            'PUBLICATION' => route('web.publication.index'),
+
+            ];
+
+            $jumpTexts = [
+            'ABOUT' => 'About Us',
+            'ACTIVITY' => 'Activities',
+            'PUBLICATION' => 'Publication',
             ];
 
             $jumpUrl = $jumpRoutes[$slider->jump_type] ?? '#';
@@ -45,7 +53,7 @@
                                         {{ $slider->description ?? '' }}
                                     </p>
                                     <div class="hero-button" data-animation="fadeInUp" data-delay="1.5s">
-                                        <a href="{{ $jumpUrl }}" class="theme-btn">Join With Us <i class="fa-solid fa-arrow-right-long"></i></a>
+                                        <a href="{{ $jumpUrl }}" class="theme-btn">{{ $jumpTexts[$slider->jump_type] ?? 'Join with us' }} <i class="fa-solid fa-arrow-right-long"></i></a>
                                         <a href="{{ route('web.about-us') }}" class="theme-btn border-btn">About Our Program <i class="fa-solid fa-arrow-right-long"></i></a>
                                     </div>
                                 </div>
@@ -127,72 +135,50 @@
                         <div class="section-title style-2 mb-0">
                             <span class="sub-title wow fadeInUp">About Our Initiative</span>
                             <h2 class="wow fadeInUp" data-wow-delay=".3s">
-                                <span>C</span>reating compassionate minds through education while caring for animals and protecting every life.
+                                <a href="{{ route('web.about-us') }}">{{ $data['aboutus']->title ?? '' }}</a>
                             </h2>
                         </div>
                         <p class="text wow fadeInUp" data-wow-delay=".5s">
-                            Our university animal care program brings students and faculty together as volunteers to rescue, feed, and support animals in need. Through hands-on activities and awareness drives, we inspire responsibility, kindness, and real-world impact while shaping future leaders with empathy.
+                            {{ \Illuminate\Support\Str::words($data['aboutus']->description, 100, '...') }}
                         </p>
+                        @isset($data['aboutus']->images2)
                         <div class="about-image wow img-custom-anim-left" data-wow-duration="1.3s" data-wow-delay="0.3s">
-                            <img src="assets/img/home-1/about/01.jpg" alt="img">
+                            <img src="{{ asset('storage/' . $data['aboutus']->images2) }}" alt="img">
                         </div>
+                        @endisset
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="about-right-item">
+                        @isset($data['aboutus']->images1)
                         <div class="about-image wow img-custom-anim-right" data-wow-duration="1.3s" data-wow-delay="0.3s">
-                            <img src="assets/img/home-1/about/02.jpg" alt="img">
+                            <img src="{{ asset('storage/' . $data['aboutus']->images1) }}" alt="img">
                         </div>
+                        @endisset
+
+
                         <div class="about-icon-main-item">
+                            @if($data['aboutFeatures']->isNotEmpty())
+                            @foreach($data['aboutFeatures']->chunk(2) as $chunk)
                             <div class="about-icon-item">
+                                @foreach($chunk as $feature)
                                 <div class="icon-item wow fadeInUp" data-wow-delay=".3s">
                                     <div class="icon">
-                                        <img src="assets/img/home-1/icon/01.svg" alt="img">
+                                        <img src="{{ asset('storage/'. $feature->icon) }}" alt="img">
                                     </div>
                                     <div class="content">
-                                        <h5>Animal Feeding</h5>
+                                        <h5>{{ $feature->title ?? '' }}</h5>
                                         <p>
-                                            Providing daily food and care for street and rescued animals.
+                                            {{ $feature->description ?? ''  }}
                                         </p>
                                     </div>
                                 </div>
-                                <div class="icon-item wow fadeInUp" data-wow-delay=".5s">
-                                    <div class="icon">
-                                        <img src="assets/img/home-1/icon/01.svg" alt="img">
-                                    </div>
-                                    <div class="content">
-                                        <h5>Medical Support</h5>
-                                        <p>
-                                            Helping injured animals with first aid and veterinary assistance.
-                                        </p>
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
-                            <div class="about-icon-item mb-0">
-                                <div class="icon-item wow fadeInUp" data-wow-delay=".3s">
-                                    <div class="icon">
-                                        <img src="assets/img/home-1/icon/03.svg" alt="img">
-                                    </div>
-                                    <div class="content">
-                                        <h5>Student Responsibility</h5>
-                                        <p>
-                                            Encouraging leadership and compassion through volunteer programs.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="icon-item wow fadeInUp" data-wow-delay=".5s">
-                                    <div class="icon">
-                                        <img src="assets/img/home-1/icon/04.svg" alt="img">
-                                    </div>
-                                    <div class="content">
-                                        <h5>Community Impact</h5>
-                                        <p>
-                                            Building awareness and creating safer environments for animals.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
+                            @endif
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -214,54 +200,30 @@
         </div>
         <div class="swiper service-slider">
             <div class="swiper-wrapper">
+
+                @if($data['services']->isNotEmpty())
+
+                @foreach($data['services'] ?? [] as $service)
+
                 <div class="swiper-slide">
                     <div class="causes-box-item">
                         <div class="icon">
-                            <img src="assets/img/home-1/icon/03.svg" alt="img">
+                            <img src="{{ asset('storage/' . $service->icon) }}" alt="img">
                         </div>
                         <div class="content">
                             <h3>
-                                <a href="{{ route('web.service.show') }}">Animal Feeding Program</a>
+                                <a href="{{ route('web.service.show', encrypt($service->id)) }}">{{ $service->title ?? '' }}</a>
                             </h3>
                             <p>
-                                Our volunteers provide daily food and clean water to street and rescued animals, ensuring their basic needs are met with care.
+                                {{ $service->descripttion ?? '' }}
                             </p>
-                            <a href="{{ route('web.service.show') }}" class="theme-btn">Learn More <i class="fa-solid fa-arrow-right-long"></i></a>
+                            <a href="{{ route('web.service.show', encrypt($service->id)) }}" class="theme-btn">Learn More <i class="fa-solid fa-arrow-right-long"></i></a>
                         </div>
                     </div>
                 </div>
-                <div class="swiper-slide">
-                    <div class="causes-box-item">
-                        <div class="icon">
-                            <img src="assets/img/home-1/icon/04.svg" alt="img">
-                        </div>
-                        <div class="content">
-                            <h3>
-                                <a href="{{ route('web.service.show') }}">Student Volunteer Training</a>
-                            </h3>
-                            <p>
-                                We train university students in animal handling, rescue awareness, and compassionate care to build responsible future leaders.
-                            </p>
-                            <a href="{{ route('web.service.show') }}" class="theme-btn">Learn More <i class="fa-solid fa-arrow-right-long"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="causes-box-item">
-                        <div class="icon">
-                            <img src="assets/img/home-1/icon/05.svg" alt="img">
-                        </div>
-                        <div class="content">
-                            <h3>
-                                <a href="{{ route('web.service.show') }}">Medical & Rescue Support</a>
-                            </h3>
-                            <p>
-                                From first aid to veterinary care, our program supports injured animals through timely rescue and medical assistance.
-                            </p>
-                            <a href="{{ route('web.service.show') }}" class="theme-btn">Learn More <i class="fa-solid fa-arrow-right-long"></i></a>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
+                @endif
+
             </div>
         </div>
         <div class="swiper-dot">
@@ -337,128 +299,102 @@
             </h2>
         </div>
     </div>
+    @if($data['galleries']->isNotEmpty())
+
+    @php
+    $chunks = $data['galleries']->split(2);
+
+    $firstGallerySliders = $chunks->get(0, collect());
+    $scndGallerySliders = $chunks->get(1, collect());
+    @endphp
+
     <div class="swiper project-slider">
         <div class="swiper-wrapper slide-transtion">
+
+            @foreach($firstGallerySliders ?? [] as $firstGallery)
+
+            @php
+            $filePath = $firstGallery->image_path;
+            $extension = strtolower(pathinfo($filePath, PATHINFO_EXTENSION));
+
+            $imageExtensions = ['jpg', 'jpeg', 'png', 'webp', 'gif'];
+            $videoExtensions = ['mp4', 'webm', 'ogg'];
+            @endphp
+
             <div class="swiper-slide brand-slide-element">
                 <div class="project-card-item">
                     <div class="project-image">
-                        <img src="assets/img/home-1/project/01.jpg" alt="img" class="gallery-image">
+                        @if(in_array($extension, $imageExtensions))
+                        <img src="{{'storage/'. $filePath}}" alt="img" class="gallery-image">
+                        @elseif(in_array($extension, $videoExtensions))
+                        <video class="gallery-image" controls>
+                            <source src="{{ asset('storage/' . $filePath) }}" type="video/{{ $extension }}">
+                            Your browser does not support the video tag.
+                        </video>
+                        @endif
                         <div class="shape-image">
-                            <img src="assets/img/home-1/project/shape.png" alt="img">
+                            <img src="{{ asset('assets/img/home-1/project/shape.png') }}" alt="img">
                         </div>
                         <div class="project-content">
                             <div class="content">
                                 <h3>
-                                    <a href="#" class="gallery-trigger">Child Educations</a>
+                                    <a href="#" class="gallery-trigger">{{ $firstGallery->title ?? '' }}</a>
                                 </h3>
-                                <h5>Charity & Funding</h5>
+                                <h5>{{ $firstGallery->description ?? '' }}</h5>
                             </div>
                             <a href="#" class="arrow-icon gallery-trigger"><i class="fa-solid fa-arrow-right-long"></i></a>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="swiper-slide brand-slide-element">
-                <div class="project-card-item">
-                    <div class="project-image">
-                        <img src="assets/img/home-1/project/02.jpg" alt="img" class="gallery-image">
-                        <div class="shape-image">
-                            <img src="assets/img/home-1/project/shape.png" alt="img">
-                        </div>
-                        <div class="project-content">
-                            <div class="content">
-                                <h3>
-                                    <a href="#" class="gallery-trigger">Child Educations</a>
-                                </h3>
-                                <h5>Charity & Funding</h5>
-                            </div>
-                            <a href="#" class="arrow-icon gallery-trigger"><i class="fa-solid fa-arrow-right-long"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="swiper-slide brand-slide-element">
-                <div class="project-card-item">
-                    <div class="project-image">
-                        <img src="assets/img/home-1/project/03.jpg" alt="img" class="gallery-image">
-                        <div class="shape-image">
-                            <img src="assets/img/home-1/project/shape.png" alt="img">
-                        </div>
-                        <div class="project-content">
-                            <div class="content">
-                                <h3>
-                                    <a href="#" class="gallery-trigger">Child Educations</a>
-                                </h3>
-                                <h5>Charity & Funding</h5>
-                            </div>
-                            <a href="#" class="arrow-icon gallery-trigger"><i class="fa-solid fa-arrow-right-long"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
+
         </div>
     </div>
+
     <div dir="rtl" class="swiper project-slider-2">
         <div class="swiper-wrapper slide-transtion">
+            @foreach($scndGallerySliders ?? [] as $scndGallery)
+
+            @php
+            $filePath = $scndGallery->image_path;
+            $extension = strtolower(pathinfo($filePath, PATHINFO_EXTENSION));
+
+            $imageExtensions = ['jpg', 'jpeg', 'png', 'webp', 'gif'];
+            $videoExtensions = ['mp4', 'webm', 'ogg'];
+            @endphp
+
             <div class="swiper-slide brand-slide-element">
                 <div class="project-card-item">
                     <div class="project-image">
-                        <img src="assets/img/home-1/project/01.jpg" alt="img" class="gallery-image">
+                        @if(in_array($extension, $imageExtensions))
+                        <img src="{{'storage/'. $filePath}}" alt="img" class="gallery-image">
+                        @elseif(in_array($extension, $videoExtensions))
+                        <video class="gallery-image" controls>
+                            <source src="{{ asset('storage/' . $filePath) }}" type="video/{{ $extension }}">
+                            Your browser does not support the video tag.
+                        </video>
+                        @endif
                         <div class="shape-image">
-                            <img src="assets/img/home-1/project/shape.png" alt="img">
+                            <img src="{{ asset('assets/img/home-1/project/shape.png') }}" alt="img">
                         </div>
                         <div class="project-content style-2">
                             <div class="content">
                                 <h3>
-                                    <a href="#" class="gallery-trigger">Child Educations</a>
+                                    <a href="#" class="gallery-trigger">{{ $firstGallery->title ?? '' }}</a>
                                 </h3>
-                                <h5>Charity & Funding</h5>
+                                <h5>{{ $firstGallery->description ?? '' }}</h5>
                             </div>
                             <a href="#" class="arrow-icon gallery-trigger"><i class="fa-solid fa-arrow-right-long"></i></a>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="swiper-slide brand-slide-element">
-                <div class="project-card-item">
-                    <div class="project-image">
-                        <img src="assets/img/home-1/project/02.jpg" alt="img" class="gallery-image">
-                        <div class="shape-image">
-                            <img src="assets/img/home-1/project/shape.png" alt="img">
-                        </div>
-                        <div class="project-content style-2">
-                            <div class="content">
-                                <h3>
-                                    <a href="#" class="gallery-trigger">Child Educations</a>
-                                </h3>
-                                <h5>Charity & Funding</h5>
-                            </div>
-                            <a href="#" class="arrow-icon gallery-trigger"><i class="fa-solid fa-arrow-right-long"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="swiper-slide brand-slide-element">
-                <div class="project-card-item">
-                    <div class="project-image">
-                        <img src="assets/img/home-1/project/03.jpg" alt="img" class="gallery-image">
-                        <div class="shape-image">
-                            <img src="assets/img/home-1/project/shape.png" alt="img">
-                        </div>
-                        <div class="project-content style-2">
-                            <div class="content">
-                                <h3>
-                                    <a href="#" class="gallery-trigger">Child Educations</a>
-                                </h3>
-                                <h5>Charity & Funding</h5>
-                            </div>
-                            <a href="#" class="arrow-icon gallery-trigger"><i class="fa-solid fa-arrow-right-long"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
+
         </div>
     </div>
+    @endif
 </section>
 
 <!-- Fullscreen Image Modal -->
@@ -480,7 +416,7 @@
         <div class="section-title text-center">
             <span class="sub-title wow fadeInUp">Team Members</span>
             <h2 class="wow fadeInUp" data-wow-delay=".3s">
-                <span>M</span>eet The Optimistic Volunteer
+                <span>M</span>eet Our Team Member
             </h2>
         </div>
 
@@ -495,13 +431,13 @@
                             @if(isset($admin->profile_image))
                             <img src="{{ asset('storage/' . $admin->profile_image) }}" alt="">
                             @else
-                            <img src="assets/img/home-1/team/01.jpg" alt="">
+                            <img src="{{ asset('assets/img/home-1/team/01.jpg') }}" alt="">
                             @endif
 
                         </div>
                         <div class="team-content">
                             <h5><a href="#">{{ $admin->name ?? '' }}</a></h5>
-                            <p>{{ $admin->email ?? '' }}</p>
+                            <p>{{ $admin->description ?? '' }}</p>
                             <div class="social-icon">
                                 <a href="#">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
@@ -760,7 +696,7 @@
 </div>
 
 <!-- Faq Section Start -->
-<section class="faq-section section-padding fix">
+<!-- <section class="faq-section section-padding fix">
     <div class="container">
         <div class="faq-wrapper">
             <div class="row g-4 align-items-center">
@@ -875,7 +811,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 
 <!-- Publication Section Start -->
 <section class="news-section section-padding pt-0 fix">

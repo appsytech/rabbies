@@ -48,7 +48,7 @@ class ServiceController extends Controller
             'images1'             => 'nullable|file',
             'images2'             => 'nullable|file',
             'images3'             => 'nullable|file',
-            'status'              => 'required|integer|in:1,2',
+            'status'              => 'required|integer|in:0,1',
         ]);
 
         if ($validator->fails()) {
@@ -78,14 +78,14 @@ class ServiceController extends Controller
         $request->validate([
             'id' => 'required|integer',
             'title'               => 'required|string|max:255',
-            'icon'                => 'required|file',
+            'icon'                => 'nullable|file',
             'description'         => 'nullable|string',
             'location'            => 'nullable|string|max:255',
             'mission_description' => 'nullable|string',
             'images1'             => 'nullable|file',
             'images2'             => 'nullable|file',
             'images3'             => 'nullable|file',
-            'status'              => 'required|integer|in:1,2',
+            'status'              => 'required|integer|in:0,1',
         ]);
 
         $isUpdated = $this->serviceService->update($request);

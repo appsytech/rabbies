@@ -4,6 +4,7 @@ namespace App\Services\Admin;
 
 use App\Repositories\Admin\Interfaces\InquiryRepositoryInterface;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class InquiryService
 {
@@ -19,7 +20,7 @@ class InquiryService
     /* ============================================================================
     |Fetch inquiry with optional filters and selected columns.
     ==============================================================================*/
-    public function getInquiries(?array $filterData = null, ?array $selectedcolumns = null): ?Collection
+    public function getInquiries(?array $filterData = null, ?array $selectedcolumns = null): ?LengthAwarePaginator
     {
         return $this->inquiryRepo->getInquiries($filterData, $selectedcolumns);
     }

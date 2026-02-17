@@ -36,71 +36,48 @@
                         <div class="section-title style-2 mb-0">
                             <span class="sub-title wow fadeInUp">About Us</span>
                             <h2 class="wow fadeInUp" data-wow-delay=".3s">
-                                <span>S</span>aving lives one paw at a time through student compassion <br> and dedicated care.
+                                {{ $data['aboutus']->title ?? '' }}
                             </h2>
                         </div>
                         <p class="text wow fadeInUp" data-wow-delay=".5s">
-                            We are a university-based animal welfare organization where passionate student volunteers rescue, treat, and care for street animals. Through hands-on training and compassionate action, we're building a generation of responsible animal advocates.
+                            {{ $data['aboutus']->description ?? '' }}
                         </p>
+                        @isset($data['aboutus']->images2)
                         <div class="about-image wow img-custom-anim-left" data-wow-duration="1.3s" data-wow-delay="0.3s">
-                            <img src="assets/img/home-1/about/01.jpg" alt="img">
+                            <img src="{{ asset('storage/' . $data['aboutus']->images2) }}" alt="img">
                         </div>
+                        @endisset
+
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="about-right-item">
+                        @isset($data['aboutus']->images1)
                         <div class="about-image wow img-custom-anim-right" data-wow-duration="1.3s" data-wow-delay="0.3s">
-                            <img src="assets/img/home-1/about/02.jpg" alt="img">
+                            <img src="{{ asset('storage/' . $data['aboutus']->images1) }}" alt="img">
                         </div>
+                        @endisset
+
                         <div class="about-icon-main-item">
+                            @if($data['aboutFeatures']->isNotEmpty())
+                            @foreach($data['aboutFeatures']->chunk(2) as $chunk)
                             <div class="about-icon-item">
+                                @foreach($chunk as $feature)
                                 <div class="icon-item wow fadeInUp" data-wow-delay=".3s">
                                     <div class="icon">
-                                        <img src="assets/img/home-1/icon/01.svg" alt="img">
+                                        <img src="{{ asset('storage/'. $feature->icon) }}" alt="img">
                                     </div>
                                     <div class="content">
-                                        <h5>Daily Feeding</h5>
+                                        <h5>{{ $feature->title ?? '' }}</h5>
                                         <p>
-                                            Providing nutritious meals to street animals daily.
+                                            {{ $feature->description ?? ''  }}
                                         </p>
                                     </div>
                                 </div>
-                                <div class="icon-item wow fadeInUp" data-wow-delay=".5s">
-                                    <div class="icon">
-                                        <img src="assets/img/home-1/icon/01.svg" alt="img">
-                                    </div>
-                                    <div class="content">
-                                        <h5>Medical Care</h5>
-                                        <p>
-                                            Emergency treatment and veterinary support.
-                                        </p>
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
-                            <div class="about-icon-item mb-0">
-                                <div class="icon-item wow fadeInUp" data-wow-delay=".3s">
-                                    <div class="icon">
-                                        <img src="assets/img/home-1/icon/03.svg" alt="img">
-                                    </div>
-                                    <div class="content">
-                                        <h5>Rescue Operations</h5>
-                                        <p>
-                                            24/7 emergency rescue for injured animals.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="icon-item wow fadeInUp" data-wow-delay=".5s">
-                                    <div class="icon">
-                                        <img src="assets/img/home-1/icon/04.svg" alt="img">
-                                    </div>
-                                    <div class="content">
-                                        <h5>Student Training</h5>
-                                        <p>
-                                            Empowering youth with animal care skills.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -119,16 +96,22 @@
             </h2>
         </div>
         <div class="row">
+            @if($data['members']->isNotEmpty())
+            @foreach($data['members'] as $member)
             <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".2s">
                 <div class="team-card-items">
                     <div class="team-image">
-                        <img src="assets/img/home-1/team/01.jpg" alt="img">
+                        @if(isset($member->profile_image))
+                        <img src="{{ asset('storage/' . $member->profile_image) }}" alt="">
+                        @else
+                        <img src="{{ asset('assets/img/home-1/team/01.jpg') }}" alt="">
+                        @endif
                     </div>
                     <div class="team-content">
                         <h5>
-                            <a href="volounteer-details.html">Priya Sharma</a>
+                            <a href="#">{{ $member->name ?? '' }}</a>
                         </h5>
-                        <p>Rescue Team Lead</p>
+                        <p>{{ $member->description ?? '' }}</p>
                         <div class="social-icon">
                             <a href="#">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
@@ -143,276 +126,14 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".4s">
-                <div class="team-card-items">
-                    <div class="team-image">
-                        <img src="assets/img/home-1/team/02.jpg" alt="img">
-                    </div>
-                    <div class="team-content">
-                        <h5>
-                            <a href="volounteer-details.html">Rahul Kumar</a>
-                        </h5>
-                        <p>Medical Support Volunteer</p>
-                        <div class="social-icon">
-                            <a href="#">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M18.244 2.25h3.308l-7.227 8.26L22.75 21.75h-6.57l-5.145-6.7-5.873 6.7H1.854l7.73-8.835L1.25 2.25h6.736l4.654 6.1z" />
-                                </svg>
-                            </a>
-
-                            <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
-                            <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                            <a href="#"><i class="fas fa-paper-plane"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".6s">
-                <div class="team-card-items">
-                    <div class="team-image">
-                        <img src="assets/img/home-1/team/03.jpg" alt="img">
-                    </div>
-                    <div class="team-content">
-                        <h5>
-                            <a href="volounteer-details.html">Anjali Singh</a>
-                        </h5>
-                        <p>Feeding Program Coordinator</p>
-                        <div class="social-icon">
-                            <a href="#">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M18.244 2.25h3.308l-7.227 8.26L22.75 21.75h-6.57l-5.145-6.7-5.873 6.7H1.854l7.73-8.835L1.25 2.25h6.736l4.654 6.1z" />
-                                </svg>
-                            </a>
-
-                            <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
-                            <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                            <a href="#"><i class="fas fa-paper-plane"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".8s">
-                <div class="team-card-items">
-                    <div class="team-image">
-                        <img src="assets/img/home-1/team/04.jpg" alt="img">
-                    </div>
-                    <div class="team-content">
-                        <h5>
-                            <a href="volounteer-details.html">Arjun Patel</a>
-                        </h5>
-                        <p>Awareness Campaign Manager</p>
-                        <div class="social-icon">
-                            <a href="#">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M18.244 2.25h3.308l-7.227 8.26L22.75 21.75h-6.57l-5.145-6.7-5.873 6.7H1.854l7.73-8.835L1.25 2.25h6.736l4.654 6.1z" />
-                                </svg>
-                            </a>
-
-                            <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
-                            <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                            <a href="#"><i class="fas fa-paper-plane"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".2s">
-                <div class="team-card-items">
-                    <div class="team-image">
-                        <img src="assets/img/home-1/team/01.jpg" alt="img">
-                    </div>
-                    <div class="team-content">
-                        <h5>
-                            <a href="volounteer-details.html">Sneha Verma</a>
-                        </h5>
-                        <p>Adoption Counselor</p>
-                        <div class="social-icon">
-                            <a href="#">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M18.244 2.25h3.308l-7.227 8.26L22.75 21.75h-6.57l-5.145-6.7-5.873 6.7H1.854l7.73-8.835L1.25 2.25h6.736l4.654 6.1z" />
-                                </svg>
-                            </a>
-
-                            <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
-                            <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                            <a href="#"><i class="fas fa-paper-plane"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".4s">
-                <div class="team-card-items">
-                    <div class="team-image">
-                        <img src="assets/img/home-1/team/02.jpg" alt="img">
-                    </div>
-                    <div class="team-content">
-                        <h5>
-                            <a href="volounteer-details.html">Vikram Joshi</a>
-                        </h5>
-                        <p>Veterinary Assistant</p>
-                        <div class="social-icon">
-                            <a href="#">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M18.244 2.25h3.308l-7.227 8.26L22.75 21.75h-6.57l-5.145-6.7-5.873 6.7H1.854l7.73-8.835L1.25 2.25h6.736l4.654 6.1z" />
-                                </svg>
-                            </a>
-
-                            <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
-                            <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                            <a href="#"><i class="fas fa-paper-plane"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".6s">
-                <div class="team-card-items">
-                    <div class="team-image">
-                        <img src="assets/img/home-1/team/03.jpg" alt="img">
-                    </div>
-                    <div class="team-content">
-                        <h5>
-                            <a href="volounteer-details.html">Riya Gupta</a>
-                        </h5>
-                        <p>Social Media Manager</p>
-                        <div class="social-icon">
-                            <a href="#">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M18.244 2.25h3.308l-7.227 8.26L22.75 21.75h-6.57l-5.145-6.7-5.873 6.7H1.854l7.73-8.835L1.25 2.25h6.736l4.654 6.1z" />
-                                </svg>
-                            </a>
-
-                            <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
-                            <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                            <a href="#"><i class="fas fa-paper-plane"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".8s">
-                <div class="team-card-items">
-                    <div class="team-image">
-                        <img src="assets/img/home-1/team/04.jpg" alt="img">
-                    </div>
-                    <div class="team-content">
-                        <h5>
-                            <a href="volounteer-details.html">Aditya Mehta</a>
-                        </h5>
-                        <p>Fundraising Coordinator</p>
-                        <div class="social-icon">
-                            <a href="#">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M18.244 2.25h3.308l-7.227 8.26L22.75 21.75h-6.57l-5.145-6.7-5.873 6.7H1.854l7.73-8.835L1.25 2.25h6.736l4.654 6.1z" />
-                                </svg>
-                            </a>
-
-                            <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
-                            <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                            <a href="#"><i class="fas fa-paper-plane"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".2s">
-                <div class="team-card-items">
-                    <div class="team-image">
-                        <img src="assets/img/home-1/team/01.jpg" alt="img">
-                    </div>
-                    <div class="team-content">
-                        <h5>
-                            <a href="volounteer-details.html">Kavya Rao</a>
-                        </h5>
-                        <p>Shelter Manager</p>
-                        <div class="social-icon">
-                            <a href="#">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M18.244 2.25h3.308l-7.227 8.26L22.75 21.75h-6.57l-5.145-6.7-5.873 6.7H1.854l7.73-8.835L1.25 2.25h6.736l4.654 6.1z" />
-                                </svg>
-                            </a>
-
-                            <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
-                            <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                            <a href="#"><i class="fas fa-paper-plane"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".4s">
-                <div class="team-card-items">
-                    <div class="team-image">
-                        <img src="assets/img/home-1/team/02.jpg" alt="img">
-                    </div>
-                    <div class="team-content">
-                        <h5>
-                            <a href="volounteer-details.html">Rohan Desai</a>
-                        </h5>
-                        <p>Training Coordinator</p>
-                        <div class="social-icon">
-                            <a href="#">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M18.244 2.25h3.308l-7.227 8.26L22.75 21.75h-6.57l-5.145-6.7-5.873 6.7H1.854l7.73-8.835L1.25 2.25h6.736l4.654 6.1z" />
-                                </svg>
-                            </a>
-
-                            <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
-                            <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                            <a href="#"><i class="fas fa-paper-plane"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".6s">
-                <div class="team-card-items">
-                    <div class="team-image">
-                        <img src="assets/img/home-1/team/03.jpg" alt="img">
-                    </div>
-                    <div class="team-content">
-                        <h5>
-                            <a href="volounteer-details.html">Meera Nair</a>
-                        </h5>
-                        <p>Community Outreach Lead</p>
-                        <div class="social-icon">
-                            <a href="#">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M18.244 2.25h3.308l-7.227 8.26L22.75 21.75h-6.57l-5.145-6.7-5.873 6.7H1.854l7.73-8.835L1.25 2.25h6.736l4.654 6.1z" />
-                                </svg>
-                            </a>
-
-                            <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
-                            <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                            <a href="#"><i class="fas fa-paper-plane"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".8s">
-                <div class="team-card-items">
-                    <div class="team-image">
-                        <img src="assets/img/home-1/team/04.jpg" alt="img">
-                    </div>
-                    <div class="team-content">
-                        <h5>
-                            <a href="volounteer-details.html">Karan Sharma</a>
-                        </h5>
-                        <p>Event Organizer</p>
-                        <div class="social-icon">
-                            <a href="#">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M18.244 2.25h3.308l-7.227 8.26L22.75 21.75h-6.57l-5.145-6.7-5.873 6.7H1.854l7.73-8.835L1.25 2.25h6.736l4.654 6.1z" />
-                                </svg>
-                            </a>
-
-                            <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
-                            <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                            <a href="#"><i class="fas fa-paper-plane"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
+            @endif
         </div>
     </div>
 </section>
 
 <!-- Faq Section Start -->
-<section class="faq-section section-padding fix">
+<!-- <section class="faq-section section-padding fix">
     <div class="container">
         <div class="faq-wrapper">
             <div class="row g-4 align-items-center">
@@ -527,10 +248,10 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 
 <!-- Testimonial Section Start -->
-<section class="testimonial-section section-padding pt-0 fix">
+<!-- <section class="testimonial-section section-padding pt-0 fix">
     <div class="container">
         <div class="section-title">
             <span class="sub-title wow fadeInUp">Success Stories</span>
@@ -632,6 +353,6 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 
 @endsection

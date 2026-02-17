@@ -4,9 +4,13 @@ namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 use App\Services\Admin\HomeSliderService;
+use App\Services\Web\AboutFeatureService;
+use App\Services\Web\AboutUsService;
 use App\Services\Web\ActivityService;
 use App\Services\Web\AdminService;
+use App\Services\Web\GalleryService;
 use App\Services\Web\PublicationService;
+use App\Services\Web\ServiceService;
 use Illuminate\View\View;
 
 class PageController extends Controller
@@ -16,7 +20,11 @@ class PageController extends Controller
         protected HomeSliderService $homeSliderService,
         protected ActivityService $activityService,
         protected AdminService $adminService,
-        protected PublicationService $publicationService
+        protected PublicationService $publicationService,
+        protected ServiceService $serviceService,
+        protected AboutUsService $aboutUsService,
+        protected AboutFeatureService $aboutFeatureService,
+        protected GalleryService $galleryService
     ) {}
 
     public function home(): View
@@ -26,8 +34,14 @@ class PageController extends Controller
                 'deviceType' => 0,
             ]),
             'activities' => $this->activityService->getActivities(),
-            'admins' => $this->adminService->getAdmins([], ['id', 'profile_image', 'name', 'email']),
-            'publications' => $this->publicationService->getPublications()
+            'admins' => $this->adminService->getAdmins([], ['id', 'profile_image', 'name', 'description']),
+            'publications' => $this->publicationService->getPublications(),
+            'services' => $this->serviceService->getServices(),
+            'aboutus' => $this->aboutUsService->findFirstAboutUs(),
+            'aboutFeatures' => $this->aboutFeatureService->getAboutFeatures([
+                'limit' =>  4
+            ]),
+            'galleries' => $this->galleryService->getGalleryImages()
         ];
 
         return view('web.index', compact('data'));
@@ -35,7 +49,16 @@ class PageController extends Controller
 
     public function aboutUs(): View
     {
-        $data = [];
+        $data = [
+            'aboutus' => $this->aboutUsService->findFirstAboutUs(),
+            'aboutFeatures' => $this->aboutFeatureService->getAboutFeatures([
+                'limit' =>  4
+            ]),
+            'members' => $this->adminService->getAdmins([
+                'role' => 5,
+            ], ['id', 'profile_image', 'name', 'description'])
+        ];
+
 
         return view('web.pages.about', compact('data'));
     }
@@ -45,12 +68,5 @@ class PageController extends Controller
         $data = [];
 
         return view('web.pages.contact', compact('data'));
-    }
-
-    public function serviceDetail(): View
-    {
-        $data = [];
-
-        return view('web.pages.services-details', compact('data'));
     }
 }

@@ -5,6 +5,7 @@ namespace App\Repositories\Admin;
 use App\Models\Admin\Inquiry;
 use App\Repositories\Admin\Interfaces\InquiryRepositoryInterface;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class InquiryRepository implements InquiryRepositoryInterface
 {
@@ -19,12 +20,12 @@ class InquiryRepository implements InquiryRepositoryInterface
     /* ============================================================================
     |Fetch inquiry with optional filters and selected columns.
     ==============================================================================*/
-    public function getInquiries(?array $filterData = null, ?array $selectedcolumns = null): ?Collection
+    public function getInquiries(?array $filterData = null, ?array $selectedcolumns = null): ?LengthAwarePaginator
     {
         return Inquiry::when(
             isset($filterData['email']),
             function ($query) use ($filterData) {
-                $query->where('email', 'LIKE', '%'.$filterData['email'].'%');
+                $query->where('email', 'LIKE', '%' . $filterData['email'] . '%');
             }
         )
             ->when(
@@ -33,7 +34,7 @@ class InquiryRepository implements InquiryRepositoryInterface
                     return $query->select($selectedcolumns);
                 }
             )
-            ->get();
+            ->paginate($filterData['paginateLimit'] ?? 10);
     }
 
     /* ================================================

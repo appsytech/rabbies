@@ -43,7 +43,7 @@ class HomeSliderController extends Controller
             'status' => 'required|boolean',
             'device_type' => 'required|integer|in:0,1,2', // 0 = web , 1 = android 2 = h5
             'description' => 'nullable|string',
-            'jump_type' => 'nullable|string|in:ABOUT,ACTIVITY,ADMISSION',
+            'jump_type' => 'nullable|string|in:ABOUT,ACTIVITY,ADMISSION,PUBLICATION',
         ]);
 
         if ($validator->fails()) {
@@ -77,7 +77,6 @@ class HomeSliderController extends Controller
                 'data' => null,
             ], 500);
         }
-
     }
 
     public function edit(Request $request): View
@@ -99,7 +98,7 @@ class HomeSliderController extends Controller
             'status' => 'required|boolean',
             'device_type' => 'required|integer|in:0,1,2', // 0 = web , 1 = android 2 = h5
             'description' => 'nullable|string',
-            'jump_type' => 'nullable|string|in:ABOUT,ACTIVITY,ADMISSION',
+            'jump_type' => 'nullable|string|in:ABOUT,ACTIVITY,ADMISSION,PUBLICATION',
         ]);
 
         $isUpdated = $this->homeSliderService->update($request);
@@ -124,15 +123,16 @@ class HomeSliderController extends Controller
         } else {
             return redirect()->back()->withErrors('Something went wrong!');
         }
-
     }
 
     public function updateStatus(Request $request): JsonResponse
     {
-        $validator = Validator::make($request->all(),
+        $validator = Validator::make(
+            $request->all(),
             [
                 'id' => 'required|integer',
-            ]);
+            ]
+        );
 
         if ($validator->fails()) {
             return response()->json([

@@ -34,7 +34,6 @@ class PackageService
 
         if ($request->hasFile('image')) {
             $data['image'] = $request->file('image')->store('assets/images/packages', 'public');
-
         }
 
         return $this->packageRepo->create($data);

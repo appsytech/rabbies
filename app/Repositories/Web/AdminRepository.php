@@ -53,6 +53,12 @@ class AdminRepository implements AdminRepositoryInterface
                 }
             )
             ->when(
+                isset($filterData['role']),
+                function ($query) use ($filterData) {
+                    $query->where('admin_role', $filterData['role']);
+                }
+            )
+            ->when(
                 isset($selectedcolumns) && count($selectedcolumns) >= 1,
                 function ($query) use ($selectedcolumns) {
                     return $query->select($selectedcolumns);

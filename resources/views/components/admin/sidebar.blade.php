@@ -48,6 +48,15 @@
             </a>
         </div>
 
+        <!--========== Home ===========-->
+        <div>
+            <a href="{{ route('inquiry.index') }}"
+                class="flex items-center gap-3 px-4 py-3 text-sm font-medium  rounded-lg hover:bg-[#EEF2FF] transition-colors {{ Route::currentRouteName() == 'inquiry.index' || Route::currentRouteName() == 'inquiry.edit'  ? 'bg-blue-100 text-black' : 'text-gray-700' }}">
+                <img src="{{ asset('assets/svg/message-circle.svg') }}" class="h-5 w-5 pointer-events-none">
+                <span class="sidebar-text">Inquiry </span>
+            </a>
+        </div>
+
         <!--========== Extra Events ===========-->
         <div>
             <button id="extra-events"
@@ -84,17 +93,17 @@
         <!--========== Setting Config ===========-->
         <div>
             <button id="setting"
-                class="has-submenu w-full flex items-center justify-between px-4 py-3 cursor-pointer text-sm font-medium text-gray-700 rounded-lg hover:bg-[#EEF2FF] transition-all {{ Route::currentRouteName() == 'admin.index' || Route::currentRouteName() == 'admin.edit' || Route::currentRouteName() == 'homepage-slider.index' || Route::currentRouteName() == 'homepage-slider.edit' ? 'bg-blue-100 text-black' : 'text-gray-700' }}">
+                class="has-submenu w-full flex items-center justify-between px-4 py-3 cursor-pointer text-sm font-medium text-gray-700 rounded-lg hover:bg-[#EEF2FF] transition-all {{ Route::currentRouteName() == 'admin.index' || Route::currentRouteName() == 'admin.edit' || Route::currentRouteName() == 'homepage-slider.index' || Route::currentRouteName() == 'homepage-slider.edit' || Route::currentRouteName() == 'about-us.index' || Route::currentRouteName() == 'about-us.edit' || Route::currentRouteName() == 'about-feature.index' || Route::currentRouteName() == 'about-feature.edit' || Route::currentRouteName() == 'gallery.index' || Route::currentRouteName() == 'gallery.edit'  ? 'bg-blue-100 text-black' : 'text-gray-700' }}">
                 <div class="flex items-center gap-3 pointer-events-none">
                     <img src="{{ asset('assets/svg/setting.svg') }}" class="w-5 h-5 pointer-events-none">
                     <span class="sidebar-text pointer-events-none">Settings</span>
                 </div>
                 <img id="setting-icon" src="{{ asset('assets/svg/cheveron-right.svg') }}"
-                    class="sidebar-submenu-icon w-4 h-4 transition-transform duration-200 sidebar-text pointer-events-none {{ Route::currentRouteName() == 'admin.index' || Route::currentRouteName() == 'admin.edit' || Route::currentRouteName() == 'homepage-slider.index' || Route::currentRouteName() == 'homepage-slider.edit' ? 'rotate-90' : '' }}">
+                    class="sidebar-submenu-icon w-4 h-4 transition-transform duration-200 sidebar-text pointer-events-none {{ Route::currentRouteName() == 'admin.index' || Route::currentRouteName() == 'admin.edit' || Route::currentRouteName() == 'homepage-slider.index' || Route::currentRouteName() == 'homepage-slider.edit' || Route::currentRouteName() == 'about-us.index' || Route::currentRouteName() == 'about-us.edit' || Route::currentRouteName() == 'about-feature.index' || Route::currentRouteName() == 'about-feature.edit' || Route::currentRouteName() == 'gallery.index' || Route::currentRouteName() == 'gallery.edit'  ? 'rotate-90' : '' }}">
             </button>
 
             <div id="setting-submenu"
-                class="{{ Route::currentRouteName() == 'admin.index' || Route::currentRouteName() == 'admin.edit' || Route::currentRouteName() == 'homepage-slider.index' || Route::currentRouteName() == 'homepage-slider.edit' ? '' : 'hidden' }} mt-1 ml-11 space-y-1 sidebar-submenu">
+                class="{{ Route::currentRouteName() == 'admin.index' || Route::currentRouteName() == 'admin.edit' || Route::currentRouteName() == 'homepage-slider.index' || Route::currentRouteName() == 'homepage-slider.edit' || Route::currentRouteName() == 'about-us.index' || Route::currentRouteName() == 'about-us.edit' || Route::currentRouteName() == 'about-feature.index' || Route::currentRouteName() == 'about-feature.edit' || Route::currentRouteName() == 'gallery.index' || Route::currentRouteName() == 'gallery.edit'  ? '' : 'hidden' }} mt-1 ml-11 space-y-1 sidebar-submenu">
                 <a href="{{ route('admin.index') }}" data-nav
                     class="block px-4 py-2 text-sm  rounded-lg hover:bg-[#EEF2FF] {{ Route::currentRouteName() == 'admin.index' || Route::currentRouteName() == 'admin.edit' ? 'bg-blue-100 text-black is_active' : 'text-gray-700' }} hover:text-gray-900 transition-colors">
                     Admin
@@ -103,6 +112,19 @@
                 <a href="{{ route('homepage-slider.index') }}" data-nav
                     class="block px-4 py-2 text-sm  rounded-lg hover:bg-[#EEF2FF] {{ Route::currentRouteName() == 'homepage-slider.index' || Route::currentRouteName() == 'homepage-slider.edit' ? 'bg-blue-100 text-black is_active' : 'text-gray-700' }} hover:text-gray-900 transition-colors">
                     Home Slider
+                </a>
+
+                <a href="{{ route('about-us.index') }}" data-nav
+                    class="block px-4 py-2 text-sm  rounded-lg hover:bg-[#EEF2FF] {{ Route::currentRouteName() == 'about-us.index' || Route::currentRouteName() == 'about-us.edit' ? 'bg-blue-100 text-black is_active' : 'text-gray-700' }} hover:text-gray-900 transition-colors">
+                    About us
+                </a>
+                <a href="{{ route('about-feature.index') }}" data-nav
+                    class="block px-4 py-2 text-sm  rounded-lg hover:bg-[#EEF2FF] {{ Route::currentRouteName() == 'about-feature.index' || Route::currentRouteName() == 'about-feature.edit' ? 'bg-blue-100 text-black is_active' : 'text-gray-700' }} hover:text-gray-900 transition-colors">
+                    About us Features
+                </a>
+                <a href="{{ route('gallery.index') }}" data-nav
+                    class="block px-4 py-2 text-sm  rounded-lg hover:bg-[#EEF2FF] {{ Route::currentRouteName() == 'gallery.index' || Route::currentRouteName() == 'gallery.edit' ? 'bg-blue-100 text-black is_active' : 'text-gray-700' }} hover:text-gray-900 transition-colors">
+                    Gallery
                 </a>
             </div>
         </div>

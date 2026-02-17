@@ -45,6 +45,7 @@ class AdminController extends Controller
             'admin_role' => 'required|in:1,2,3,4,5',
             'status' => 'required|in:0,1',
             'profile_image' => 'nullable',
+            'description' => 'nullable|string'
         ]);
 
         if ($validator->fails()) {
@@ -81,6 +82,8 @@ class AdminController extends Controller
             'admin_role' => 'required|in:1,2,3,4,5',
             'status' => 'required|in:0,1',
             'profile_image' => 'nullable',
+            'description' => 'nullable|string'
+
         ]);
 
         $isUpdated = $this->adminService->update($request);
@@ -105,15 +108,16 @@ class AdminController extends Controller
         } else {
             return redirect()->back()->withErrors('Something went wrong!');
         }
-
     }
 
     public function updateStatus(Request $request): JsonResponse
     {
-        $validator = Validator::make($request->all(),
+        $validator = Validator::make(
+            $request->all(),
             [
                 'id' => 'required|integer',
-            ]);
+            ]
+        );
 
         if ($validator->fails()) {
             return response()->json([

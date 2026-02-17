@@ -372,6 +372,7 @@
                                         <option value="ABOUT">About</option>
                                         <option value="ACTIVITY">Activity</option>
                                         <option value="ADMISSION">Admission</option>
+                                        <option value="PUBLICATION">Publication</option>
                                     </select>
                                     <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
                                         <img src="{{ asset('assets/svg/cheveron-down.svg') }}"

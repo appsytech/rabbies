@@ -143,6 +143,8 @@
                                     <option value="ADMISSION"
                                         {{ ($data['slider']->jump_type ?? null) == 'ADMISSION' ? 'selected' : '' }}>
                                         Admission</option>
+                                        <option value="PUBLICATION" {{ ($data['slider']->jump_type ?? null) == 'PUBLICATION' ? 'selected' : '' }}>Publication</option>
+
                                 </select>
                                 <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
                                     <img src="{{ asset('assets/svg/cheveron-down.svg') }}"

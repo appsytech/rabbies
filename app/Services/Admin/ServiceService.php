@@ -21,7 +21,7 @@ class ServiceService
 
 
     /* =============================================================
-    | Create a new admin record.
+    | Create a new service record.
     ================================================================*/
     public function create($request)
     {
@@ -76,7 +76,7 @@ class ServiceService
     }
 
     /* ============================================================================
-    |   Fetch a single admin record by its primary ID.
+    |   Fetch a single service record by its primary ID.
     ==============================================================================*/
     public function find(int $id, ?array $selectedColumns = null): ?Service
     {
@@ -84,7 +84,7 @@ class ServiceService
     }
 
     /* ============================================================================
-    |  Fetch admins with optional filters and selected columns.
+    |  Fetch services with optional filters and selected columns.
     ==============================================================================*/
     public function getServices(?array $filterData = null, ?array $selectedcolumns = null): ?Collection
     {
@@ -92,7 +92,7 @@ class ServiceService
     }
 
     /* ============================================================================
-    | Update an existing admin record .
+    | Update an existing service record .
     ==============================================================================*/
     public function update($request): bool
     {
@@ -140,7 +140,7 @@ class ServiceService
     }
 
     /* ============================================================================
-    | Toggle admin status.
+    | Toggle service status.
     ==============================================================================*/
     public function updateStatus(int $id): bool
     {
@@ -156,7 +156,7 @@ class ServiceService
     }
 
     /* ============================================================================
-    | Permanently delete an admin.
+    | Permanently delete an service.
     ==============================================================================*/
     public function delete(int $id): bool
     {
