@@ -28,20 +28,22 @@
         overflow: hidden;
         border-radius: 154px;
         position: relative;
+        height: 237px;
+        width: 237px;
 
         @include breakpoint (max-xxl) {
             border-radius: 1000px;
         }
 
-         &::after {
+        &::after {
             content: "";
             position: absolute;
             width: 200%;
             height: 0%;
             left: 50%;
             top: 50%;
-            background-color: rgba(255,255,255,.3);
-            transform: translate(-50%,-50%) rotate(-45deg);
+            background-color: rgba(255, 255, 255, .3);
+            transform: translate(-50%, -50%) rotate(-45deg);
             z-index: 1;
         }
 
@@ -89,7 +91,7 @@
                 background-repeat: no-repeat;
                 background-size: 0% 2px;
                 display: inline;
-                
+
                 &:hover {
                     color: $theme-color-2;
                     background-size: 100% 2px;
@@ -135,7 +137,7 @@
         }
 
         .team-content {
-            &::before{
+            &::before {
                 top: auto;
                 height: 100%;
             }
@@ -149,7 +151,7 @@
 
 .volounteer-inner-card {
     border: 1px solid $border-color;
-     border-radius: 10px;
+    border-radius: 10px;
 
     .volounteer-image {
         position: relative;
@@ -170,8 +172,8 @@
             height: 0%;
             left: 50%;
             top: 50%;
-            background-color: rgba(255,255,255,.3);
-            transform: translate(-50%,-50%) rotate(-45deg);
+            background-color: rgba(255, 255, 255, .3);
+            transform: translate(-50%, -50%) rotate(-45deg);
             z-index: 1;
         }
 
@@ -192,13 +194,13 @@
             right: 50px;
 
             h5 {
-               
+
                 a {
                     background-position: 0 95%;
                     background-repeat: no-repeat;
                     background-size: 0% 2px;
                     display: inline;
-                    
+
                     &:hover {
                         color: $theme-color-2;
                         background-size: 100% 2px;
@@ -235,7 +237,7 @@
 
     &:hover {
         .volounteer-image {
-             &::after {
+            &::after {
                 height: 250%;
                 transition: all 600ms linear;
                 background-color: transparent;
@@ -272,15 +274,15 @@
             position: relative;
             overflow: hidden;
 
-             &::after {
+            &::after {
                 content: "";
                 position: absolute;
                 width: 200%;
                 height: 0%;
                 left: 50%;
                 top: 50%;
-                background-color: rgba(255,255,255,.3);
-                transform: translate(-50%,-50%) rotate(-45deg);
+                background-color: rgba(255, 255, 255, .3);
+                transform: translate(-50%, -50%) rotate(-45deg);
                 z-index: 1;
             }
 
@@ -299,8 +301,8 @@
                 color: $header-color;
                 font-family: $heading-font;
 
-                 @include breakpoint (max-xxl) {
-                   font-size: 16px;
+                @include breakpoint (max-xxl) {
+                    font-size: 16px;
                 }
 
                 span {
@@ -315,7 +317,7 @@
 
         &:hover {
             .details-image {
-                 &::after {
+                &::after {
                     height: 250%;
                     transition: all 600ms linear;
                     background-color: transparent;
@@ -329,8 +331,8 @@
         padding: 40px 60px;
         background: #F7F7F7;
 
-         @include breakpoint (max-xxl) {
-           padding: 30px;
+        @include breakpoint (max-xxl) {
+            padding: 30px;
         }
 
         h3 {
@@ -371,9 +373,10 @@
             .pro-items {
                 width: 100%;
 
-                &:not(:last-child){
+                &:not(:last-child) {
                     margin-bottom: 25px;
                 }
+
                 .pro-head {
                     display: flex;
                     align-items: center;
@@ -384,7 +387,7 @@
                         font-size: 16px;
                         font-weight: 400;
                     }
-                    
+
                     .point {
                         font-size: 16px;
                         font-weight: 400;
@@ -392,6 +395,7 @@
                         font-family: $heading-font;
                     }
                 }
+
                 .progress {
                     background: rgba(11, 78, 61, 0.2);
                     justify-content: flex-start;
@@ -402,7 +406,7 @@
                     height: 5px;
                     width: 100%;
                 }
-                
+
                 .progress-value {
                     animation: load 3s normal forwards;
                     border-radius: 0;
@@ -411,18 +415,29 @@
                     width: 0;
                     border-radius: 10px;
                 }
-                .style-two{
+
+                .style-two {
                     animation: load2 3s normal forwards;
                 }
-               
+
                 @keyframes load {
-                    0% { width: 0; }
-                    100% { width: 85%; }
+                    0% {
+                        width: 0;
+                    }
+
+                    100% {
+                        width: 85%;
+                    }
                 }
 
                 @keyframes load2 {
-                    0% { width: 0; }
-                    100% { width: 95%; }
+                    0% {
+                        width: 0;
+                    }
+
+                    100% {
+                        width: 95%;
+                    }
                 }
             }
         }
@@ -447,7 +462,7 @@
                     font-size: 20px;
                     font-weight: 400;
 
-                     @include breakpoint (max-xxl) {
+                    @include breakpoint (max-xxl) {
                         font-size: 16px;
                     }
 
@@ -484,12 +499,15 @@
             margin-bottom: 40px;
             margin-top: 20px;
 
-             @include breakpoint (max-xxl) {
+            @include breakpoint (max-xxl) {
                 margin-bottom: 30px;
             }
         }
+
         .form-clt {
-            input,textarea {
+
+            input,
+            textarea {
                 width: 100%;
                 outline: none;
                 border: none;
@@ -502,12 +520,12 @@
                 font-size: 16px;
                 border-radius: 6px;
                 font-family: $heading-font;
-    
+
                 &::placeholder {
-                     color: #666;
+                    color: #666;
                 }
             }
-    
+
             textarea {
                 padding-bottom: 30px;
                 resize: none;
@@ -533,7 +551,7 @@
                 font-weight: 400;
                 font-family: $heading-font;
 
-                 @include breakpoint (max-xxl) {
+                @include breakpoint (max-xxl) {
                     font-size: 16px;
                 }
 
@@ -557,25 +575,25 @@
         }
 
         .become-volounteer-list {
-              @include flex;
-                gap: 30px;
-                margin-bottom: 60px;
-                margin-top: 40px;
+            @include flex;
+            gap: 30px;
+            margin-bottom: 60px;
+            margin-top: 40px;
 
-                @include breakpoint (max-xxl) {
-                    margin-bottom: 30px;
-                    flex-wrap: wrap;
-                    margin-top: 30px;
-                }
+            @include breakpoint (max-xxl) {
+                margin-bottom: 30px;
+                flex-wrap: wrap;
+                margin-top: 30px;
+            }
 
-                .list-item {
+            .list-item {
                 li {
                     font-size: 20px;
                     font-weight: 400;
                     font-family: $heading-font;
                     color: $header-color;
 
-                        @include breakpoint (max-sm) {
+                    @include breakpoint (max-sm) {
                         font-size: 16px;
                     }
 
@@ -595,9 +613,10 @@
             .pro-items {
                 width: 100%;
 
-                &:not(:last-child){
+                &:not(:last-child) {
                     margin-bottom: 25px;
                 }
+
                 .pro-head {
                     display: flex;
                     align-items: center;
@@ -609,7 +628,7 @@
                         font-weight: 400;
                         color: $header-color;
                     }
-                    
+
                     .point {
                         font-size: 16px;
                         font-weight: 400;
@@ -617,6 +636,7 @@
                         font-family: $heading-font;
                     }
                 }
+
                 .progress {
                     background: #667471;
                     justify-content: flex-start;
@@ -627,7 +647,7 @@
                     height: 10px;
                     width: 100%;
                 }
-                
+
                 .progress-value {
                     animation: load 3s normal forwards;
                     border-radius: 0;
@@ -636,18 +656,29 @@
                     width: 0;
                     border-radius: 10px;
                 }
-                .style-two{
+
+                .style-two {
                     animation: load2 3s normal forwards;
                 }
-                
+
                 @keyframes load {
-                    0% { width: 0; }
-                    100% { width: 70%; }
+                    0% {
+                        width: 0;
+                    }
+
+                    100% {
+                        width: 70%;
+                    }
                 }
 
                 @keyframes load2 {
-                    0% { width: 0; }
-                    100% { width: 80%; }
+                    0% {
+                        width: 0;
+                    }
+
+                    100% {
+                        width: 80%;
+                    }
                 }
             }
         }
@@ -667,7 +698,9 @@
         }
 
         .form-clt {
-            input,textarea {
+
+            input,
+            textarea {
                 width: 100%;
                 outline: none;
                 border: none;
@@ -679,12 +712,12 @@
                 color: $text-color;
                 font-size: 16px;
                 border-radius: 10px;
-    
+
                 &::placeholder {
-                     color: $text-color;
+                    color: $text-color;
                 }
             }
-    
+
             textarea {
                 padding-bottom: 90px;
                 resize: none;

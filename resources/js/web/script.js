@@ -9,12 +9,12 @@ AOS.init({
     offset: 120,
 });
 
-const scrollTopBtn = document.getElementById("scrollToTop");
+// const scrollTopBtn = document.getElementById("scrollToTop");
 
-window.addEventListener("scroll", () => {
-    scrollTopBtn.classList.toggle("hidden", window.scrollY === 0);
-});
+// window.addEventListener("scroll", () => {
+//     scrollTopBtn.classList.toggle("hidden", window.scrollY === 0);
+// });
 
-scrollTopBtn.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-});
+// scrollTopBtn.addEventListener("click", () => {
+//     window.scrollTo({ top: 0, behavior: "smooth" });
+// });

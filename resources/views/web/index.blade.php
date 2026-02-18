@@ -215,7 +215,7 @@
                                 <a href="{{ route('web.service.show', encrypt($service->id)) }}">{{ $service->title ?? '' }}</a>
                             </h3>
                             <p>
-                                {{ $service->descripttion ?? '' }}
+                                {{ $service->description ?? '' }}
                             </p>
                             <a href="{{ route('web.service.show', encrypt($service->id)) }}" class="theme-btn">Learn More <i class="fa-solid fa-arrow-right-long"></i></a>
                         </div>
@@ -410,7 +410,7 @@
 </div>
 
 <!-- Team Section Start -->
-<section class="team-section section-padding fix pb-0">
+<section class="team-section section-padding fix ">
     <div class="container">
 
         <div class="section-title text-center">
@@ -424,7 +424,7 @@
             <div class="swiper-wrapper">
 
                 @if ($data['admins']->isNotEmpty())
-                @foreach ($data['admins'] as $admin)
+                @foreach ($data['admins'] as $index => $admin)
                 <div class="swiper-slide">
                     <div class="team-card-items">
                         <div class="team-image">
@@ -452,77 +452,9 @@
                         </div>
                     </div>
                 </div>
+
                 @endforeach
                 @endif
-
-                <!-- <div class="swiper-slide">
-                    <div class="team-card-items">
-                        <div class="team-image">
-                            <img src="assets/img/home-1/team/02.jpg" alt="">
-                        </div>
-                        <div class="team-content">
-                            <h5><a href="#">Courtney Henry</a></h5>
-                            <p>Software Developer</p>
-                            <div class="social-icon">
-                                <a href="#">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="M18.244 2.25h3.308l-7.227 8.26L22.75 21.75h-6.57l-5.145-6.7-5.873 6.7H1.854l7.73-8.835L1.25 2.25h6.736l4.654 6.1z" />
-                                    </svg>
-                                </a>
-
-                                <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
-                                <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                                <a href="#"><i class="fas fa-paper-plane"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="swiper-slide">
-                    <div class="team-card-items">
-                        <div class="team-image">
-                            <img src="assets/img/home-1/team/03.jpg" alt="">
-                        </div>
-                        <div class="team-content">
-                            <h5><a href="#">Annette Black</a></h5>
-                            <p>Software Developer</p>
-                            <div class="social-icon">
-                                <a href="#">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="M18.244 2.25h3.308l-7.227 8.26L22.75 21.75h-6.57l-5.145-6.7-5.873 6.7H1.854l7.73-8.835L1.25 2.25h6.736l4.654 6.1z" />
-                                    </svg></a>
-
-                                <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
-                                <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                                <a href="#"><i class="fas fa-paper-plane"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="swiper-slide">
-                    <div class="team-card-items">
-                        <div class="team-image">
-                            <img src="assets/img/home-1/team/04.jpg" alt="">
-                        </div>
-                        <div class="team-content">
-                            <h5><a href="#">Kristin Watson</a></h5>
-                            <p>Software Developer</p>
-                            <div class="social-icon">
-                                <a href="#">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="M18.244 2.25h3.308l-7.227 8.26L22.75 21.75h-6.57l-5.145-6.7-5.873 6.7H1.854l7.73-8.835L1.25 2.25h6.736l4.654 6.1z" />
-                                    </svg>
-                                </a>
-
-                                <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
-                                <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                                <a href="#"><i class="fas fa-paper-plane"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
-
             </div>
 
             <div class="swiper-dot">
@@ -640,6 +572,7 @@
          </section> -->
 
 <!-- Counter Section Start -->
+
 <div class="counter-section fix section-bg-1">
     <div class="right-shape">
         <img src="assets/img/home-1/feature/shape-2.png" alt="img">
@@ -814,7 +747,7 @@
 </section> -->
 
 <!-- Publication Section Start -->
-<section class="news-section section-padding pt-0 fix">
+<section class="news-section section-padding  fix">
     <div class="container">
         <div class="section-title text-center">
             <span class="sub-title wow fadeInUp">Publications</span>

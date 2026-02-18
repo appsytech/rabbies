@@ -4,7 +4,7 @@ namespace App\Services\Web;
 
 use App\Models\Admin\Activity;
 use App\Repositories\Web\Interface\ActivityRepositoryInterface;
-use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class ActivityService
 {
@@ -18,7 +18,7 @@ class ActivityService
     /* ============================================================================
      |Retrieve activities with active status.
      ==============================================================================*/
-    public function getActivities(?array $filterData = null, ?array $selectedColumns = []): ?Collection
+    public function getActivities(?array $filterData = null, ?array $selectedColumns = []): ?LengthAwarePaginator
     {
         return $this->activityRepo->getActivities($filterData, $selectedColumns);
     }

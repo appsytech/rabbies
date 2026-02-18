@@ -5,16 +5,15 @@
     const $windowOn = $(window);
 
     $documentOn.ready(function () {
-
         //>> Mobile Menu Js Start <<//
-        $('#mobile-menu').meanmenu({
-            meanMenuContainer: '.mobile-menu',
+        $("#mobile-menu").meanmenu({
+            meanMenuContainer: ".mobile-menu",
             meanScreenWidth: "1199",
             meanExpand: ['<i class="far fa-plus"></i>'],
         });
 
-        $('#mobile-menus').meanmenu({
-            meanMenuContainer: '.mobile-menus',
+        $("#mobile-menus").meanmenu({
+            meanMenuContainer: ".mobile-menus",
             meanScreenWidth: "1920",
             meanExpand: ['<i class="far fa-plus"></i>'],
         });
@@ -38,15 +37,16 @@
 
         /*----------------------- Whole Page Scrolling Animation -----------------------------*/
 
-
-
         /* ================================
          Back To Top Button Js Start
         ================================ */
 
         // Function to toggle back-to-top button visibility
         function toggleBackTop() {
-            if ($(window).scrollTop() + $(window).height() >= $(document).height()) {
+            if (
+                $(window).scrollTop() + $(window).height() >=
+                $(document).height()
+            ) {
                 $("#back-top").addClass("show");
             } else {
                 $("#back-top").removeClass("show");
@@ -54,7 +54,7 @@
         }
 
         // On scroll
-        $windowOn.on('scroll', function () {
+        $windowOn.on("scroll", function () {
             toggleBackTop();
         });
 
@@ -64,12 +64,10 @@
         });
 
         // On click
-        $documentOn.on('click', '#back-top', function () {
-            $('html, body').animate({ scrollTop: 0 }, 800);
+        $documentOn.on("click", "#back-top", function () {
+            $("html, body").animate({ scrollTop: 0 }, 800);
             return false;
         });
-
-
 
         //>> Sticky Header Js Start <<//
 
@@ -111,12 +109,12 @@
         new WOW().init();
 
         //>> Nice Select Start <<//
-        if ($('.single-select').length) {
-            $('.single-select').niceSelect();
+        if ($(".single-select").length) {
+            $(".single-select").niceSelect();
         }
 
         //>> Hero-Image Slider Start <<//
-        if ($('.hero-image-slider').length > 0) {
+        if ($(".hero-image-slider").length > 0) {
             const HeroImageSlider = new Swiper(".hero-image-slider", {
                 spaceBetween: 30,
                 speed: 2000,
@@ -181,13 +179,12 @@
         }
         animated_swiper(sliderActive2, sliderInit2);
 
-
         //>> Service Slider Start <<//
-        if ($('.service-slider').length > 0) {
+        if ($(".service-slider").length > 0) {
             const ServiceSlider = new Swiper(".service-slider", {
                 spaceBetween: 30,
                 speed: 1300,
-                loop: true,
+                loop: document.querySelectorAll(".service-slider .swiper-slide").length > 3,
                 centeredSlides: true,
                 autoplay: {
                     delay: 2000,
@@ -219,9 +216,9 @@
         }
 
         //>> Project box Slider Start <<//
-        if ($('.project-slider').length > 0) {
+        if ($(".project-slider").length > 0) {
             const ProjectSlider = new Swiper(".project-slider", {
-                slidesPerView: 'auto',
+                slidesPerView: "auto",
                 spaceBetween: 20,
                 freemode: true,
                 centeredSlides: true,
@@ -236,9 +233,9 @@
         }
 
         //>> Project Slider2 Start <<//
-        if ($('.project-slider-2').length > 0) {
+        if ($(".project-slider-2").length > 0) {
             const ProjectSlider2 = new Swiper(".project-slider-2", {
-                slidesPerView: 'auto',
+                slidesPerView: "auto",
                 spaceBetween: 20,
                 freemode: true,
                 centeredSlides: true,
@@ -253,7 +250,7 @@
         }
 
         //>> Testimonial Slider Start <<//
-        if ($('.testimonial-slider').length > 0) {
+        if ($(".testimonial-slider").length > 0) {
             const TestimonialSlider = new Swiper(".testimonial-slider", {
                 spaceBetween: 30,
                 speed: 1300,
@@ -288,12 +285,11 @@
             });
         }
 
-
         /* ================================
          Brand Slider Js Start
       ================================ */
 
-        if ($('.brand-slider').length > 0) {
+        if ($(".brand-slider").length > 0) {
             const BrandSlider = new Swiper(".brand-slider", {
                 spaceBetween: 30,
                 speed: 1300,
@@ -323,9 +319,8 @@
             });
         }
 
-
         //>> Service Slider Start <<//
-        if ($('.causes-slider').length > 0) {
+        if ($(".causes-slider").length > 0) {
             const CausesSlider = new Swiper(".causes-slider", {
                 spaceBetween: 30,
                 speed: 1300,
@@ -360,44 +355,47 @@
         }
 
         //>> Instagram Slider Start <<//
-        if ($('.instagram-banner-slider').length > 0) {
-            const InstagramBannerSlider = new Swiper(".instagram-banner-slider", {
-                spaceBetween: 0,
-                speed: 2000,
-                loop: true,
-                autoplay: {
-                    delay: 2000,
-                    disableOnInteraction: false,
-                },
+        if ($(".instagram-banner-slider").length > 0) {
+            const InstagramBannerSlider = new Swiper(
+                ".instagram-banner-slider",
+                {
+                    spaceBetween: 0,
+                    speed: 2000,
+                    loop: true,
+                    autoplay: {
+                        delay: 2000,
+                        disableOnInteraction: false,
+                    },
 
-                breakpoints: {
-                    1399: {
-                        slidesPerView: 5,
-                    },
-                    1199: {
-                        slidesPerView: 5,
-                    },
-                    991: {
-                        slidesPerView: 4,
-                    },
-                    767: {
-                        slidesPerView: 3,
-                    },
-                    650: {
-                        slidesPerView: 2,
-                    },
-                    575: {
-                        slidesPerView: 1,
-                    },
-                    0: {
-                        slidesPerView: 1,
+                    breakpoints: {
+                        1399: {
+                            slidesPerView: 5,
+                        },
+                        1199: {
+                            slidesPerView: 5,
+                        },
+                        991: {
+                            slidesPerView: 4,
+                        },
+                        767: {
+                            slidesPerView: 3,
+                        },
+                        650: {
+                            slidesPerView: 2,
+                        },
+                        575: {
+                            slidesPerView: 1,
+                        },
+                        0: {
+                            slidesPerView: 1,
+                        },
                     },
                 },
-            });
+            );
         }
 
         //>> Service Slider Start <<//
-        if ($('.service-slider-3').length > 0) {
+        if ($(".service-slider-3").length > 0) {
             const ServiceSlider3 = new Swiper(".service-slider-3", {
                 spaceBetween: 30,
                 speed: 1300,
@@ -431,7 +429,7 @@
             });
         }
 
-        if ($('.testimonial-slider-2').length > 0) {
+        if ($(".testimonial-slider-2").length > 0) {
             const TestimonialSlider2 = new Swiper(".testimonial-slider-2", {
                 spaceBetween: 30,
                 speed: 1300,
@@ -488,13 +486,12 @@
         const customBtn = document.getElementById("custom-btn");
 
         if (amountDisplay && customBtn && buttons.length > 0) {
-
             customBtn.classList.add("active");
             amountDisplay.textContent = "Custom";
 
-            buttons.forEach(button => {
+            buttons.forEach((button) => {
                 button.addEventListener("click", () => {
-                    buttons.forEach(btn => btn.classList.remove("active"));
+                    buttons.forEach((btn) => btn.classList.remove("active"));
                     customBtn.classList.remove("active");
 
                     button.classList.add("active");
@@ -506,16 +503,13 @@
             customBtn.addEventListener("click", () => {
                 const customAmount = prompt("Enter custom amount:");
                 if (customAmount && !isNaN(customAmount)) {
-                    buttons.forEach(btn => btn.classList.remove("active"));
+                    buttons.forEach((btn) => btn.classList.remove("active"));
                     customBtn.classList.add("active");
                     amountDisplay.textContent = customAmount;
                 }
             });
-
         }
-
     }); // End Document Ready Function
-
 
     //>> Search Start <<//
     if ($(".search-toggler").length) {
@@ -537,56 +531,65 @@
                     let n,
                         i = 0,
                         o = !1;
-                    (window.onmousemove = function (s) {
-                        o ||
+                    ((window.onmousemove = function (s) {
+                        (o ||
                             (t.style.transform =
-                                "translate(" + s.clientX + "px, " + s.clientY + "px)"),
+                                "translate(" +
+                                s.clientX +
+                                "px, " +
+                                s.clientY +
+                                "px)"),
                             (e.style.transform =
-                                "translate(" + s.clientX + "px, " + s.clientY + "px)"),
+                                "translate(" +
+                                s.clientX +
+                                "px, " +
+                                s.clientY +
+                                "px)"),
                             (n = s.clientY),
-                            (i = s.clientX);
+                            (i = s.clientX));
                     }),
                         $("body").on(
                             "mouseenter",
                             "button, a, .cursor-pointer",
                             function () {
-                                e.classList.add("cursor-hover"),
-                                    t.classList.add("cursor-hover");
-                            }
+                                (e.classList.add("cursor-hover"),
+                                    t.classList.add("cursor-hover"));
+                            },
                         ),
                         $("body").on(
                             "mouseleave",
                             "button, a, .cursor-pointer",
                             function () {
                                 ($(this).is("a", "button") &&
-                                    $(this).closest(".cursor-pointer").length) ||
+                                    $(this).closest(".cursor-pointer")
+                                        .length) ||
                                     (e.classList.remove("cursor-hover"),
-                                        t.classList.remove("cursor-hover"));
-                            }
+                                    t.classList.remove("cursor-hover"));
+                            },
                         ),
                         (e.style.visibility = "visible"),
-                        (t.style.visibility = "visible");
+                        (t.style.visibility = "visible"));
                 }
             }
         }
         itCursor();
     }
 
-
     function loader() {
-        $windowOn.on('load', function () {
+        $windowOn.on("load", function () {
             // Animate loader off screen
-            $(".preloader").addClass('loaded');
+            $(".preloader").addClass("loaded");
             $(".preloader").delay(200).fadeOut();
         });
     }
 
     loader();
 
-    // team slider 
+    // team slider
 
     new Swiper(".team-slider", {
-        loop: true,
+        loop:
+            document.querySelectorAll(".team-slider .swiper-slide").length > 3,
         spaceBetween: 30,
         autoplay: {
             delay: 3000,
@@ -601,53 +604,52 @@
             768: { slidesPerView: 2 },
             992: { slidesPerView: 3 },
             1200: { slidesPerView: 4 },
-        }
+        },
     });
-
 
     // galery image
 
-        // Gallery Image Modal JavaScript
-    document.addEventListener('DOMContentLoaded', function() {
+    // Gallery Image Modal JavaScript
+    document.addEventListener("DOMContentLoaded", function () {
         // Get modal element
-        const modal = document.getElementById('imageModal');
-        const modalImg = document.getElementById('fullscreenImage');
-        const closeBtn = document.querySelector('.image-modal-close');
-        
+        const modal = document.getElementById("imageModal");
+        const modalImg = document.getElementById("fullscreenImage");
+        const closeBtn = document.querySelector(".image-modal-close");
+
         // Get all gallery images
-        const galleryImages = document.querySelectorAll('.gallery-image');
-        const galleryTriggers = document.querySelectorAll('.gallery-trigger');
-        
+        const galleryImages = document.querySelectorAll(".gallery-image");
+        const galleryTriggers = document.querySelectorAll(".gallery-trigger");
+
         // Get swiper instances
         let projectSlider = null;
         let projectSlider2 = null;
-        
+
         // Find swiper instances after they are initialized
-        setTimeout(function() {
-            const swiperElements = document.querySelectorAll('.swiper');
-            swiperElements.forEach(function(el) {
+        setTimeout(function () {
+            const swiperElements = document.querySelectorAll(".swiper");
+            swiperElements.forEach(function (el) {
                 if (el.swiper) {
-                    if (el.classList.contains('project-slider')) {
+                    if (el.classList.contains("project-slider")) {
                         projectSlider = el.swiper;
-                    } else if (el.classList.contains('project-slider-2')) {
+                    } else if (el.classList.contains("project-slider-2")) {
                         projectSlider2 = el.swiper;
                     }
                 }
             });
         }, 500);
-        
+
         // Function to open modal
         function openModal(imgSrc) {
-            modal.style.display = 'block';
+            modal.style.display = "block";
             modalImg.src = imgSrc;
-            document.body.style.overflow = 'hidden';
+            document.body.style.overflow = "hidden";
         }
-        
+
         // Function to close modal
         function closeModal() {
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-            
+            modal.style.display = "none";
+            document.body.style.overflow = "auto";
+
             // Resume autoplay if it was paused
             if (projectSlider && projectSlider.autoplay) {
                 projectSlider.autoplay.start();
@@ -656,36 +658,37 @@
                 projectSlider2.autoplay.start();
             }
         }
-        
+
         // Add click event to all gallery images (only on image, not yellow area)
-        galleryImages.forEach(function(img) {
-            img.addEventListener('click', function(e) {
+        galleryImages.forEach(function (img) {
+            img.addEventListener("click", function (e) {
                 // Check if click is not on project-content area
-                const projectContent = this.parentElement.querySelector('.project-content');
+                const projectContent =
+                    this.parentElement.querySelector(".project-content");
                 if (projectContent && !projectContent.contains(e.target)) {
                     openModal(this.src);
                 }
             });
         });
-        
+
         // Add click event to all gallery triggers (links and arrows in yellow area)
-        galleryTriggers.forEach(function(trigger) {
-            trigger.addEventListener('click', function(e) {
+        galleryTriggers.forEach(function (trigger) {
+            trigger.addEventListener("click", function (e) {
                 e.preventDefault();
                 e.stopPropagation();
                 // Find the image in the same project card
-                const projectCard = this.closest('.project-card-item');
-                const img = projectCard.querySelector('.gallery-image');
+                const projectCard = this.closest(".project-card-item");
+                const img = projectCard.querySelector(".gallery-image");
                 if (img) {
                     openModal(img.src);
                 }
             });
         });
-        
+
         // Pause slider on hover
-        const allSlides = document.querySelectorAll('.project-card-item');
-        allSlides.forEach(function(slide) {
-            slide.addEventListener('mouseenter', function() {
+        const allSlides = document.querySelectorAll(".project-card-item");
+        allSlides.forEach(function (slide) {
+            slide.addEventListener("mouseenter", function () {
                 if (projectSlider && projectSlider.autoplay) {
                     projectSlider.autoplay.stop();
                 }
@@ -693,10 +696,10 @@
                     projectSlider2.autoplay.stop();
                 }
             });
-            
-            slide.addEventListener('mouseleave', function() {
+
+            slide.addEventListener("mouseleave", function () {
                 // Only resume if modal is not open
-                if (modal.style.display !== 'block') {
+                if (modal.style.display !== "block") {
                     if (projectSlider && projectSlider.autoplay) {
                         projectSlider.autoplay.start();
                     }
@@ -706,27 +709,24 @@
                 }
             });
         });
-        
+
         // Close modal when clicking on close button
         if (closeBtn) {
-            closeBtn.addEventListener('click', closeModal);
+            closeBtn.addEventListener("click", closeModal);
         }
-        
+
         // Close modal when clicking outside the image
-        modal.addEventListener('click', function(e) {
+        modal.addEventListener("click", function (e) {
             if (e.target === modal) {
                 closeModal();
             }
         });
-        
+
         // Close modal with Escape key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && modal.style.display === 'block') {
+        document.addEventListener("keydown", function (e) {
+            if (e.key === "Escape" && modal.style.display === "block") {
                 closeModal();
             }
         });
     });
-
-
-
-})(jQuery); // End jQuery
+})(jQuery); // End jQuery

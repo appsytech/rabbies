@@ -74,6 +74,8 @@
 
             </div>
         </div>
+
+        {{ $data['activities']->links('pagination::bootstrap-5') }}
     </div>
 </section>
 

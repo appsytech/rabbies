@@ -1,4 +1,3 @@
-
 .header-top-section {
 	background-color: $bg-color;
 
@@ -44,60 +43,60 @@
 	justify-content: space-between;
 
 	.icon-items {
-        @include flex;
-        gap: 10px;
-        border-right: 1px solid #D9D9D9;
-        padding-right: 135px;
+		@include flex;
+		gap: 10px;
+		border-right: 1px solid #D9D9D9;
+		padding-right: 135px;
 		height: 90px;
 
-        @include breakpoint (max-xxl) {
-            border-right: none;
-            padding-right: 0;
-            height: initial;
-        }
+		@include breakpoint (max-xxl) {
+			border-right: none;
+			padding-right: 0;
+			height: initial;
+		}
 
-        .icon {
-            width: 50px;
-            height: 50px;
-            line-height: 50px;
-            text-align: center;
-            border: 1px solid $theme-color-2;
-            color: $theme-color-2;
-            border-radius: 100%;
-            @include transition;
+		.icon {
+			width: 50px;
+			height: 50px;
+			line-height: 50px;
+			text-align: center;
+			border: 1px solid $theme-color-2;
+			color: $theme-color-2;
+			border-radius: 100%;
+			@include transition;
 
-            &:hover {
-                color: $theme-color-2;
-                background-color: $theme-color;
+			&:hover {
+				color: $theme-color-2;
+				background-color: $theme-color;
 				border: 1px solid $theme-color;
-            }
-        }
+			}
+		}
 
-        
-    }
+
+	}
 
 	.social-icon {
-        @include flex;
-        gap: 20px;
-       
-        a {
-            font-size: 20px;
-            color: $theme-color-2;
-            border: 1px solid $theme-color-2;
-            width: 40px;
-            height: 40px;
-            line-height: 40px;
-            text-align: center;
-            display: inline-block;
-            border-radius: 100px;
+		@include flex;
+		gap: 20px;
 
-            &:hover {
-                color: $theme-color-2;
-                background-color: $theme-color;
+		a {
+			font-size: 20px;
+			color: $theme-color-2;
+			border: 1px solid $theme-color-2;
+			width: 40px;
+			height: 40px;
+			line-height: 40px;
+			text-align: center;
+			display: inline-block;
+			border-radius: 100px;
+
+			&:hover {
+				color: $theme-color-2;
+				background-color: $theme-color;
 				border: 1px solid $theme-color;
-            }
-        }
-    }
+			}
+		}
+	}
 }
 
 .header-top-wrapper-2 {
@@ -130,27 +129,27 @@
 	}
 
 	.social-icon {
-        @include flex;
-        gap: 20px;
-       
-        a {
-            font-size: 20px;
-            color: $theme-color;
-            border: 1px solid $theme-color;
-            width: 40px;
-            height: 40px;
-            line-height: 40px;
-            text-align: center;
-            display: inline-block;
-            border-radius: 100px;
+		@include flex;
+		gap: 20px;
 
-            &:hover {
-                color: $theme-color-2;
-                background-color: $theme-color;
+		a {
+			font-size: 20px;
+			color: $theme-color;
+			border: 1px solid $theme-color;
+			width: 40px;
+			height: 40px;
+			line-height: 40px;
+			text-align: center;
+			display: inline-block;
+			border-radius: 100px;
+
+			&:hover {
+				color: $theme-color-2;
+				background-color: $theme-color;
 				border: 1px solid $theme-color;
-            }
-        }
-    }
+			}
+		}
+	}
 
 	&.inner {
 		.header-left {
@@ -161,7 +160,7 @@
 
 //>>>>> Header Main Start <<<<<//
 .menu-thumb {
-	@include breakpoint (max-xl){
+	@include breakpoint (max-xl) {
 		display: none !important;
 	}
 }
@@ -185,280 +184,291 @@
 				@include breakpoint (max-xl) {
 					margin-inline-end: 30px;
 				}
-	
-			&:last-child {
-				margin-inline-end: 0;
-			}
-	
-			a {
-				display: inline-block;
-				font-size: 16px;
-				font-weight: 600;
-				color:  $theme-color-2;
-				padding: 20px 0;
-				text-align: left;
-				position: relative;
-				text-transform: capitalize;
-				@include transition;
 
-				i {
-					margin-left: 4px;
-                    font-size: 14px;
+				&:last-child {
+					margin-inline-end: 0;
 				}
-	
-				&:hover {
+
+				a {
+					display: inline-block;
+					font-size: 16px;
+					font-weight: 600;
 					color: $theme-color-2;
+					padding: 20px 0;
+					text-align: left;
+					position: relative;
+					text-transform: capitalize;
+					@include transition;
+
+					i {
+						margin-left: 4px;
+						font-size: 14px;
+					}
+
+					&:hover {
+						color: $theme-color-2;
+					}
+
 				}
-	
-			}
-			.submenu {
-				position: absolute;
-				top: 115%;
-				inset-inline-start: 0;
-				min-width: 260px;
-				padding: 20px 0;
-				z-index: 99999;
-				visibility: hidden;
-				opacity: 0;
-				transform-origin: top center;
-				color: $header-color;
-				transform: scaleY(0) translateZ(100px);
-				@include transition;
-				border-top: 6px solid $theme-color;
-				background-color: $white;
-				  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 
-				li {
-					display: block;
-					width: 100%;
-					margin: 0;
-					
-	
-					a {
-						position: relative;
-						z-index: 11;
-						font-size: 16px;
-						font-weight: 600;
-						letter-spacing: -0.34px;
-						color: $header-color;
-						line-height: 38px;
-   						padding: 0px 0px 0px 32px;
-                        padding-right: 22px;
+				.submenu {
+					position: absolute;
+					top: 115%;
+					inset-inline-start: 0;
+					min-width: 260px;
+					padding: 20px 0;
+					z-index: 99999;
+					visibility: hidden;
+					opacity: 0;
+					transform-origin: top center;
+					color: $header-color;
+					transform: scaleY(0) translateZ(100px);
+					@include transition;
+					border-top: 6px solid $theme-color;
+					background-color: $white;
+					box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+					li {
+						display: block;
 						width: 100%;
-                        display: flex;
-                        align-items: center;
-                        justify-content: space-between;
+						margin: 0;
 
-						&::before {
-							content: "";
-							position: absolute;
-							width: 0px;
-							height: 2px;
-							background: $theme-color;
-							left: 14px;
-							bottom: 18px;
-							transition: all 0.4s ease-in-out;
+
+						a {
+							position: relative;
+							z-index: 11;
+							font-size: 16px;
+							font-weight: 600;
+							letter-spacing: -0.34px;
+							color: $header-color;
+							line-height: 38px;
+							padding: 0px 0px 0px 32px;
+							padding-right: 22px;
+							width: 100%;
+							display: flex;
+							align-items: center;
+							justify-content: space-between;
+
+							&::before {
+								content: "";
+								position: absolute;
+								width: 0px;
+								height: 2px;
+								background: $theme-color;
+								left: 14px;
+								bottom: 18px;
+								transition: all 0.4s ease-in-out;
+							}
+
+							&:hover {
+								color: $theme-color-2;
+							}
+						}
+
+						&:last-child {
+							a {
+								border: none;
+							}
+						}
+
+						.submenu {
+							inset-inline-start: 100%;
+							top: 0;
+							visibility: hidden;
+							opacity: 0;
 						}
 
 						&:hover {
-							color: $theme-color-2;
-						}
-					}
-					&:last-child {
-						a {
-							border: none;
-						}
-					}
-					.submenu {
-						inset-inline-start: 100%;
-						top: 0;
-						visibility: hidden;
-						opacity: 0;
-					}
-					&:hover {
-						>a {
-							color: $theme-color !important;
-							margin-left: 10px;
+							>a {
+								color: $theme-color !important;
+								margin-left: 10px;
 
-							&::before {
-								width: 10px;
+								&::before {
+									width: 10px;
+								}
+
+								&::after {
+									color: $theme-color;
+								}
 							}
 
+							>.submenu {
+								-webkit-transform: translateY(1);
+								-moz-transform: translateY(1);
+								-ms-transform: translateY(1);
+								-o-transform: translateY(1);
+								transform: translateY(1);
+								visibility: visible;
+								opacity: 1;
+							}
+						}
+					}
+
+					li.has-dropdown {
+						>a {
 							&::after {
+								position: absolute;
+								top: 50%;
+								inset-inline-end: 25px;
+								-webkit-transform: translateY(-50%);
+								-moz-transform: translateY(-50%);
+								-ms-transform: translateY(-50%);
+								-o-transform: translateY(-50%);
+								transform: translateY(-50%);
 								color: $theme-color;
 							}
 						}
-						>.submenu {
-							-webkit-transform: translateY(1);
-							-moz-transform: translateY(1);
-							-ms-transform: translateY(1);
-							-o-transform: translateY(1);
-							transform: translateY(1);
-							visibility: visible;
-							opacity: 1;
-						}
 					}
 				}
-				li.has-dropdown {
-					>a {
-						&::after {
-							position: absolute;
-							top: 50%;
-							inset-inline-end: 25px;
-							-webkit-transform: translateY(-50%);
-							-moz-transform: translateY(-50%);
-							-ms-transform: translateY(-50%);
-							-o-transform: translateY(-50%);
-							transform: translateY(-50%);
-							color: $theme-color;
+
+				.has-homemenu {
+					width: 800px;
+					padding: 30px 30px 10px 30px;
+					opacity: 0;
+					left: -250px;
+					visibility: hidden;
+					padding: 30px 30px 10px 30px;
+					background-color: $white;
+
+					.homemenu-items {
+						@include flex;
+						gap: 30px;
+						justify-content: space-between;
+
+						@include breakpoint (max-lg) {
+							flex-wrap: wrap;
 						}
-					}
-				}
-			}
 
-			.has-homemenu {
-				width: 800px;
-				padding: 30px 30px 10px 30px;
-				opacity: 0;
-				left: -250px;
-				visibility: hidden;
-				padding: 30px 30px 10px 30px;
-                background-color: $white;
-			
-				.homemenu-items {
-					@include flex;
-					gap: 30px;
-					justify-content: space-between;
-
-					@include breakpoint (max-lg){
-						flex-wrap: wrap;
-					}
-
-					.homemenu {
-						position: relative;
-						.homemenu-thumb {
+						.homemenu {
 							position: relative;
-	
-							.demo-button {
-								position: absolute;
-								top: 50%;
-								left: 50%;
-								transform: translate(-50%, -50%);
-								opacity: 0;
-								visibility: hidden;
-								@include transition;
-								margin-top: 20px;
-								width: 100%;
-   								 padding: 0 12px;
 
-								@include breakpoint (max-xxl){
+							.homemenu-thumb {
+								position: relative;
+
+								.demo-button {
+									position: absolute;
+									top: 50%;
+									left: 50%;
+									transform: translate(-50%, -50%);
+									opacity: 0;
+									visibility: hidden;
+									@include transition;
+									margin-top: 20px;
+									width: 100%;
+									padding: 0 12px;
+
+									@include breakpoint (max-xxl) {
+										.theme-btn {
+											font-size: 14px;
+											min-width: 140px;
+										}
+									}
+
 									.theme-btn {
-										font-size: 14px;
-										min-width: 140px;
-									}
-								}
-	
-								.theme-btn {
-									padding: 18px 30px;
-									justify-content: center;
-									line-height: 1;
-									color: $white;
-									position: relative;
-									background-color: $theme-color-2;
-
-									&::before {
-										position: absolute;
-										content: '';
-										background-color: $theme-color;
-										width: 100%;
-										height: 0%;
-										left: 50%;
-										top: 50%;
-										border-radius: 33px;
-										-webkit-transform: translate(-50%, -50%) rotate(-45deg);
-										transform: translate(-50%, -50%) rotate(-45deg);
-										z-index: -1;
-										-webkit-transition: all 500ms ease;
-										transition: all 500ms ease;
-									}
-
-									&:hover {
-										color: $theme-color-2 !important;
+										padding: 18px 30px;
+										justify-content: center;
+										line-height: 1;
+										color: $white;
+										position: relative;
+										background-color: $theme-color-2;
 
 										&::before {
-											height: 380%;
+											position: absolute;
+											content: '';
+											background-color: $theme-color;
+											width: 100%;
+											height: 0%;
+											left: 50%;
+											top: 50%;
+											border-radius: 33px;
+											-webkit-transform: translate(-50%, -50%) rotate(-45deg);
+											transform: translate(-50%, -50%) rotate(-45deg);
+											z-index: -1;
+											-webkit-transition: all 500ms ease;
+											transition: all 500ms ease;
+										}
+
+										&:hover {
+											color: $theme-color-2 !important;
+
+											&::before {
+												height: 380%;
+											}
 										}
 									}
 								}
-							}
-	
-							&::before {
-								background: -webkit-gradient(linear, left top, left bottom, from(rgba(20, 19, 19, 0)), to(#5e5ef6));
-								background: linear-gradient(to bottom, rgba(99, 92, 92, 0) 0%, #252527 100%);
-								background-repeat: no-repeat;
-								background-size: cover;
-								background-position: center;
-								width: 100%;
-								height: 100%;
-								position: absolute;
-								left: 0;
-								top: 0;
-								overflow: hidden;
-								opacity: 0;
-								-webkit-transition: all 0.3s ease-in-out;
-								transition: all 0.3s ease-in-out;
-								content: "";
-							}
-							&:hover{
-	
-								&::before {
-									visibility: visible;
-									opacity: 1;
-								}
-	
-								.demo-button {
-									opacity: 1;
-									visibility: visible;
-									margin-top: 0;
-								}
-								& .homemenu-btn {
-									opacity: 1;
-									visibility: visible;
-									bottom: 50%;
-									transform: translateY(50%);
-								}
-							}
-							img {
-								width: 100%;
-							}
-						}
-	
-						.homemenu-title {
-							text-align: center;
-							margin: 15px auto;
-							display: inline-block;
-							font-size: 16px;
-                            font-weight: 600;
-                            color: $header-color;
-						}
-					}
-				}
-			}
-			
-			&:hover {
-				>a {
-					color:  $theme-color-2;
 
-					&::after {
-						color:  $theme-color;
+								&::before {
+									background: -webkit-gradient(linear, left top, left bottom, from(rgba(20, 19, 19, 0)), to(#5e5ef6));
+									background: linear-gradient(to bottom, rgba(99, 92, 92, 0) 0%, #252527 100%);
+									background-repeat: no-repeat;
+									background-size: cover;
+									background-position: center;
+									width: 100%;
+									height: 100%;
+									position: absolute;
+									left: 0;
+									top: 0;
+									overflow: hidden;
+									opacity: 0;
+									-webkit-transition: all 0.3s ease-in-out;
+									transition: all 0.3s ease-in-out;
+									content: "";
+								}
+
+								&:hover {
+
+									&::before {
+										visibility: visible;
+										opacity: 1;
+									}
+
+									.demo-button {
+										opacity: 1;
+										visibility: visible;
+										margin-top: 0;
+									}
+
+									& .homemenu-btn {
+										opacity: 1;
+										visibility: visible;
+										bottom: 50%;
+										transform: translateY(50%);
+									}
+								}
+
+								img {
+									width: 100%;
+								}
+							}
+
+							.homemenu-title {
+								text-align: center;
+								margin: 15px auto;
+								display: inline-block;
+								font-size: 16px;
+								font-weight: 600;
+								color: $header-color;
+							}
+						}
 					}
 				}
-				>.submenu {
-					visibility: visible;
-					opacity: 1;
-					transform: scaleY(1) translateZ(0px);
+
+				&:hover {
+					>a {
+						color: $theme-color-2;
+
+						&::after {
+							color: $theme-color;
+						}
+					}
+
+					>.submenu {
+						visibility: visible;
+						opacity: 1;
+						transform: scaleY(1) translateZ(0px);
+					}
 				}
-			  }
 			}
 		}
 	}
@@ -466,7 +476,7 @@
 	.header-right {
 		gap: 30px;
 
-		@include breakpoint (max-xxl){
+		@include breakpoint (max-xxl) {
 			gap: 20px;
 		}
 
@@ -486,9 +496,10 @@
 		}
 
 		.header-button {
-			@include breakpoint (max-xxl){
+			@include breakpoint (max-xxl) {
 				display: none;
 			}
+
 			.theme-btn {
 
 				&::before {
@@ -515,6 +526,18 @@
 	.container-fluid {
 		padding: 0 120px;
 
+		.header-main {
+			.header-left {
+
+				.logo {
+
+					.header-logo img {
+						max-width: 160px;
+					}
+				}
+			}
+		}
+
 		@include breakpoint (max-xxl) {
 			padding: 0 50px;
 		}
@@ -527,6 +550,8 @@
 			padding: 0 15px;
 		}
 	}
+
+
 
 	&.header-2 {
 		position: relative;
@@ -552,7 +577,7 @@
 					@include breakpoint (max-xxl) {
 						.header-logo {
 							display: none;
-					   }
+						}
 					}
 
 					.header-logo-2 {
@@ -580,7 +605,7 @@
 
 						@include breakpoint (max-xxl) {
 							.header-logo {
-								 display: block;
+								display: block;
 							}
 						}
 					}
@@ -607,7 +632,7 @@
 	width: 100%;
 	z-index: 99999;
 	transition: all 0.9s;
-    background-color: $white;
+	background-color: $white;
 	-webkit-animation: 500ms ease-in-out 0s normal none 1 running fadeInDown;
 	animation: 500ms ease-in-out 0s normal none 1 running fadeInDown;
 	box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
@@ -638,6 +663,7 @@
 					.header-logo {
 						display: none;
 					}
+
 					.header-logo-2 {
 						display: block;
 					}
@@ -667,7 +693,7 @@
 
 .offcanvas__info {
 	background: $white none repeat scroll 0 0;
-	border-left: 2px solid  $theme-color;
+	border-left: 2px solid $theme-color;
 	position: fixed;
 	right: 0;
 	top: 0;
@@ -685,6 +711,7 @@
 	overflow-y: scroll;
 	overscroll-behavior-y: contain;
 	scrollbar-width: none;
+
 	&::-webkit-scrollbar {
 		display: none;
 	}
@@ -709,6 +736,12 @@
 			color: $black;
 		}
 
+		.offcanvas__logo {
+			img {
+				max-width: 160px;
+			}
+		}
+
 		.offcanvas__close {
 			width: 45px;
 			height: 45px;
@@ -728,9 +761,9 @@
 		.offcanvas__contact {
 			margin-top: 20px;
 
-            h4 {
-                margin-bottom: 20px;
-            }
+			h4 {
+				margin-bottom: 20px;
+			}
 
 			ul {
 				margin-top: 0;
@@ -744,7 +777,7 @@
 						font-size: 14px;
 					}
 
-					&:not(:last-child){
+					&:not(:last-child) {
 						margin-bottom: 30px;
 
 						@include breakpoint (max-sm) {
@@ -755,6 +788,7 @@
 					a {
 						color: $black;
 					}
+
 					.offcanvas__contact-icon {
 						margin-right: 20px;
 
@@ -770,7 +804,7 @@
 			}
 
 			.header-button {
-				
+
 				.theme-btn {
 					width: 100%;
 					padding: 20px 40px;
@@ -779,30 +813,30 @@
 			}
 
 			.social-icon {
-                margin-top: 30px;
-                gap: 10px;
+				margin-top: 30px;
+				gap: 10px;
 
-                a {
-                    width: 45px;
-                    height: 45px;
-                    line-height: 45px;
-                    border-radius: 100%;
-                    text-align: center;
-                    font-size: 16px;
-                    display: block;
-                    background: transparent;
-                    color: #000;
-                    -webkit-transition: all .4s ease-in-out;
-                    transition: all .4s ease-in-out;
-                    text-align: center;
-                    border: 1px solid $border-color;
+				a {
+					width: 45px;
+					height: 45px;
+					line-height: 45px;
+					border-radius: 100%;
+					text-align: center;
+					font-size: 16px;
+					display: block;
+					background: transparent;
+					color: #000;
+					-webkit-transition: all .4s ease-in-out;
+					transition: all .4s ease-in-out;
+					text-align: center;
+					border: 1px solid $border-color;
 
-                    &:hover {
-                        background-color: $theme-color;
-                        color: $white;
-                    }
-                }
-            }
+					&:hover {
+						background-color: $theme-color;
+						color: $white;
+					}
+				}
+			}
 		}
 	}
 }
@@ -842,10 +876,10 @@
 	position: relative;
 	max-width: 1920px;
 
-	 mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 600"><path fill-rule="evenodd" clip-rule="evenodd"  d="M0 434.474V0H1920V599.565C1920 599.565 1915.6 589.879 1909.61 589.276C1902.9 588.6 1903.08 597.779 1896.62 599.565C1885.78 602.562 1881.9 589.144 1870.65 587.873C1863.58 587.074 1859.16 591.486 1852.47 589.276C1846.14 587.184 1846.07 575.88 1840 578.519C1836.71 579.951 1838.41 585.005 1834.81 585.534C1832.2 585.916 1831.14 583.723 1828.57 583.196C1820.63 581.568 1813.35 595.379 1808.83 589.276C1807 586.802 1808.71 584.468 1807.27 581.793C1801.85 571.72 1792.79 600.586 1780.78 597.694C1773.29 595.891 1773.77 587.157 1766.23 585.534C1759.34 584.051 1755.64 588.776 1748.57 589.276C1737.93 590.029 1731.8 588.235 1721.56 585.534C1713.79 583.485 1710.42 577.982 1702.34 578.519C1697.86 578.817 1695.82 580.953 1691.43 581.793C1683.29 583.349 1677.79 584.715 1670.13 581.793C1659.04 577.561 1664.24 563.318 1653.51 558.409C1646.39 555.157 1639.93 559.988 1633.25 556.07C1624.87 551.164 1632.85 534.835 1622.86 535.025C1615.68 535.161 1613.17 540.777 1609.35 546.249C1606.04 550.994 1604.16 559.812 1604.16 559.812C1604.16 559.812 1596.81 569.527 1589.61 572.439C1571.39 579.811 1560.76 532.774 1547.53 546.249C1544.35 549.493 1546.57 555.39 1541.82 556.07C1538.5 556.545 1537.25 551.943 1534.03 552.797C1529.36 554.035 1534.63 559.671 1534.03 564.021C1532.54 574.807 1530.64 582.689 1521.04 589.276C1511.54 595.79 1502.34 597.058 1490.91 593.953C1484.28 592.152 1482.63 586.753 1475.84 585.534C1472.06 584.856 1469.68 586.481 1465.97 585.534C1459.35 583.843 1460.39 574.178 1453.51 574.31C1450.49 574.368 1449.18 576.05 1446.23 576.648C1424.62 581.047 1431.4 535.85 1409.35 537.831C1403.16 538.387 1400.5 542.779 1394.29 542.508C1388.83 542.27 1386.75 537.573 1381.3 537.831C1373.12 538.218 1373.2 547.477 1365.71 550.458C1347.38 557.76 1338.56 524.78 1319.48 530.348C1313.42 532.116 1311.54 536.149 1305.45 537.831C1282.41 544.199 1286.41 496.989 1262.34 498.078C1245.7 498.831 1239.26 529.755 1227.01 519.592C1222.94 516.212 1225.79 508.559 1220.26 508.367C1216.21 508.227 1215.33 511.961 1211.95 513.979C1181.33 532.258 1143.84 493.339 1117.92 516.785C1114.06 520.283 1114.3 525.077 1109.09 526.607C1102.45 528.557 1099.35 516.993 1092.99 519.592C1088.11 521.585 1090.39 527.297 1086.23 530.348C1079 535.661 1071.33 532.597 1062.34 530.348C1052.04 527.771 1048.85 512.149 1039.48 516.785C1034.89 519.056 1036.39 524.529 1031.69 526.607C1027.32 528.539 1023.93 525.495 1019.22 526.607C1011.68 528.387 1010.97 535.462 1003.64 537.831C995.998 540.298 989.903 534.206 982.857 537.831C979.121 539.753 978.504 542.517 975.065 544.846C962.047 553.665 947.994 541.411 933.507 548.12C926.687 551.278 925.511 557.882 917.922 558.877C910.684 559.825 907.517 554.088 900.26 553.264C890.465 552.153 885.159 557.782 875.325 557.006C868.854 556.495 865.664 554.001 859.221 553.264C852.781 552.529 849.083 553.011 842.597 553.264C829.927 553.76 822.261 561.023 810.39 557.006C796.831 552.418 800.649 536.786 788.052 530.348C770.73 521.496 752.581 544.486 737.143 533.154C733.016 530.125 732.607 526.635 728.312 523.801C717.349 516.566 706.727 526.644 693.507 523.801C680.976 521.105 674.314 503.881 663.896 510.706C661.103 512.536 661.49 515.89 658.182 516.785C653.548 518.04 652.583 511.321 647.792 510.706C641.592 509.909 639.484 517.292 633.247 516.785C625.102 516.124 625.189 498.741 618.701 503.223C616.737 504.58 617.372 507.089 615.065 507.9C611.658 509.097 610.819 504.029 607.273 503.223C602.875 502.223 600.376 504.903 595.844 505.093C585.571 505.525 580.386 496.839 570.39 499.014C565.007 500.185 563.444 504.72 557.922 505.093C551.493 505.528 548.788 501.289 542.857 499.014C524.026 491.79 513.947 484.105 493.507 483.113C477.254 482.324 468.672 491.034 452.468 489.66C435.777 488.245 422.247 463.37 412.468 475.63C409.474 479.383 411.444 483.194 408.312 486.854C399.266 497.423 387.03 473.153 372.468 475.63C366.656 476.618 364.316 481.39 358.442 480.774C353.842 480.292 352.516 476.737 348.052 475.63C340.556 473.77 334.887 474.232 328.312 477.968C325.519 479.555 325.371 482.887 322.078 483.113C318.476 483.359 318.023 479.446 314.805 477.968C311.255 476.337 308.75 474.592 304.935 475.63C301.774 476.49 301.509 479.209 298.701 480.774C290.768 485.198 283.891 482.691 274.805 480.774C267.465 479.226 264.673 473.432 257.143 473.759C250.346 474.054 248.356 481.042 241.558 480.774C231.955 480.396 233.692 467.14 224.416 464.873C215.057 462.586 209.562 474.107 200.519 470.953C194.766 468.946 194.698 463.45 189.091 461.132C177.999 456.545 169.698 473.841 158.961 468.615C152.322 465.383 154.394 457.414 147.532 454.584C138.31 450.781 132.705 460.369 122.597 461.132C118.352 461.452 115.898 460.54 111.688 461.132C106.807 461.818 104.654 465.331 99.7403 464.873C93.0203 464.247 93.3733 455.798 86.7533 454.584C81.0158 453.532 78.0408 458.316 72.2078 457.858C61.8828 457.046 62.0596 440.377 51.9481 442.424C48.5834 443.106 47.5326 445.535 44.1558 446.166C35.4499 447.793 33.8922 436.999 25.4545 434.474C16.0215 431.651 0 434.474 0 434.474Z" /></svg>');
-                mask-repeat: no-repeat;
-                mask-position: center center;
-                mask-size: cover;
+	mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 600"><path fill-rule="evenodd" clip-rule="evenodd"  d="M0 434.474V0H1920V599.565C1920 599.565 1915.6 589.879 1909.61 589.276C1902.9 588.6 1903.08 597.779 1896.62 599.565C1885.78 602.562 1881.9 589.144 1870.65 587.873C1863.58 587.074 1859.16 591.486 1852.47 589.276C1846.14 587.184 1846.07 575.88 1840 578.519C1836.71 579.951 1838.41 585.005 1834.81 585.534C1832.2 585.916 1831.14 583.723 1828.57 583.196C1820.63 581.568 1813.35 595.379 1808.83 589.276C1807 586.802 1808.71 584.468 1807.27 581.793C1801.85 571.72 1792.79 600.586 1780.78 597.694C1773.29 595.891 1773.77 587.157 1766.23 585.534C1759.34 584.051 1755.64 588.776 1748.57 589.276C1737.93 590.029 1731.8 588.235 1721.56 585.534C1713.79 583.485 1710.42 577.982 1702.34 578.519C1697.86 578.817 1695.82 580.953 1691.43 581.793C1683.29 583.349 1677.79 584.715 1670.13 581.793C1659.04 577.561 1664.24 563.318 1653.51 558.409C1646.39 555.157 1639.93 559.988 1633.25 556.07C1624.87 551.164 1632.85 534.835 1622.86 535.025C1615.68 535.161 1613.17 540.777 1609.35 546.249C1606.04 550.994 1604.16 559.812 1604.16 559.812C1604.16 559.812 1596.81 569.527 1589.61 572.439C1571.39 579.811 1560.76 532.774 1547.53 546.249C1544.35 549.493 1546.57 555.39 1541.82 556.07C1538.5 556.545 1537.25 551.943 1534.03 552.797C1529.36 554.035 1534.63 559.671 1534.03 564.021C1532.54 574.807 1530.64 582.689 1521.04 589.276C1511.54 595.79 1502.34 597.058 1490.91 593.953C1484.28 592.152 1482.63 586.753 1475.84 585.534C1472.06 584.856 1469.68 586.481 1465.97 585.534C1459.35 583.843 1460.39 574.178 1453.51 574.31C1450.49 574.368 1449.18 576.05 1446.23 576.648C1424.62 581.047 1431.4 535.85 1409.35 537.831C1403.16 538.387 1400.5 542.779 1394.29 542.508C1388.83 542.27 1386.75 537.573 1381.3 537.831C1373.12 538.218 1373.2 547.477 1365.71 550.458C1347.38 557.76 1338.56 524.78 1319.48 530.348C1313.42 532.116 1311.54 536.149 1305.45 537.831C1282.41 544.199 1286.41 496.989 1262.34 498.078C1245.7 498.831 1239.26 529.755 1227.01 519.592C1222.94 516.212 1225.79 508.559 1220.26 508.367C1216.21 508.227 1215.33 511.961 1211.95 513.979C1181.33 532.258 1143.84 493.339 1117.92 516.785C1114.06 520.283 1114.3 525.077 1109.09 526.607C1102.45 528.557 1099.35 516.993 1092.99 519.592C1088.11 521.585 1090.39 527.297 1086.23 530.348C1079 535.661 1071.33 532.597 1062.34 530.348C1052.04 527.771 1048.85 512.149 1039.48 516.785C1034.89 519.056 1036.39 524.529 1031.69 526.607C1027.32 528.539 1023.93 525.495 1019.22 526.607C1011.68 528.387 1010.97 535.462 1003.64 537.831C995.998 540.298 989.903 534.206 982.857 537.831C979.121 539.753 978.504 542.517 975.065 544.846C962.047 553.665 947.994 541.411 933.507 548.12C926.687 551.278 925.511 557.882 917.922 558.877C910.684 559.825 907.517 554.088 900.26 553.264C890.465 552.153 885.159 557.782 875.325 557.006C868.854 556.495 865.664 554.001 859.221 553.264C852.781 552.529 849.083 553.011 842.597 553.264C829.927 553.76 822.261 561.023 810.39 557.006C796.831 552.418 800.649 536.786 788.052 530.348C770.73 521.496 752.581 544.486 737.143 533.154C733.016 530.125 732.607 526.635 728.312 523.801C717.349 516.566 706.727 526.644 693.507 523.801C680.976 521.105 674.314 503.881 663.896 510.706C661.103 512.536 661.49 515.89 658.182 516.785C653.548 518.04 652.583 511.321 647.792 510.706C641.592 509.909 639.484 517.292 633.247 516.785C625.102 516.124 625.189 498.741 618.701 503.223C616.737 504.58 617.372 507.089 615.065 507.9C611.658 509.097 610.819 504.029 607.273 503.223C602.875 502.223 600.376 504.903 595.844 505.093C585.571 505.525 580.386 496.839 570.39 499.014C565.007 500.185 563.444 504.72 557.922 505.093C551.493 505.528 548.788 501.289 542.857 499.014C524.026 491.79 513.947 484.105 493.507 483.113C477.254 482.324 468.672 491.034 452.468 489.66C435.777 488.245 422.247 463.37 412.468 475.63C409.474 479.383 411.444 483.194 408.312 486.854C399.266 497.423 387.03 473.153 372.468 475.63C366.656 476.618 364.316 481.39 358.442 480.774C353.842 480.292 352.516 476.737 348.052 475.63C340.556 473.77 334.887 474.232 328.312 477.968C325.519 479.555 325.371 482.887 322.078 483.113C318.476 483.359 318.023 479.446 314.805 477.968C311.255 476.337 308.75 474.592 304.935 475.63C301.774 476.49 301.509 479.209 298.701 480.774C290.768 485.198 283.891 482.691 274.805 480.774C267.465 479.226 264.673 473.432 257.143 473.759C250.346 474.054 248.356 481.042 241.558 480.774C231.955 480.396 233.692 467.14 224.416 464.873C215.057 462.586 209.562 474.107 200.519 470.953C194.766 468.946 194.698 463.45 189.091 461.132C177.999 456.545 169.698 473.841 158.961 468.615C152.322 465.383 154.394 457.414 147.532 454.584C138.31 450.781 132.705 460.369 122.597 461.132C118.352 461.452 115.898 460.54 111.688 461.132C106.807 461.818 104.654 465.331 99.7403 464.873C93.0203 464.247 93.3733 455.798 86.7533 454.584C81.0158 453.532 78.0408 458.316 72.2078 457.858C61.8828 457.046 62.0596 440.377 51.9481 442.424C48.5834 443.106 47.5326 445.535 44.1558 446.166C35.4499 447.793 33.8922 436.999 25.4545 434.474C16.0215 431.651 0 434.474 0 434.474Z" /></svg>');
+	mask-repeat: no-repeat;
+	mask-position: center center;
+	mask-size: cover;
 
 	&::before {
 		@include before;
@@ -869,26 +903,26 @@
 		h1 {
 			color: $white;
 			font-size: 80px;
-            font-weight: 400;
+			font-weight: 400;
 
-			@include breakpoint(max-xl){
+			@include breakpoint(max-xl) {
 				font-size: 60px;
 			}
-		
-			@include breakpoint(max-lg){
+
+			@include breakpoint(max-lg) {
 				font-size: 50px;
 				text-align: center;
 			}
-		
-			@include breakpoint(max-md){
+
+			@include breakpoint(max-md) {
 				font-size: 40px;
 			}
-		
-			@include breakpoint(max-sm){
+
+			@include breakpoint(max-sm) {
 				font-size: 30px;
 			}
-		
-			@include breakpoint(max-xxs){
+
+			@include breakpoint(max-xxs) {
 				font-size: 30px;
 			}
 
@@ -900,27 +934,27 @@
 			gap: 10px;
 			justify-content: center;
 
-			@include breakpoint (max-lg){
+			@include breakpoint (max-lg) {
 				justify-content: center;
 			}
-			
-			
+
+
 			li {
 				color: $theme-color;
 				text-transform: capitalize;
 				font-weight: 400;
 				font-size: 16px;
 				font-family: $heading-font;
-	
+
 				a {
 					color: $white;
 					@include transition;
-	
-					&:hover{
+
+					&:hover {
 						color: $theme-color;
 					}
 				}
-	
+
 				i {
 					color: $white;
 				}
@@ -933,7 +967,7 @@
 
 	.error-image {
 
-		img  {
+		img {
 			@include imgw;
 		}
 	}

@@ -109,7 +109,7 @@
     </div>
 
     <!-- Back To Top Start -->
-    <button id="back-top" class="back-to-top show" style="background-color: red;">
+    <button id="back-top" class="back-to-top show">
         <i class="fa-regular fa-arrow-up"></i>
     </button>
 

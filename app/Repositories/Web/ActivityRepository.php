@@ -5,6 +5,7 @@ namespace App\Repositories\Web;
 use App\Models\Admin\Activity;
 use App\Repositories\Web\Interface\ActivityRepositoryInterface;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class ActivityRepository implements ActivityRepositoryInterface
 {
@@ -34,7 +35,7 @@ class ActivityRepository implements ActivityRepositoryInterface
     /* ============================================================================
      |Retrieve activities with active status.
      ==============================================================================*/
-    public function getActivities(?array $filterData = null, ?array $selectedColumns = []): ?Collection
+    public function getActivities(?array $filterData = null, ?array $selectedColumns = []): ?LengthAwarePaginator
     {
         return Activity::where([
             ['status', true],
@@ -58,6 +59,6 @@ class ActivityRepository implements ActivityRepositoryInterface
                 }
             )
             ->orderBy('sort')
-            ->get();
+            ->paginate($filterData['paginateLimit'] ?? 6);
     }
 }

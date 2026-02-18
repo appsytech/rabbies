@@ -3,7 +3,7 @@
 namespace App\Repositories\Web\Interface;
 
 use App\Models\Admin\Activity;
-use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 interface ActivityRepositoryInterface
 {
@@ -15,5 +15,5 @@ interface ActivityRepositoryInterface
     /* ============================================================================
      |Retrieve activities with active status.
      ==============================================================================*/
-    public function getActivities(?array $filterData = null, ?array $selectedColumns = []): ?Collection;
+    public function getActivities(?array $filterData = null, ?array $selectedColumns = []): ?LengthAwarePaginator;
 }

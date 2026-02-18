@@ -5,8 +5,17 @@
         position: relative;
         overflow: hidden;
         border-radius: 20px;
+        max-height: 460px;
+        max-width: 645px;
 
         img {
+            @include imgw;
+            border-radius: 20px;
+            transform: scale(1.02);
+            transition: all 1.5s ease-out;
+        }
+
+        video {
             @include imgw;
             border-radius: 20px;
             transform: scale(1.02);

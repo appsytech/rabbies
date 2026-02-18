@@ -80,15 +80,9 @@
             @endif
 
         </div>
-        <div class="page-nav-wrap text-center">
-            <ul>
-                <li><a class="page-numbers style-2" href="#"><i class="fa-solid fa-arrow-left"></i></a></li>
-                <li class="active"><a class="page-numbers" href="#">01</a></li>
-                <li><a class="page-numbers" href="#">02</a></li>
-                <li><a class="page-numbers" href="#">03</a></li>
-                <li><a class="page-numbers style-2" href="#"><i class="fa-solid fa-arrow-right"></i></a></li>
-            </ul>
-        </div>
+
+        {{ $data['publications']->links('pagination::bootstrap-5') }}
+
     </div>
 </section>
 

@@ -54,9 +54,7 @@ class PageController extends Controller
             'aboutFeatures' => $this->aboutFeatureService->getAboutFeatures([
                 'limit' =>  4
             ]),
-            'members' => $this->adminService->getAdmins([
-                'role' => 5,
-            ], ['id', 'profile_image', 'name', 'description'])
+            'members' => $this->adminService->getAdmins([], ['id', 'profile_image', 'name', 'description'])
         ];
 
 

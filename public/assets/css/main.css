@@ -1,5 +1,8 @@
 /*
-
+Theme Name: AbhiNGO  
+Version: 1.0.0
+*/
+/*CSS Table Of Content Ends Here*/
 /*
 --------------------------------------------------------------
 [Table of Contents]
@@ -417,6 +420,8 @@ span {
 }
 .about-wrapper-2 .about-left-item .about-image {
   position: relative;
+  max-height: 390px;
+  max-width: 870px;
 }
 .about-wrapper-2 .about-left-item .about-image img {
   width: 100%;
@@ -425,6 +430,8 @@ span {
 }
 .about-wrapper-2 .about-right-item .about-image {
   margin-left: -25px;
+  max-height: 394px;
+  max-width: 450px;
 }
 @media (max-width: 1399px) {
   .about-wrapper-2 .about-right-item .about-image {
@@ -466,6 +473,8 @@ span {
 .about-wrapper-2 .about-right-item .about-icon-main-item .about-icon-item .icon-item .icon img {
   transition: all 0.4s ease-in-out;
   display: inline-block;
+  max-height: 60px;
+  max-width: 60px;
 }
 .about-wrapper-2 .about-right-item .about-icon-main-item .about-icon-item .icon-item h5 {
   margin-top: 10px;
@@ -1536,6 +1545,9 @@ span {
 .contact-wrapper .contact-content .logo-image {
   margin-bottom: 20px;
 }
+.contact-wrapper .contact-content .logo-image img {
+  max-width: 160px;
+}
 @media (max-width: 1899px) {
   .contact-wrapper .contact-content .section-title h2 {
     font-size: 40px;
@@ -2132,6 +2144,8 @@ span {
 }
 .donation-wrapper .donation-card-item .donation-image img {
   border-radius: 20px;
+  max-width: 360px;
+  max-height: 250px;
 }
 @media (max-width: 1399px) {
   .donation-wrapper .donation-card-item .donation-image img {
@@ -2393,6 +2407,8 @@ span {
   width: 100%;
   height: 100%;
   border-radius: 20px;
+  height: 250px;
+  width: 360px;
 }
 .donation-wrapper-2 .donation-card-item-2 .donation-content {
   margin-top: 20px;
@@ -5371,6 +5387,9 @@ span {
 .header-1 .container-fluid {
   padding: 0 120px;
 }
+.header-1 .container-fluid .header-main .header-left .logo .header-logo img {
+  max-width: 160px;
+}
 @media (max-width: 1399px) {
   .header-1 .container-fluid {
     padding: 0 50px;
@@ -5493,10 +5512,6 @@ span {
   display: none;
 }
 
-.offcanvas__logo img {
-    max-width: 160px;
-}
-
 .offcanvas__info.info-open {
   opacity: 1;
   -webkit-transform: translateX(0);
@@ -5513,6 +5528,9 @@ span {
 }
 .offcanvas__wrapper .offcanvas__content .text {
   color: var(--black);
+}
+.offcanvas__wrapper .offcanvas__content .offcanvas__logo img {
+  max-width: 160px;
 }
 .offcanvas__wrapper .offcanvas__content .offcanvas__close {
   width: 45px;
@@ -6057,6 +6075,18 @@ span {
 .page-nav-wrap ul li {
   display: inline-block;
 }
+.page-nav-wrap ul li .page-numbers.current {
+  background: linear-gradient(180deg, #1539EE 0%, #2ADDC8 100%);
+  color: var(--white);
+  border-radius: 10px;
+}
+.page-nav-wrap ul li .page-numbers.disabled {
+  color: #000;
+  border-radius: 10px;
+}
+.page-nav-wrap ul li .page-numbers.disabled i {
+  color: #000;
+}
 .page-nav-wrap ul li .page-numbers {
   display: inline-block;
   width: 40px;
@@ -6071,11 +6101,6 @@ span {
   font-weight: 600;
   transition: all 0.3s ease-in-out;
   margin: 0 2px;
-}
-.page-nav-wrap ul li .page-numbers.current {
-  background: linear-gradient(180deg, #1539EE 0%, #2ADDC8 100%);
-  color: var(--white);
-  border-radius: 10px;
 }
 .page-nav-wrap ul li .page-numbers.style-2 {
   display: inline-block;
@@ -6780,6 +6805,8 @@ span {
   position: relative;
   border-radius: 20px;
   overflow: hidden;
+  max-height: 426px;
+  max-width: 420px;
 }
 .news-card-items .news-image .bottom-shape {
   position: absolute;
@@ -7538,7 +7565,8 @@ span {
     padding: 30px;
   }
 }
-.news-details-wrapper .news-details-post .news-details-content .contact-from-box .form-clt input, .news-details-wrapper .news-details-post .news-details-content .contact-from-box .form-clt textarea {
+.news-details-wrapper .news-details-post .news-details-content .contact-from-box .form-clt input,
+.news-details-wrapper .news-details-post .news-details-content .contact-from-box .form-clt textarea {
   width: 100%;
   outline: none;
   border: none;
@@ -7551,7 +7579,8 @@ span {
   font-family: "DM Serif Text", serif;
   border-radius: 10px;
 }
-.news-details-wrapper .news-details-post .news-details-content .contact-from-box .form-clt input::placeholder, .news-details-wrapper .news-details-post .news-details-content .contact-from-box .form-clt textarea::placeholder {
+.news-details-wrapper .news-details-post .news-details-content .contact-from-box .form-clt input::placeholder,
+.news-details-wrapper .news-details-post .news-details-content .contact-from-box .form-clt textarea::placeholder {
   color: var(--text);
 }
 .news-details-wrapper .news-details-post .news-details-content .contact-from-box .form-clt textarea {
@@ -8100,8 +8129,17 @@ span {
   position: relative;
   overflow: hidden;
   border-radius: 20px;
+  max-height: 460px;
+  max-width: 645px;
 }
 .project-card-item .project-image img {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  transform: scale(1.02);
+  transition: all 1.5s ease-out;
+}
+.project-card-item .project-image video {
   width: 100%;
   height: 100%;
   border-radius: 20px;
@@ -9028,10 +9066,6 @@ span {
   background-color: var(--header);
 }
 
-a.header-logo img {
-    max-width: 160px;
-}
-
 .footer-bg-2 {
   background-color: #0F0F0F;
 }
@@ -9135,6 +9169,8 @@ a.header-logo img {
   transition: all 0.4s ease-in-out;
 }
 .causes-box-item .icon img {
+  max-height: 60%;
+  max-width: 60%;
   transition: all 0.4s ease-in-out;
   display: inline-block;
 }
@@ -9401,6 +9437,8 @@ a.header-logo img {
   overflow: hidden;
   border-radius: 154px;
   position: relative;
+  height: 237px;
+  width: 237px;
 }
 @media (max-width: 1399px) {
   .team-card-items .team-image {
@@ -9795,7 +9833,8 @@ a.header-logo img {
     margin-bottom: 30px;
   }
 }
-.volounteer-Experience-wrapper .contact-form-items .form-clt input, .volounteer-Experience-wrapper .contact-form-items .form-clt textarea {
+.volounteer-Experience-wrapper .contact-form-items .form-clt input,
+.volounteer-Experience-wrapper .contact-form-items .form-clt textarea {
   width: 100%;
   outline: none;
   border: none;
@@ -9809,7 +9848,8 @@ a.header-logo img {
   border-radius: 6px;
   font-family: "DM Serif Text", serif;
 }
-.volounteer-Experience-wrapper .contact-form-items .form-clt input::placeholder, .volounteer-Experience-wrapper .contact-form-items .form-clt textarea::placeholder {
+.volounteer-Experience-wrapper .contact-form-items .form-clt input::placeholder,
+.volounteer-Experience-wrapper .contact-form-items .form-clt textarea::placeholder {
   color: #666;
 }
 .volounteer-Experience-wrapper .contact-form-items .form-clt textarea {
@@ -9952,7 +9992,8 @@ a.header-logo img {
   margin-top: 10px;
   margin-bottom: 30px;
 }
-.become-volounteer-wrapper .from-box .form-clt input, .become-volounteer-wrapper .from-box .form-clt textarea {
+.become-volounteer-wrapper .from-box .form-clt input,
+.become-volounteer-wrapper .from-box .form-clt textarea {
   width: 100%;
   outline: none;
   border: none;
@@ -9965,7 +10006,8 @@ a.header-logo img {
   font-size: 16px;
   border-radius: 10px;
 }
-.become-volounteer-wrapper .from-box .form-clt input::placeholder, .become-volounteer-wrapper .from-box .form-clt textarea::placeholder {
+.become-volounteer-wrapper .from-box .form-clt input::placeholder,
+.become-volounteer-wrapper .from-box .form-clt textarea::placeholder {
   color: var(--text);
 }
 .become-volounteer-wrapper .from-box .form-clt textarea {
@@ -10472,122 +10514,4 @@ a.header-logo img {
   color: var(--theme-2);
   position: relative;
   z-index: 999;
-}
-
-
-/*hero slider css */
-.hero-height {
-  min-height:560px;
-}
-
-.logo-image img {
-  max-width: 160px;
-}
-
-
-/* galery image */
-
-/* Fullscreen Image Modal CSS */
-.image-modal {
-    display: none;
-    position: fixed;
-    z-index: 99999;
-    padding: 0;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    background-color: rgba(0, 0, 0, 0.98);
-    animation: modalFadeIn 0.3s ease;
-}
-
-@keyframes modalFadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-.image-modal-content {
-    margin: auto;
-    display: block;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    max-width: 95%;
-    max-height: 95%;
-    object-fit: contain;
-    animation: zoomIn 0.4s ease;
-}
-
-@keyframes zoomIn {
-    from {
-        transform: translate(-50%, -50%) scale(0.5);
-        opacity: 0;
-    }
-    to {
-        transform: translate(-50%, -50%) scale(1);
-        opacity: 1;
-    }
-}
-
-.image-modal-close {
-    position: absolute;
-    top: 25px;
-    right: 40px;
-    color: #ffffff;
-    font-size: 50px;
-    font-weight: bold;
-    cursor: pointer;
-    z-index: 100000;
-    transition: all 0.3s ease;
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
-}
-
-.image-modal-close:hover,
-.image-modal-close:focus {
-    color: #ff6b6b;
-    transform: rotate(90deg);
-}
-
-.gallery-image {
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-.project-content {
-    pointer-events: none;
-}
-
-.project-content a,
-.project-content .arrow-icon {
-    pointer-events: auto;
-}
-
-/* Mobile Responsive */
-@media (max-width: 768px) {
-    .image-modal-close {
-        top: 15px;
-        right: 20px;
-        font-size: 40px;
-    }
-    
-    .image-modal-content {
-        max-width: 98%;
-        max-height: 98%;
-    }
-}
-
-@media (max-width: 480px) {
-    .image-modal-close {
-        top: 10px;
-        right: 15px;
-        font-size: 35px;
-    }
-}
-
-/*# sourceMappingURL=main.css.map */
+}/*# sourceMappingURL=main.css.map */
