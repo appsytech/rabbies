@@ -87,7 +87,7 @@
 </section>
 
 <!-- Team Section Start -->
-<section class="team-section fix">
+<section class="team-section fix pb-5">
     <div class="container">
         <div class="section-title text-center">
             <span class="sub-title wow fadeInUp">Our Volunteers</span>
@@ -129,6 +129,8 @@
             @endforeach
             @endif
         </div>
+
+        {{ $data['members']->links('pagination::bootstrap-5') }}
     </div>
 </section>
 

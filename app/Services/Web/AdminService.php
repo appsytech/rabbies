@@ -4,6 +4,7 @@ namespace App\Services\Web;
 
 use App\Repositories\Web\Interface\AdminRepositoryInterface;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class AdminService
 {
@@ -19,7 +20,7 @@ class AdminService
     /* ============================================================================
     |  Fetch admin with optional filters and selected columns.
     ==============================================================================*/
-    public function getAdmins(?array $filterData = null, ?array $selectedcolumns = null): ?Collection
+    public function getAdmins(?array $filterData = null, ?array $selectedcolumns = null): ?LengthAwarePaginator
     {
         return $this->adminRepo->getAdmins($filterData, $selectedcolumns);
     }

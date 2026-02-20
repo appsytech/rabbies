@@ -139,7 +139,7 @@
                             </h2>
                         </div>
                         <p class="text wow fadeInUp" data-wow-delay=".5s">
-                            {{ \Illuminate\Support\Str::words($data['aboutus']->description, 100, '...') }}
+                            {{ \Illuminate\Support\Str::words($data['aboutus']->description, 40, '...') }}
                         </p>
                         @isset($data['aboutus']->images2)
                         <div class="about-image wow img-custom-anim-left" data-wow-duration="1.3s" data-wow-delay="0.3s">
@@ -169,7 +169,7 @@
                                     <div class="content">
                                         <h5>{{ $feature->title ?? '' }}</h5>
                                         <p>
-                                            {{ $feature->description ?? ''  }}
+                                            {{ \Illuminate\Support\Str::words($feature->description, 10, '...') }}
                                         </p>
                                     </div>
                                 </div>
@@ -193,7 +193,7 @@
     </div>
     <div class="container">
         <div class="section-title text-center">
-            <span class="sub-title wow fadeInUp">Our Animal Care Services</span>
+            <span class="sub-title wow fadeInUp">Our Services</span>
             <h2 class="wow fadeInUp" data-wow-delay=".3s">
                 <span>S</span>upporting animals through student volunteers <br> and compassionate community action
             </h2>
@@ -215,7 +215,7 @@
                                 <a href="{{ route('web.service.show', encrypt($service->id)) }}">{{ $service->title ?? '' }}</a>
                             </h3>
                             <p>
-                                {{ $service->description ?? '' }}
+                                {{ \Illuminate\Support\Str::words($service->description, 15, '...') }}
                             </p>
                             <a href="{{ route('web.service.show', encrypt($service->id)) }}" class="theme-btn">Learn More <i class="fa-solid fa-arrow-right-long"></i></a>
                         </div>
@@ -261,7 +261,7 @@
                                 <a href="{{ route('web.activity.show', encrypt($activity->id)) }}">{{ $activity->title }}</a>
                             </h4>
                             <p>
-                                {{ $activity->description ?? '' }}
+                                {{ \Illuminate\Support\Str::words($activity->description, 20, '...') }}
                             </p>
                             <!-- <div class="pro-items">
                                         <div class="progress">
@@ -340,7 +340,9 @@
                                 <h3>
                                     <a href="#" class="gallery-trigger">{{ $firstGallery->title ?? '' }}</a>
                                 </h3>
-                                <h5>{{ $firstGallery->description ?? '' }}</h5>
+                                <h5>
+                                    {{ \Illuminate\Support\Str::words($firstGallery->description, 5, '...') }}
+                                </h5>
                             </div>
                             <a href="#" class="arrow-icon gallery-trigger"><i class="fa-solid fa-arrow-right-long"></i></a>
                         </div>
@@ -381,9 +383,11 @@
                         <div class="project-content style-2">
                             <div class="content">
                                 <h3>
-                                    <a href="#" class="gallery-trigger">{{ $firstGallery->title ?? '' }}</a>
+                                    <a href="#" class="gallery-trigger">{{ $scndGallery->title ?? '' }}</a>
                                 </h3>
-                                <h5>{{ $firstGallery->description ?? '' }}</h5>
+                                <h5>
+                                     {{ \Illuminate\Support\Str::words($scndGallery->description, 5, '...') }}
+                                </h5>
                             </div>
                             <a href="#" class="arrow-icon gallery-trigger"><i class="fa-solid fa-arrow-right-long"></i></a>
                         </div>
@@ -437,7 +441,9 @@
                         </div>
                         <div class="team-content">
                             <h5><a href="#">{{ $admin->name ?? '' }}</a></h5>
-                            <p>{{ $admin->description ?? '' }}</p>
+                            <p>
+                                {{ $admin->description ?? '' }}
+                            </p>
                             <div class="social-icon">
                                 <a href="#">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">

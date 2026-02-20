@@ -3672,6 +3672,14 @@ span {
 .event-details-wrapper .event-main-sideber .event-contact-box .theme-btn:hover {
   color: var(--white);
 }
+.event-details-wrapper .event-main-sideber .single-sidebar-widget .recent-activity-area .recent-items .recent-thumb {
+  height: 80px;
+  width: 80px;
+}
+.event-details-wrapper .event-main-sideber .single-sidebar-widget .recent-activity-area .recent-items .recent-thumb img {
+  max-height: 100%;
+  max-width: 100%;
+}
 
 .faq-wrapper .faq-items {
   position: relative;
@@ -7320,8 +7328,14 @@ span {
 .main-sideber .single-sidebar-widget .recent-post-area .recent-items:not(:last-child) {
   margin-bottom: 20px;
 }
+.main-sideber .single-sidebar-widget .recent-post-area .recent-items .recent-thumb {
+  height: 80px;
+  width: 80px;
+}
 .main-sideber .single-sidebar-widget .recent-post-area .recent-items .recent-thumb img {
   border-radius: 10px;
+  height: 100%;
+  width: 100%;
 }
 .main-sideber .single-sidebar-widget .recent-post-area .recent-items .recent-content h6 {
   margin-bottom: 10px;
@@ -8863,6 +8877,10 @@ span {
   .causes-details-wrapper .causes-details-sideber .details-post-area .details-items {
     flex-wrap: wrap;
   }
+}
+.causes-details-wrapper .causes-details-sideber .details-post-area .details-items .details-thumb {
+  height: 80px;
+  width: 80px;
 }
 .causes-details-wrapper .causes-details-sideber .details-post-area .details-items .details-thumb img {
   width: 100%;

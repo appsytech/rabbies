@@ -75,7 +75,7 @@ $publication = $data['publication'];
                 </div>
                 <div class="col-lg-4 col-12">
                     <div class="main-sideber">
-                        <div class="single-sidebar-widget">
+                        <!-- <div class="single-sidebar-widget">
                             <div class="wid-title">
                                 <h4>Search</h4>
                             </div>
@@ -85,7 +85,7 @@ $publication = $data['publication'];
                                     <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
                                 </form>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="single-sidebar-widget">
                             <div class="wid-title">
                                 <h4>Recent Publications</h4>

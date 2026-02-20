@@ -79,71 +79,49 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4">
-                    <div class="event-main-sideber">
-                        <!-- <div class="event-sideber-box">
-                            <div class="client-image">
-                                <img src="assets/img/inner-page/event-details/user.png" alt="img">
-                            </div>
-                            <div class="user-content">
-                                <h5>Dianne Russell</h5>
-                                <span>Medical Assistant</span>
-                                <p>
-                                    Adipiscing sed do tempor incididunt ut labore et dolore magna aliqua. Ut enim minim dolor in reprehenderit.
-                                </p>
-                                <div class="social-icon">
-                                    <a href="#">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
-                                            <path d="M18.244 2.25h3.308l-7.227 8.26L22.75 21.75h-6.57l-5.145-6.7-5.873 6.7H1.854l7.73-8.835L1.25 2.25h6.736l4.654 6.1z" />
-                                        </svg>
-                                    </a>
 
-                                    <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
-                                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
-                                </div>
+                  <div class="col-lg-4 col-12">
+                    <div class="main-sideber">
+                        <!-- <div class="single-sidebar-widget">
+                            <div class="wid-title">
+                                <h4>Search</h4>
                             </div>
-                        </div>
-                        <div class="event-info-box">
-                            <h3>Event Info</h3>
-                            <div class="info-item">
-                                <div class="icon">
-                                    <i class="fa-regular fa-location-dot"></i>
-                                </div>
-                                <div class="content">
-                                    <h6>Location:</h6>
-                                    <span>3891 Ranchview California 62639</span>
-                                </div>
-                            </div>
-                            <div class="info-item">
-                                <div class="icon">
-                                    <i class="fa-regular fa-clock"></i>
-                                </div>
-                                <div class="content">
-                                    <h6>Event Time:</h6>
-                                    <span>09:00 PM - 04:00 AM</span>
-                                </div>
-                            </div>
-                            <div class="info-item mb-0">
-                                <div class="icon">
-                                    <i class="fa-regular fa-calendar-days"></i>
-                                </div>
-                                <div class="content">
-                                    <h6>Event Date:</h6>
-                                    <span>Event Date:</span>
-                                </div>
+                            <div class="search-widget">
+                                <form action="#">
+                                    <input type="text" placeholder="Search here">
+                                    <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                                </form>
                             </div>
                         </div> -->
-                        <div class="event-contact-box">
-                            <div class="icon">
-                                <i class="fa-regular fa-phone"></i>
+                        <div class="single-sidebar-widget">
+                            <div class="wid-title">
+                                <h4>Recent Activities</h4>
                             </div>
-                            <h5>Need Help? Call Here</h5>
-                            <h6>
-                                <a href="tel:+16336547896">+163 3654 7896</a>
-                            </h6>
-                            <a href="#" class="theme-btn">BOOK NOW <i class="fa-solid fa-arrow-right-long"></i></a>
+                            <div class="recent-post-area">
+                                @if($data['relatedActivities']->isNotEmpty())
+                                @foreach($data['relatedActivities'] as $activity)
+                                <div class="recent-items">
+                                    <div class="recent-thumb">
+                                        <img src="{{ asset('storage/' . $activity->images) }}" alt="img">
+                                    </div>
+                                    <div class="recent-content">
+                                        <h6>
+                                            <a href="{{ route('web.activity.show', encrypt($activity->id)) }}">
+                                                {{ $activity->title  ?? '' }}
+                                            </a>
+                                        </h6>
+                                        <ul>
+                                            <li>
+                                                {{ \Illuminate\Support\Carbon::parse($activity->created_at)->format('Y-m-d') }}
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                @endforeach
+                                @endif
+                            </div>
                         </div>
+
                     </div>
                 </div>
             </div>

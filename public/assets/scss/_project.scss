@@ -830,6 +830,8 @@
                 }
 
                 .details-thumb {
+                    height: 80px;
+                    width: 80px;
                     img  {
                         @include imgw;
                         border-radius: 8px;
