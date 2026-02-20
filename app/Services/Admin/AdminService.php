@@ -114,9 +114,12 @@ class AdminService
             'phone' => $request->phone ?? null,
             'admin_role' => $request->admin_role ?? null,
             'status' => $request->status ?? null,
-            'sort' => $request->sort,
             'updated_at' => Carbon::now(),
         ];
+
+        if ($request->has('sort')) {
+            $data['sort'] =  $request->sort;
+        }
 
         if ($request->hasFile('profile_image')) {
             if (isset($admin->profile_image) && Storage::disk('public')->exists($admin->profile_image)) {

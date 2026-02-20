@@ -39,7 +39,6 @@ class PublicationController extends Controller
         $validator = Validator::make($request->all(), [
             'title' => 'required|string|max:255',
             'type' => 'required|string|max:30',
-            'author' => 'nullable|string|max:50',
             'status' => 'required|in:0,1',
             'document' => 'nullable|file',
             'thumbnail' => 'required|file',
@@ -95,7 +94,6 @@ class PublicationController extends Controller
             'id' => 'required|integer',
             'title' => 'required|string|max:255',
             'type' => 'required|string|max:30',
-            'author' => 'nullable|string|max:50',
             'status' => 'required|in:0,1',
             'document' => 'nullable|file',
             'thumbnail' => 'nullable|file',

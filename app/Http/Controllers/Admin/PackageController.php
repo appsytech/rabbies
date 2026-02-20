@@ -39,7 +39,6 @@ class PackageController extends Controller
         $validator = Validator::make($request->all(), [
             'title' => 'required|string|max:255',
             'content' => 'required|string',
-            'author' => 'nullable|string|max:30',
             'status' => 'required|in:-1,0,1',
             'image' => 'nullable|file',
             'sort'  => 'required|integer|min:0'
@@ -93,7 +92,6 @@ class PackageController extends Controller
             'id' => 'required|integer',
             'title' => 'required|string|max:255',
             'content' => 'required|string',
-            'author' => 'nullable|string|max:30',
             'status' => 'required|in:-1,0,1',
             'image' => 'nullable|file',
             'sort'    => 'required|integer|min:0'

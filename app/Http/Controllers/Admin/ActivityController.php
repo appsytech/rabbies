@@ -41,7 +41,6 @@ class ActivityController extends Controller
         $validator = Validator::make($request->all(), [
             'title' => 'required|string|max:100',
             'type' => 'required|in:UPCOMING,CURRENT',
-            'author' => 'required|string|max:100',
             'status' => 'required|in:0,1',
             'description' => 'required|string',
             'images' => 'required',
@@ -96,7 +95,6 @@ class ActivityController extends Controller
             'id' => 'required|integer',
             'title' => 'required|string|max:100',
             'type' => 'required|in:UPCOMING,CURRENT',
-            'author' => 'required|string|max:100',
             'status' => 'required|in:0,1',
             'description' => 'required|string',
             'images' => 'nullable',

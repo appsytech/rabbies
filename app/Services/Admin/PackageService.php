@@ -7,6 +7,7 @@ use App\Repositories\Admin\Interfaces\PackageRepositoryInterface;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class PackageService
@@ -28,7 +29,7 @@ class PackageService
         $data = [
             'title' => $request->title,
             'content' => $request->content,
-            'author' => $request->author ?? null,
+            'author' => Auth::user()->name,
             'status' => $request->status ?? null,
             'sort'               => $request->sort,
             'created_at' => Carbon::now(),
@@ -68,7 +69,7 @@ class PackageService
         $data = [
             'title' => $request->title,
             'content' => $request->content,
-            'author' => $request->author ?? null,
+            'author' => Auth::user()->name,
             'status' => $request->status ?? null,
             'sort'               => $request->sort,
             'updated_at' => Carbon::now(),

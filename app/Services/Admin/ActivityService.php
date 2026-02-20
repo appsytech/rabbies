@@ -6,6 +6,7 @@ use App\Models\Admin\Activity;
 use App\Repositories\Admin\Interfaces\ActivityRepositoryInterface;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class ActivityService
@@ -26,7 +27,7 @@ class ActivityService
         $data = [
             'title' => $request->title,
             'type' => $request->type,
-            'author' => $request->author,
+            'author' => Auth::user()->name,
             'status' => $request->status,
             'description' => $request->description,
             'sort' => $request->sort,
@@ -67,7 +68,7 @@ class ActivityService
         $data = [
             'title' => $request->title,
             'type' => $request->type,
-            'author' => $request->author,
+            'author' => Auth::user()->name,
             'status' => $request->status,
             'description' => $request->description,
             'sort' => $request->sort,
