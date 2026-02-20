@@ -5,6 +5,7 @@ namespace App\Repositories\Admin;
 use App\Models\Admin\Publication;
 use App\Repositories\Admin\Interfaces\PublicationRepositoryInterface;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class PublicationRepository implements PublicationRepositoryInterface
 {
@@ -42,7 +43,7 @@ class PublicationRepository implements PublicationRepositoryInterface
     /* ============================================================================
     |  Fetch publication with optional filters and selected columns.
     ==============================================================================*/
-    public function getPublications(?array $filterData = null, ?array $selectedcolumns = null): ?Collection
+    public function getPublications(?array $filterData = null, ?array $selectedcolumns = null): ?LengthAwarePaginator
     {
         return Publication::when(
             isset($filterData['type']),
@@ -63,7 +64,7 @@ class PublicationRepository implements PublicationRepositoryInterface
                 }
             )
             ->orderBy('created_at', 'desc')
-            ->get();
+            ->paginate($filterData['paginateLimit'] ?? 10);
     }
 
     /* ============================================================================

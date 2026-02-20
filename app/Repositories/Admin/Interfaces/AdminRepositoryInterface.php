@@ -4,6 +4,7 @@ namespace App\Repositories\Admin\Interfaces;
 
 use App\Models\Admin\Admin;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 interface AdminRepositoryInterface
 {
@@ -25,7 +26,7 @@ interface AdminRepositoryInterface
     /* ============================================================================
     |  Fetch admin with optional filters and selected columns.
     ==============================================================================*/
-    public function getAdmins(?array $filterData = null, ?array $selectedcolumns = null): ?Collection;
+    public function getAdmins(?array $filterData = null, ?array $selectedcolumns = null): ?LengthAwarePaginator;
 
     /* ============================================================================
     |Update specific columns of an existing admin record.

@@ -6,6 +6,7 @@ use App\Models\Admin\Activity;
 use App\Repositories\Admin\Interfaces\ActivityRepositoryInterface;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class ActivityRepository implements ActivityRepositoryInterface
 {
@@ -49,7 +50,7 @@ class ActivityRepository implements ActivityRepositoryInterface
     /* ============================================================================
      |Retrieve activities list with optional filters and column selection.
      ==============================================================================*/
-    public function getActivities(?array $filterData = null, ?array $selectedColumns = null): ?Collection
+    public function getActivities(?array $filterData = null, ?array $selectedColumns = null): ?LengthAwarePaginator
     {
         return Activity::when(
             isset($filterData['limit']) && is_numeric($filterData['limit']),
@@ -80,7 +81,7 @@ class ActivityRepository implements ActivityRepositoryInterface
                 function ($query) use ($selectedColumns) {
                     return $query->select($selectedColumns);
                 }
-            )->get();
+            )->paginate($filterData['paginateLimit'] ?? 10);
     }
 
     /* ============================================================================

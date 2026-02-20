@@ -4,6 +4,7 @@ namespace App\Repositories\Admin\Interfaces;
 
 use App\Models\Admin\Activity;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 interface ActivityRepositoryInterface
 {
@@ -20,7 +21,7 @@ interface ActivityRepositoryInterface
     /* ============================================================================
      |Retrieve activities list with optional filters and column selection.
      ==============================================================================*/
-    public function getActivities(?array $filterData = null, ?array $selectedColumns = null): ?Collection;
+    public function getActivities(?array $filterData = null, ?array $selectedColumns = null): ?LengthAwarePaginator;
 
     /* ============================================================================
      |Update specific columns of an existing activity record.

@@ -136,8 +136,6 @@
                             Status
                         </th>
 
-
-
                         <th class="h-12 px-4 text-left  font-semibold">
                             Action
                         </th>
@@ -153,7 +151,9 @@
 
                     <tr class="border-b border-gray-200">
                         {{-- S.N --}}
-                        <td class="p-4 text-xs">{{ $sno }}</td>
+                        <td class="p-4 text-xs">
+                            {{ $data['services']->firstItem() + $loop->index }}
+                        </td>
 
                         {{-- Title --}}
                         <td class="p-4 font-medium">
@@ -258,7 +258,8 @@
         </div>
 
         <!--============= Pagination ==============-->
-        <div class="rounded-xl p-3">
+        {{ $data['services']->links() }}
+        <!-- <div class="rounded-xl p-3">
             <div class="flex items-center justify-between">
                 <div class="text-sm text-gray-600">
                     Showing <span class="font-semibold text-gray-900">1-12</span> of <span
@@ -295,7 +296,7 @@
                     </button>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 </main>
 
@@ -403,7 +404,7 @@
                                 Mission Description
                             </label>
                             <div class="relative">
-                                <textarea name="mission_description"  placeholder="Enter mission description..."
+                                <textarea name="mission_description" placeholder="Enter mission description..."
                                     class="w-full px-4 py-2.5 text-sm text-gray-700 bg-white border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all shadow-sm hover:shadow-md placeholder-gray-400"></textarea>
                             </div>
                         </div>

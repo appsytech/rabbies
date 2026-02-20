@@ -5,6 +5,7 @@ namespace App\Repositories\Admin;
 use App\Models\Admin\Package;
 use App\Repositories\Admin\Interfaces\PackageRepositoryInterface;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class PackageRepository implements PackageRepositoryInterface
 {
@@ -42,12 +43,12 @@ class PackageRepository implements PackageRepositoryInterface
     /* ============================================================================
     |  Fetch package with optional filters and selected columns.
     ==============================================================================*/
-    public function getPackages(?array $filterData = null, ?array $selectedcolumns = null): ?Collection
+    public function getPackages(?array $filterData = null, ?array $selectedcolumns = null): ?LengthAwarePaginator
     {
         return Package::when(
             isset($filterData['title']),
             function ($query) use ($filterData) {
-                $query->where('title', 'LIKE', '%'.$filterData['title'].'%');
+                $query->where('title', 'LIKE', '%' . $filterData['title'] . '%');
             }
         )
 
@@ -63,7 +64,7 @@ class PackageRepository implements PackageRepositoryInterface
                     return $query->select($selectedcolumns);
                 }
             )
-            ->get();
+            ->paginate($filterData['paginateLimit'] ?? 10);
     }
 
     /* ============================================================================

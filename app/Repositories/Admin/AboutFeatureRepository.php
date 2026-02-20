@@ -64,7 +64,7 @@ class AboutFeatureRepository implements AboutFeatureRepositoryInterface
                     return $query->select($selectedcolumns);
                 }
             )
-            ->paginate($filterData['paginateLimit'] ?? 10);
+            ->paginate($filterData['paginateLimit'] ?? 1);
     }
 
     /* ============================================================================

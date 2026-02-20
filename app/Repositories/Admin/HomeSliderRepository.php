@@ -5,6 +5,7 @@ namespace App\Repositories\Admin;
 use App\Models\Admin\HomeSlider;
 use App\Repositories\Admin\Interfaces\HomeSliderRepositoryInterface;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class HomeSliderRepository implements HomeSliderRepositoryInterface
 {
@@ -42,12 +43,12 @@ class HomeSliderRepository implements HomeSliderRepositoryInterface
     /* ============================================================================
     |  Fetch HomeSlider with optional filters and selected columns.
     ==============================================================================*/
-    public function getHomeSliders(?array $filterData = null, ?array $selectedcolumns = null): ?Collection
+    public function getHomeSliders(?array $filterData = null, ?array $selectedcolumns = null): ?LengthAwarePaginator
     {
         return HomeSlider::when(
             isset($filterData['type']),
             function ($query) use ($filterData) {
-                $query->where('type', 'LIKE', '%'.$filterData['type'].'%');
+                $query->where('type', 'LIKE', '%' . $filterData['type'] . '%');
             }
         )
             ->when(
@@ -62,7 +63,7 @@ class HomeSliderRepository implements HomeSliderRepositoryInterface
                     return $query->select($selectedcolumns);
                 }
             )
-            ->get();
+            ->paginate($filterData['paginateLimit'] ?? 10);
     }
 
     /* ============================================================================
@@ -71,7 +72,6 @@ class HomeSliderRepository implements HomeSliderRepositoryInterface
     public function updateColumns(int $id, array $data): bool
     {
         return HomeSlider::where('id', $id)->update($data);
-
     }
 
     /* ================================================
@@ -80,6 +80,5 @@ class HomeSliderRepository implements HomeSliderRepositoryInterface
     public function delete(int $id): bool
     {
         return HomeSlider::where('id', $id)->delete();
-
     }
 }

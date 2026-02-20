@@ -6,6 +6,7 @@ use App\Models\Admin\Admin;
 use App\Repositories\Admin\Interfaces\AdminRepositoryInterface;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class AdminRepository implements AdminRepositoryInterface
 {
@@ -70,7 +71,7 @@ class AdminRepository implements AdminRepositoryInterface
     /* ============================================================================
     |  Fetch admin with optional filters and selected columns.
     ==============================================================================*/
-    public function getAdmins(?array $filterData = null, ?array $selectedcolumns = null): ?Collection
+    public function getAdmins(?array $filterData = null, ?array $selectedcolumns = null): ?LengthAwarePaginator
     {
         return Admin::when(
             isset($filterData['name']),
@@ -90,7 +91,7 @@ class AdminRepository implements AdminRepositoryInterface
                     return $query->select($selectedcolumns);
                 }
             )
-            ->get();
+           ->paginate($filterData['paginateLimit'] ?? 10);
     }
 
     /* ============================================================================

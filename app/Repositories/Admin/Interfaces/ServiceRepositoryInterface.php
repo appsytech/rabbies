@@ -4,6 +4,7 @@ namespace App\Repositories\Admin\Interfaces;
 
 use App\Models\Admin\Service;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 interface ServiceRepositoryInterface
 {
@@ -21,7 +22,7 @@ interface ServiceRepositoryInterface
     /* ============================================================================
     |  Fetch Service with optional filters and selected columns.
     ==============================================================================*/
-    public function getServices(?array $filterData = null, ?array $selectedcolumns = null): ?Collection;
+    public function getServices(?array $filterData = null, ?array $selectedcolumns = null): ?LengthAwarePaginator;
 
     /* ============================================================================
     |Update specific columns of an existing Service record.

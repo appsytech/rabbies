@@ -5,6 +5,7 @@ namespace App\Services\Admin;
 use App\Models\Admin\Activity;
 use App\Repositories\Admin\Interfaces\ActivityRepositoryInterface;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Storage;
 
 class ActivityService
@@ -34,7 +35,6 @@ class ActivityService
 
         if ($request->hasFile('images')) {
             $data['images'] = $request->file('images')->store('assets/images/activities', 'public');
-
         }
 
         return $this->activityRepo->create($data);
@@ -51,7 +51,7 @@ class ActivityService
     /* ============================================================================
     |Retrieve activities list with optional filters and column selection.
     ==============================================================================*/
-    public function getActivities(?array $filterData = null, ?array $selectedColumns = null): ?Collection
+    public function getActivities(?array $filterData = null, ?array $selectedColumns = null): ?LengthAwarePaginator
     {
         return $this->activityRepo->getActivities($filterData, $selectedColumns);
     }
@@ -83,7 +83,6 @@ class ActivityService
         }
 
         return $this->activityRepo->updateColumns($activityId, $data);
-
     }
 
     /* ============================================================================

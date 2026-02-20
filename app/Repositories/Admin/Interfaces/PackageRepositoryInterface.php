@@ -4,6 +4,7 @@ namespace App\Repositories\Admin\Interfaces;
 
 use App\Models\Admin\Package;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 interface PackageRepositoryInterface
 {
@@ -20,7 +21,7 @@ interface PackageRepositoryInterface
     /* ============================================================================
     |  Fetch Packages with optional filters and selected columns.
     ==============================================================================*/
-    public function getPackages(?array $filterData = null, ?array $selectedcolumns = null): ?Collection;
+    public function getPackages(?array $filterData = null, ?array $selectedcolumns = null): ?LengthAwarePaginator;
 
     /* ============================================================================
     |Update specific columns of an existing Package record.

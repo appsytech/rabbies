@@ -6,6 +6,7 @@ use App\Models\Admin\Publication;
 use App\Repositories\Admin\Interfaces\PublicationRepositoryInterface;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Storage;
 
 class PublicationService
@@ -55,7 +56,7 @@ class PublicationService
     /* ============================================================================
     |  Fetch publication with optional filters and selected columns.
     ==============================================================================*/
-    public function getPublications(?array $filterData = null, ?array $selectedcolumns = null): ?Collection
+    public function getPublications(?array $filterData = null, ?array $selectedcolumns = null): ?LengthAwarePaginator
     {
         return $this->publicationRepo->getPublications($filterData, $selectedcolumns);
     }

@@ -4,6 +4,7 @@ namespace App\Repositories\Admin\Interfaces;
 
 use App\Models\Admin\HomeSlider;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 interface HomeSliderRepositoryInterface
 {
@@ -20,7 +21,7 @@ interface HomeSliderRepositoryInterface
     /* ============================================================================
     |  Fetch HomeSlider with optional filters and selected columns.
     ==============================================================================*/
-    public function getHomeSliders(?array $filterData = null, ?array $selectedcolumns = null): ?Collection;
+    public function getHomeSliders(?array $filterData = null, ?array $selectedcolumns = null): ?LengthAwarePaginator;
 
     /* ============================================================================
     |Update specific columns of an existing HomeSlider record.

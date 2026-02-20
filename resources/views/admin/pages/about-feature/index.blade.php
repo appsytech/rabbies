@@ -127,13 +127,14 @@
                 <tbody>
 
                     @if ($data['features']->isNotEmpty())
-                    @php $sno = 1; @endphp
 
                     @foreach ($data['features'] as $feature)
 
                     <tr class="border-b border-gray-200">
                         {{-- S.N --}}
-                        <td class="p-4 text-xs">{{ $sno }}</td>
+                        <td class="p-4 text-xs">
+                            {{ $data['features']->firstItem() + $loop->index }}
+                        </td>
 
                         {{-- Title --}}
                         <td class="p-4 font-medium">
@@ -189,7 +190,6 @@
                         </td>
                     </tr>
 
-                    @php $sno++; @endphp
                     @endforeach
                     @endif
 
@@ -199,44 +199,7 @@
         </div>
 
         <!--============= Pagination ==============-->
-        <div class="rounded-xl p-3">
-            <div class="flex items-center justify-between">
-                <div class="text-sm text-gray-600">
-                    Showing <span class="font-semibold text-gray-900">1-12</span> of <span
-                        class="font-semibold text-gray-900">248</span> results
-                </div>
-
-                <div class="flex items-center space-x-2">
-
-                    <button type="button"
-                        class="group cursor-pointer relative flex items-center gap-2 px-3 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-50 hover:border-gray-300 hover:shadow-md transition-all duration-200">
-                        <img src="{{ asset('assets/svg/cheveron-left.svg') }}" class="h-4 w-4 pointer-events-none"
-                            alt="">
-                        <span>Previous</span>
-                    </button>
-
-                    <button
-                        class="px-4 py-2 bg-linear-to-r from-blue-400 to-blue-600 text-white rounded-lg text-sm font-medium">1</button>
-                    <button
-                        class="px-4 py-2 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50 transition">2</button>
-                    <button
-                        class="px-4 py-2 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50 transition">3</button>
-                    <button
-                        class="px-4 py-2 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50 transition">4</button>
-                    <span class="px-2 text-gray-500">...</span>
-                    <button
-                        class="px-4 py-2 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50 transition">21</button>
-
-                    <button type="button"
-                        class="group cursor-pointer relative flex items-center gap-2 px-3 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-50 hover:border-gray-300 hover:shadow-md transition-all duration-200">
-
-                        <span>Next</span>
-                        <img src="{{ asset('assets/svg/cheveron-right.svg') }}" class="h-4 w-4 pointer-events-none"
-                            alt="">
-                    </button>
-                </div>
-            </div>
-        </div>
+        {{ $data['features']->links() }}
     </div>
 </main>
 

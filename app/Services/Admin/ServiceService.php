@@ -6,6 +6,7 @@ use App\Models\Admin\Service;
 use App\Repositories\Admin\Interfaces\ServiceRepositoryInterface;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
@@ -86,7 +87,7 @@ class ServiceService
     /* ============================================================================
     |  Fetch services with optional filters and selected columns.
     ==============================================================================*/
-    public function getServices(?array $filterData = null, ?array $selectedcolumns = null): ?Collection
+    public function getServices(?array $filterData = null, ?array $selectedcolumns = null): ?LengthAwarePaginator
     {
         return $this->serviceRepo->getServices($filterData, $selectedcolumns);
     }

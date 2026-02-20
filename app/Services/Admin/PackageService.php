@@ -6,6 +6,7 @@ use App\Models\Admin\Package;
 use App\Repositories\Admin\Interfaces\PackageRepositoryInterface;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Storage;
 
 class PackageService
@@ -50,7 +51,7 @@ class PackageService
     /* ============================================================================
     |  Fetch Packages with optional filters and selected columns.
     ==============================================================================*/
-    public function getPackages(?array $filterData = null, ?array $selectedcolumns = null): ?Collection
+    public function getPackages(?array $filterData = null, ?array $selectedcolumns = null): ?LengthAwarePaginator
     {
         return $this->packageRepo->getPackages($filterData, $selectedcolumns);
     }
