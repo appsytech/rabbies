@@ -23,6 +23,7 @@ class ServiceRepository implements ServiceRepositoryInterface
     ==============================================================================*/
     public function create(array $data): ?Service
     {
+      
         return Service::create($data);
     }
 
@@ -64,6 +65,7 @@ class ServiceRepository implements ServiceRepositoryInterface
                     return $query->select($selectedcolumns);
                 }
             )
+            ->orderBy('sort', 'asc')
             ->paginate($filterData['paginateLimit'] ?? 10);
     }
 

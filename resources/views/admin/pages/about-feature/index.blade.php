@@ -118,6 +118,10 @@
                             Status
                         </th>
 
+                        <th class="h-12 px-4 text-left font-semibold">
+                            Sort
+                        </th>
+
                         <th class="h-12 px-4 text-left  font-semibold">
                             Action
                         </th>
@@ -168,6 +172,11 @@
                                 Inactive
                             </span>
                             @endif
+                        </td>
+
+                         {{-- Sort --}}
+                        <td class="p-4 font-medium">
+                            {{ $feature->sort ?? '' }}
                         </td>
 
                         {{-- Action --}}

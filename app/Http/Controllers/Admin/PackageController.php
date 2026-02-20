@@ -42,6 +42,7 @@ class PackageController extends Controller
             'author' => 'nullable|string|max:30',
             'status' => 'required|in:-1,0,1',
             'image' => 'nullable|file',
+            'sort'  => 'required|integer|min:0'
         ]);
 
         if ($validator->fails()) {
@@ -75,7 +76,6 @@ class PackageController extends Controller
                 'data' => null,
             ], 500);
         }
-
     }
 
     public function edit(Request $request): View
@@ -96,6 +96,7 @@ class PackageController extends Controller
             'author' => 'nullable|string|max:30',
             'status' => 'required|in:-1,0,1',
             'image' => 'nullable|file',
+            'sort'    => 'required|integer|min:0'
         ]);
 
         $isUpdated = $this->packageService->update($request);
@@ -120,6 +121,5 @@ class PackageController extends Controller
         } else {
             return redirect()->back()->withErrors('Something went wrong!');
         }
-
     }
 }

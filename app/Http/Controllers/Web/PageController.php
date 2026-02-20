@@ -33,9 +33,14 @@ class PageController extends Controller
             'sliders' => $this->homeSliderService->getHomeSliders([
                 'deviceType' => 0,
             ]),
-            'activities' => $this->activityService->getActivities(),
+            'activities' => $this->activityService->getActivities([
+                'paginateLimit' => 4,
+                'type' => 'CURRENT'
+            ]),
             'admins' => $this->adminService->getAdmins([], ['id', 'profile_image', 'name', 'description']),
-            'publications' => $this->publicationService->getPublications(),
+            'publications' => $this->publicationService->getPublications([
+                'paginateLimit' => 6
+            ]),
             'services' => $this->serviceService->getServices(),
             'aboutus' => $this->aboutUsService->findFirstAboutUs(),
             'aboutFeatures' => $this->aboutFeatureService->getAboutFeatures([

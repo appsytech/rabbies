@@ -34,6 +34,7 @@ class InquiryRepository implements InquiryRepositoryInterface
                     return $query->select($selectedcolumns);
                 }
             )
+            ->orderBy('created_at', 'desc')
             ->paginate($filterData['paginateLimit'] ?? 10);
     }
 

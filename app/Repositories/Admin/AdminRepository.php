@@ -76,13 +76,13 @@ class AdminRepository implements AdminRepositoryInterface
         return Admin::when(
             isset($filterData['name']),
             function ($query) use ($filterData) {
-                $query->where('name', 'LIKE', '%'.$filterData['name'].'%');
+                $query->where('name', 'LIKE', '%' . $filterData['name'] . '%');
             }
         )
             ->when(
                 isset($filterData['userName']),
                 function ($query) use ($filterData) {
-                    $query->where('username', 'LIKE', '%'.$filterData['userName'].'%');
+                    $query->where('username', 'LIKE', '%' . $filterData['userName'] . '%');
                 }
             )
             ->when(
@@ -91,7 +91,8 @@ class AdminRepository implements AdminRepositoryInterface
                     return $query->select($selectedcolumns);
                 }
             )
-           ->paginate($filterData['paginateLimit'] ?? 10);
+            ->orderBy('sort', 'asc')
+            ->paginate($filterData['paginateLimit'] ?? 10);
     }
 
     /* ============================================================================
@@ -121,11 +122,12 @@ class AdminRepository implements AdminRepositoryInterface
                 return $query->where('admin_role', $filters['adminRole']);
             }
         )
-        ->when(
-            isset($filters['exceptAdminRole']),
-            function ($query) use ($filters) {
-                return $query->where('admin_role', '!=',$filters['exceptAdminRole']);
-            })
+            ->when(
+                isset($filters['exceptAdminRole']),
+                function ($query) use ($filters) {
+                    return $query->where('admin_role', '!=', $filters['exceptAdminRole']);
+                }
+            )
             ->count();
     }
 }

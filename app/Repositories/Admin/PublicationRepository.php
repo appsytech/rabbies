@@ -63,7 +63,7 @@ class PublicationRepository implements PublicationRepositoryInterface
                     return $query->select($selectedcolumns);
                 }
             )
-            ->orderBy('created_at', 'desc')
+            ->orderBy('sort', 'asc')
             ->paginate($filterData['paginateLimit'] ?? 10);
     }
 

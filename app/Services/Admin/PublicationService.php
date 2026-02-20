@@ -31,6 +31,7 @@ class PublicationService
             'author' => $request->author,
             'status' => $request->status,
             'description' => $request->description,
+            'sort'       => $request->sort,
             'created_at' => Carbon::now(),
         ];
 
@@ -75,6 +76,7 @@ class PublicationService
             'author' => $request->author,
             'status' => $request->status,
             'description' => $request->description,
+            'sort'               => $request->sort,
             'updated_at' => Carbon::now(),
         ];
 

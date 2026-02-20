@@ -51,6 +51,8 @@ class AdminService
             'password' => $request->password ? bcrypt($request->password) : null,
             'adminRole' => $request->admin_role ?? null,
             'status' => $request->status ?? null,
+            'sort' => $request->sort,
+            'created_at' => Carbon::now()
         ];
 
         if ($request->hasFile('profile_image')) {
@@ -112,6 +114,7 @@ class AdminService
             'phone' => $request->phone ?? null,
             'admin_role' => $request->admin_role ?? null,
             'status' => $request->status ?? null,
+            'sort' => $request->sort,
             'updated_at' => Carbon::now(),
         ];
 

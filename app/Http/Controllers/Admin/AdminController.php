@@ -45,7 +45,8 @@ class AdminController extends Controller
             'admin_role' => 'required|in:1,2,3,4,5',
             'status' => 'required|in:0,1',
             'profile_image' => 'nullable',
-            'description' => 'nullable|string'
+            'description' => 'nullable|string',
+            'sort' => 'required|int|min:0'
         ]);
 
         if ($validator->fails()) {
@@ -82,8 +83,8 @@ class AdminController extends Controller
             'admin_role' => 'required|in:1,2,3,4,5',
             'status' => 'required|in:0,1',
             'profile_image' => 'nullable',
-            'description' => 'nullable|string'
-
+            'description' => 'nullable|string',
+            'sort' => 'required|int|min:0'
         ]);
 
         $isUpdated = $this->adminService->update($request);

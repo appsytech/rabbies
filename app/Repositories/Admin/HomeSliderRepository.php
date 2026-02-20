@@ -63,6 +63,7 @@ class HomeSliderRepository implements HomeSliderRepositoryInterface
                     return $query->select($selectedcolumns);
                 }
             )
+            ->orderby('created_at', 'desc')
             ->paginate($filterData['paginateLimit'] ?? 10);
     }
 

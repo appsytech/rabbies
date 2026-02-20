@@ -30,6 +30,7 @@ class PackageService
             'content' => $request->content,
             'author' => $request->author ?? null,
             'status' => $request->status ?? null,
+            'sort'               => $request->sort,
             'created_at' => Carbon::now(),
         ];
 
@@ -69,6 +70,7 @@ class PackageService
             'content' => $request->content,
             'author' => $request->author ?? null,
             'status' => $request->status ?? null,
+            'sort'               => $request->sort,
             'updated_at' => Carbon::now(),
         ];
 

@@ -65,6 +65,8 @@ class AdminRepository implements AdminRepositoryInterface
                     return $query->select($selectedcolumns);
                 }
             )
+            ->orderBy('sort', 'asc')
+            ->where('status', true)
             ->paginate($filterData['paginateLimit'] ?? 4);
     }
 }

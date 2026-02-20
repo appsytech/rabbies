@@ -47,9 +47,9 @@ class ActivityRepository implements ActivityRepositoryInterface
                 }
             )
             ->when(
-                isset($filterData['limit']) && is_numeric($filterData['limit']),
+                isset($filterData['type']),
                 function ($query) use ($filterData) {
-                    return $query->limit($filterData['limit']);
+                    return $query->where('type', $filterData['type']);
                 }
             )
             ->when(
@@ -58,7 +58,7 @@ class ActivityRepository implements ActivityRepositoryInterface
                     return $query->select($selectedColumns);
                 }
             )
-            ->orderBy('sort')
+            ->orderBy('sort', 'asc')
             ->paginate($filterData['paginateLimit'] ?? 6);
     }
 }

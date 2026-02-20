@@ -49,6 +49,7 @@ class ServiceController extends Controller
             'images2'             => 'nullable|file',
             'images3'             => 'nullable|file',
             'status'              => 'required|integer|in:0,1',
+            'sort'               => 'required|integer|min:0'
         ]);
 
         if ($validator->fails()) {
@@ -86,6 +87,7 @@ class ServiceController extends Controller
             'images2'             => 'nullable|file',
             'images3'             => 'nullable|file',
             'status'              => 'required|integer|in:0,1',
+            'sort'               => 'required|integer|min:0'
         ]);
 
         $isUpdated = $this->serviceService->update($request);

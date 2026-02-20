@@ -279,6 +279,11 @@
                                         </a>
                                     </li>
                                     <li>
+                                        <a href="{{ route('web.package.index') }}">
+                                            Packages
+                                        </a>
+                                    </li>
+                                    <li>
                                         <a href="{{ route('web.contact') }}">Contact Us</a>
                                     </li>
                                 </ul>

@@ -48,7 +48,7 @@ class GalleryRepository implements GalleryRepositoryInterface
         return GalleryImage::when(
             isset($filterData['title']),
             function ($query) use ($filterData) {
-                $query->where('title', 'LIKE', '%'.$filterData['title'].'%');
+                $query->where('title', 'LIKE', '%' . $filterData['title'] . '%');
             }
         )->when(
             isset($filterData['type']),

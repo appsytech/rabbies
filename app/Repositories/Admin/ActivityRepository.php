@@ -81,7 +81,9 @@ class ActivityRepository implements ActivityRepositoryInterface
                 function ($query) use ($selectedColumns) {
                     return $query->select($selectedColumns);
                 }
-            )->paginate($filterData['paginateLimit'] ?? 10);
+            )
+            ->orderBy('sort', 'asc')
+            ->paginate($filterData['paginateLimit'] ?? 10);
     }
 
     /* ============================================================================

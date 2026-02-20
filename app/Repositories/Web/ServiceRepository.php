@@ -61,6 +61,7 @@ class ServiceRepository implements ServiceRepositoryInterface
                     return $query->select($selectedcolumns);
                 }
             )
+            ->orderBy('sort', 'asc')
             ->where('status', true)
             ->get();
     }

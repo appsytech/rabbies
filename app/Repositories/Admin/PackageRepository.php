@@ -64,6 +64,7 @@ class PackageRepository implements PackageRepositoryInterface
                     return $query->select($selectedcolumns);
                 }
             )
+            ->orderBy('sort', 'asc')
             ->paginate($filterData['paginateLimit'] ?? 10);
     }
 

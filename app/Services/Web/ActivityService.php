@@ -20,6 +20,7 @@ class ActivityService
      ==============================================================================*/
     public function getActivities(?array $filterData = null, ?array $selectedColumns = []): ?LengthAwarePaginator
     {
+        
         return $this->activityRepo->getActivities($filterData, $selectedColumns);
     }
 

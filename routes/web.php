@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Web\ActivityController as WebActivityController;
 use App\Http\Controllers\Web\BlogController;
 use App\Http\Controllers\web\InquiryController;
+use App\Http\Controllers\Web\PackageController as WebPackageController;
 use App\Http\Controllers\Web\PageController;
 use App\Http\Controllers\Web\PublicationController as WebPublicationController;
 use App\Http\Controllers\Web\ServiceController as WebServiceController;
@@ -52,8 +53,12 @@ Route::get('publication', [WebPublicationController::class, 'index'])->name('web
 Route::get('publication/details/{id}', [WebPublicationController::class, 'show'])->name('web.publication.show');
 
 
-/* ======================Dashboard====================== */
+/* ======================  Web > Package ====================== */
+Route::get('package', [WebPackageController::class, 'index'])->name('web.package.index');
+Route::get('package/details/{id}', [WebPackageController::class, 'show'])->name('web.package.show');
 
+
+/* ======================Dashboard====================== */
 Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
 
 /* ======================Dashboard > Auth ====================== */

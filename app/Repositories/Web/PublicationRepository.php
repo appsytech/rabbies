@@ -46,7 +46,7 @@ class PublicationRepository implements PublicationRepositoryInterface
                 }
             )
             ->where('status', true)
-            ->orderBy('created_at', 'desc')
+            ->orderBy('sort', 'asc')
             ->paginate($filterData['paginateLimit'] ?? 6);
     }
 

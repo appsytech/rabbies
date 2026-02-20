@@ -151,6 +151,10 @@
                         </th>
 
                         <th class="h-12 px-4 text-left  font-semibold">
+                            Sort
+                        </th>
+
+                        <th class="h-12 px-4 text-left  font-semibold">
                             Action
                         </th>
 
@@ -229,7 +233,10 @@
                         </td>
 
                         <td class="p-4 text-sm text-gray-600">
-                            {{ $admin->last_login_at }}
+                            {{ $admin->last_login_at  ?? ''}}
+                        </td>
+                        <td class="p-4 text-sm text-gray-600">
+                            {{ $admin->sort ?? '' }}
                         </td>
                         <td class="p-4">
                             <div class="flex items-center space-x-2">
@@ -411,6 +418,19 @@
                                     <img src="{{ asset('assets/svg/cheveron-down.svg') }}"
                                         class="w-4 h-4 pointer-events-none" alt="">
                                 </div>
+                            </div>
+                        </div>
+
+                        <!--====== Sort ======-->
+                        <div>
+                            <label class="text-xs font-semibold text-gray-700 mb-2 flex items-center gap-1.5">
+                                <img src="{{ asset('assets/svg/arrow-up-down.svg') }}"
+                                    class="w-3.5 h-3.5 pointer-events-none" alt="">
+                                Sort
+                            </label>
+                            <div class="relative">
+                                <input type="number" placeholder="Enter Sort..." name="sort" required
+                                    class="w-full px-4 py-2.5 text-sm text-gray-700 bg-white border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all shadow-sm hover:shadow-md placeholder-gray-400">
                             </div>
                         </div>
 

@@ -17,7 +17,6 @@ class AboutFeatureRepository implements AboutFeatureRepositoryInterface
     }
 
 
-
     /* ============================================================================
     | Create a new About Feature record in the database and returns the created record.
     ==============================================================================*/
@@ -64,7 +63,8 @@ class AboutFeatureRepository implements AboutFeatureRepositoryInterface
                     return $query->select($selectedcolumns);
                 }
             )
-            ->paginate($filterData['paginateLimit'] ?? 1);
+            ->orderBy('sort', 'asc')
+            ->paginate($filterData['paginateLimit'] ?? 10);
     }
 
     /* ============================================================================

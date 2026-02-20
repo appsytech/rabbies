@@ -32,10 +32,13 @@ class ServiceService
             'description'         => $request->description ?? null,
             'location'            => $request->location ?? null,
             'mission_description' => $request->mission_description ?? null,
-            'status'              => $request->status ?? 1,
             'created_by'          => Auth::user()->name,
-            'created_at'          => Carbon::now()
+            'created_at'          => Carbon::now(),
+            'status'              => $request->status ?? 1,
+            'sort'               => (int) $request->sort,
+
         ];
+
 
         if ($request->hasFile('icon')) {
             $data['icon'] = $request->file('icon')->store('assets/icons/services', 'public');
@@ -106,6 +109,7 @@ class ServiceService
             'location'            => $request->location ?? null,
             'mission_description' => $request->mission_description ?? null,
             'status'              => $request->status ?? 1,
+            'sort'               => $request->sort
         ];
 
         if ($request->hasFile('icon')) {

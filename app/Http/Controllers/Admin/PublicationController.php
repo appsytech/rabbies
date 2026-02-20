@@ -44,6 +44,7 @@ class PublicationController extends Controller
             'document' => 'nullable|file',
             'thumbnail' => 'required|file',
             'description' => 'nullable|string',
+            'sort'               => 'required|integer|min:0'
         ]);
 
         if ($validator->fails()) {
@@ -77,7 +78,6 @@ class PublicationController extends Controller
                 'data' => null,
             ], 500);
         }
-
     }
 
     public function edit(Request $request): View
@@ -100,6 +100,7 @@ class PublicationController extends Controller
             'document' => 'nullable|file',
             'thumbnail' => 'nullable|file',
             'description' => 'nullable|string',
+            'sort'               => 'required|integer|min:0'
         ]);
 
         $isUpdated = $this->publicationService->update($request);
@@ -124,15 +125,16 @@ class PublicationController extends Controller
         } else {
             return redirect()->back()->withErrors('Something went wrong!');
         }
-
     }
 
     public function updateStatus(Request $request): JsonResponse
     {
-        $validator = Validator::make($request->all(),
+        $validator = Validator::make(
+            $request->all(),
             [
                 'id' => 'required|integer',
-            ]);
+            ]
+        );
 
         if ($validator->fails()) {
             return response()->json([
