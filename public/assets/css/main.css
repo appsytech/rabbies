@@ -6877,8 +6877,8 @@ span {
 }
 .news-card-items .news-content h4 {
   border-bottom: 1px solid #C9C9C9;
-  margin-bottom: 30px;
-  padding-bottom: 20px;
+  margin-bottom: 5px;
+  padding-bottom: 10px;
 }
 .news-card-items .news-content h4 a {
   background-position: 0 95%;
@@ -6890,6 +6890,9 @@ span {
   color: var(--theme-2);
   background-size: 100% 2px;
   background-image: linear-gradient(180deg, var(--theme-2) 0%, var(--theme-2) 100%);
+}
+.news-card-items .news-content p {
+  padding-bottom: 5px;
 }
 .news-card-items:hover .news-image .news-layer-wrapper .news-layer-image {
   transform: translateY(-100%);

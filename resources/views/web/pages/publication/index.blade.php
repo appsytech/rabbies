@@ -63,6 +63,10 @@
                                 {{ $publication->title ?? '' }}
                             </a>
                         </h4>
+                        <p>
+                            {{ \Illuminate\Support\Str::words($publication->description, 10, '...') }}
+                        </p>
+                        
                         <a href="{{ route('web.publication.show', encrypt($publication->id)) }}" class="link-btn">Read More <i class="fa-solid fa-arrow-right-long"></i></a>
                         @isset($publication->document)
                         <div class="mt-3">

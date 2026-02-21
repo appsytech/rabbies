@@ -386,7 +386,7 @@
                                     <a href="#" class="gallery-trigger">{{ $scndGallery->title ?? '' }}</a>
                                 </h3>
                                 <h5>
-                                     {{ \Illuminate\Support\Str::words($scndGallery->description, 5, '...') }}
+                                    {{ \Illuminate\Support\Str::words($scndGallery->description, 5, '...') }}
                                 </h5>
                             </div>
                             <a href="#" class="arrow-icon gallery-trigger"><i class="fa-solid fa-arrow-right-long"></i></a>
@@ -794,6 +794,9 @@
                                 {{ $publication->title ?? '' }}
                             </a>
                         </h4>
+                        <p>
+                            {{ \Illuminate\Support\Str::words($publication->description, 10, '...') }} 
+                        </p>
                         <a href="{{ route('web.blog.show') }}" class="link-btn">Read More <i class="fa-solid fa-arrow-right-long"></i></a>
                         @isset($publication->document)
                         <div class="mt-3">

@@ -79,8 +79,8 @@
 
         h4 {
             border-bottom: 1px solid #C9C9C9;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
+            margin-bottom: 5px;
+            padding-bottom: 10px;
 
             a {
                 background-position: 0 95%;
@@ -94,6 +94,10 @@
                     background-image: linear-gradient(180deg, $theme-color-2 0%, $theme-color-2 100%);
                 }
             }
+        }
+        p
+        {
+            padding-bottom: 5px;
         }
     }
 

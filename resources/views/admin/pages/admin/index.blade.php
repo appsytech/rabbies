@@ -142,6 +142,10 @@
                             Role
                         </th>
 
+                        <th class="h-12 px-4 text-left  font-semibold">
+                            Sort
+                        </th>
+
                         <th class="h-12 px-4 text-left font-semibold">
                             Status
                         </th>
@@ -150,9 +154,7 @@
                             Last Login At
                         </th>
 
-                        <th class="h-12 px-4 text-left  font-semibold">
-                            Sort
-                        </th>
+
 
                         <th class="h-12 px-4 text-left  font-semibold">
                             Action
@@ -220,6 +222,10 @@
                             {{ $roleText ?? '' }}
                         </td>
 
+                        <td class="p-4 text-sm text-gray-600">
+                            {{ $admin->sort ?? '' }}
+                        </td>
+
                         <td class="p-4">
                             <label class="relative inline-flex items-center cursor-pointer">
                                 <input data-targetUrl="{{ route('admin.status.update') }}"
@@ -235,9 +241,7 @@
                         <td class="p-4 text-sm text-gray-600">
                             {{ $admin->last_login_at  ?? ''}}
                         </td>
-                        <td class="p-4 text-sm text-gray-600">
-                            {{ $admin->sort ?? '' }}
-                        </td>
+
                         <td class="p-4">
                             <div class="flex items-center space-x-2">
                                 <a href="{{ route('admin.edit', $admin->id) }}">
