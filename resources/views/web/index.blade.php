@@ -442,7 +442,7 @@
                         <div class="team-content">
                             <h5><a href="#">{{ $admin->name ?? '' }}</a></h5>
                             <p>
-                                {{ $admin->description ?? '' }}
+                                {{ $admin->position ?? '' }}
                             </p>
                             <div class="social-icon">
                                 <a href="#">
@@ -795,7 +795,7 @@
                             </a>
                         </h4>
                         <p>
-                            {{ \Illuminate\Support\Str::words($publication->description, 10, '...') }} 
+                            {{ \Illuminate\Support\Str::words($publication->description, 10, '...') }}
                         </p>
                         <a href="{{ route('web.blog.show') }}" class="link-btn">Read More <i class="fa-solid fa-arrow-right-long"></i></a>
                         @isset($publication->document)

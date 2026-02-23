@@ -37,7 +37,7 @@ class PageController extends Controller
                 'paginateLimit' => 4,
                 'type' => 'CURRENT'
             ]),
-            'admins' => $this->adminService->getAdmins([], ['id', 'profile_image', 'name', 'description']),
+            'admins' => $this->adminService->getAdmins([], ['id', 'profile_image', 'name', 'position']),
             'publications' => $this->publicationService->getPublications([
                 'paginateLimit' => 6
             ]),
@@ -59,7 +59,7 @@ class PageController extends Controller
             'aboutFeatures' => $this->aboutFeatureService->getAboutFeatures([
                 'limit' =>  4
             ]),
-            'members' => $this->adminService->getAdmins([], ['id', 'profile_image', 'name', 'description'])
+            'members' => $this->adminService->getAdmins([], ['id', 'profile_image', 'name', 'position'])
         ];
 
 

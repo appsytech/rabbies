@@ -103,6 +103,19 @@
                         </div>
                     </div>
 
+                    <!--====== Position ======-->
+                    <div>
+                        <label class="text-xs font-semibold text-gray-700 mb-2 flex items-center gap-1.5">
+                            <img src="{{ asset('assets/svg/briefcase.svg') }}"
+                                class="w-3.5 h-3.5 pointer-events-none" alt="">
+                            Position
+                        </label>
+                        <div class="relative">
+                            <input type="text" placeholder="Enter Position..." name="position" value="{{ $data['admin']->position ?? '' }}"
+                                class="w-full px-4 py-2.5 text-sm text-gray-700 bg-white border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all shadow-sm hover:shadow-md placeholder-gray-400">
+                        </div>
+                    </div>
+
                     <!--====== Role ======-->
                     <div>
                         <label class="text-xs font-semibold text-gray-700 mb-2 flex items-center gap-1.5">

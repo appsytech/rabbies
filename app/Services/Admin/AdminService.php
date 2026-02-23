@@ -52,8 +52,10 @@ class AdminService
             'adminRole' => $request->admin_role ?? null,
             'status' => $request->status ?? null,
             'sort' => $request->sort,
+            'position' => $request->position ?? null,
             'created_at' => Carbon::now()
         ];
+
 
         if ($request->hasFile('profile_image')) {
             $data['profileImage'] = $request->file('profile_image')->store('assets/images/admins', 'public');
@@ -62,6 +64,7 @@ class AdminService
         $isCreated = $this->adminRepo->create($data);
 
         if ($isCreated) {
+
 
             return response()->json([
                 'status' => true,
@@ -114,8 +117,10 @@ class AdminService
             'phone' => $request->phone ?? null,
             'admin_role' => $request->admin_role ?? null,
             'status' => $request->status ?? null,
+            'position' => $request->position ?? null,
             'updated_at' => Carbon::now(),
         ];
+
 
         if ($request->has('sort')) {
             $data['sort'] =  $request->sort;

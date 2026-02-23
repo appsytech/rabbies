@@ -32,6 +32,8 @@ class AdminRepository implements AdminRepositoryInterface
             'password' => $data['password'] ?? null,
             'admin_role' => $data['adminRole'] ?? null,
             'status' => $data['status'] ?? null,
+            'sort' => $data['sort'],
+            'position'  => $data['position'] ?? null,
             'created_at' => Carbon::now(),
         ]);
     }

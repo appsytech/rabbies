@@ -111,7 +111,7 @@
                         <h5>
                             <a href="#">{{ $member->name ?? '' }}</a>
                         </h5>
-                        <p>{{ $member->description ?? '' }}</p>
+                        <p>{{ $member->position ?? '' }}</p>
                         <div class="social-icon">
                             <a href="#">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
