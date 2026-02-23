@@ -215,7 +215,7 @@
                                 <a href="{{ route('web.service.show', encrypt($service->id)) }}">{{ $service->title ?? '' }}</a>
                             </h3>
                             <p>
-                                {{ \Illuminate\Support\Str::words($service->description, 15, '...') }}
+                                {{ \Illuminate\Support\Str::words($service->description, 10, '...') }}
                             </p>
                             <a href="{{ route('web.service.show', encrypt($service->id)) }}" class="theme-btn">Learn More <i class="fa-solid fa-arrow-right-long"></i></a>
                         </div>
