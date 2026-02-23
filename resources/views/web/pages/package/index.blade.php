@@ -64,7 +64,8 @@
                             </a>
                         </h4>
                         <p>
-                            {{ \Illuminate\Support\Str::words($package->content, 10, '...') }}
+                            {!! \Illuminate\Support\Str::words(strip_tags($package->content), 10, '...') !!}
+
                         </p>
                         <a href="{{ route('web.package.show', encrypt($package->id)) }}" class="link-btn">Read More <i class="fa-solid fa-arrow-right-long"></i></a>
 

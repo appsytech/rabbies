@@ -112,11 +112,10 @@
                             Description
                         </label>
                         <div class="relative">
-                            <textarea type="text" name="description" placeholder="Enter description..."
-                                class="w-full px-4 py-2.5 text-sm text-gray-700 bg-white border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all shadow-sm hover:shadow-md placeholder-gray-400">{{ $data['service']->description ?? '' }}</textarea>
+                            <div id="descriptionEditor" style="height: 300px;">{!! $data['service']->description ?? '' !!}</div>
+                            <input type="hidden" name="description" value="{{ $data['service']->description ?? ''  }}" id="description">
                         </div>
                     </div>
-
 
                     <!--====== Mission Description  ======-->
                     <div class="col-span-2">
@@ -126,8 +125,8 @@
                             Mission Description
                         </label>
                         <div class="relative">
-                            <textarea name="mission_description" placeholder="Enter mission description..."
-                                class="w-full px-4 py-2.5 text-sm text-gray-700 bg-white border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all shadow-sm hover:shadow-md placeholder-gray-400">{{ $data['service']->mission_description ?? '' }}</textarea>
+                            <div id="missionDescriptionEditor" style="height: 300px;">{!! $data['service']->mission_description ?? '' !!}</div>
+                            <input type="hidden" name="mission_description" value="{{ $data['service']->mission_description ?? ''  }}" id="mission_description">
                         </div>
                     </div>
 

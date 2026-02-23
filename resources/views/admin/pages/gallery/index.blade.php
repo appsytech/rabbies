@@ -176,7 +176,7 @@
 
                         <!-- Content (short preview) -->
                         <td class="p-4 text-sm text-gray-600">
-                            {{ Str::limit(strip_tags($image->description), 80) }}
+                            {!! \Illuminate\Support\Str::words(strip_tags($image->description), 20, '...') !!}
                         </td>
 
                         <!-- file size -->
@@ -363,15 +363,15 @@
                         </div>
 
                         <!--====== Description Field ======-->
-                        <div class="col-span-2">
-                            <label class=" text-xs font-semibold text-gray-700 mb-2 flex items-center gap-1.5">
+                        <div class="lg:col-span-2">
+                            <label class="text-xs font-semibold text-gray-700 mb-2 flex items-center gap-1.5">
                                 <img src="{{ asset('assets/svg/file-text.svg') }}"
                                     class="w-3.5 h-3.5 pointer-events-none" alt="">
                                 Description
                             </label>
                             <div class="relative">
-                                <textarea type="text" name="description" placeholder="Enter description..."
-                                    class="w-full px-4 py-2.5 text-sm text-gray-700 bg-white border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all shadow-sm hover:shadow-md placeholder-gray-400"></textarea>
+                                <div id="descriptionEditor" style="height: 300px;"></div>
+                                <input type="hidden" name="description" id="description">
                             </div>
                         </div>
                     </div>

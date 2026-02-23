@@ -738,3 +738,126 @@
         }
     }
 }
+
+.team-detail-section-main {
+    padding: 20px;
+
+    .member-card {
+        background: $white;
+        border-radius: 18px;
+        overflow: hidden;
+        box-shadow: 0 8px 40px rgba(26, 49, 40, .12);
+        position: sticky;
+        top: 90px;
+
+        .photo-wrap {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 4/3.5;
+            overflow: hidden;
+            background: $mid-green;
+
+
+            h2 {
+                color: $white;
+                text-align: center;
+            }
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform .45s ease;
+            }
+
+            .badge-role {
+                position: absolute;
+                top: 14px;
+                left: 14px;
+                background: $accent;
+                color: $dark-green;
+                font-size: .72rem;
+                font-weight: 700;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+                padding: .3rem .75rem;
+                border-radius: 30px;
+            }
+        }
+
+        &:hover .photo-wrap img {
+            transform: scale(1.04);
+        }
+    }
+
+    .member-info {
+        padding: 20px;
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: .75rem;
+            padding: .55rem 0;
+            border-bottom: 1px solid #eee;
+            font-size: .875rem;
+            color: $text-body;
+
+            &:last-of-type {
+                border-bottom: none;
+            }
+
+            .icon-wrap {
+                width: 34px;
+                height: 34px;
+                border-radius: 8px;
+                background: rgba(245, 197, 24, .15);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+
+                i {
+                    color: $accent-dark;
+                    font-size: .85rem;
+                }
+            }
+
+            a {
+                color: $dark-green;
+                text-decoration: none;
+
+                &:hover {
+                    color: $accent-dark;
+                }
+            }
+        }
+
+    }
+
+    .content-wrap {
+        padding-left: 1.5rem;
+
+        .section-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            font-size: .72rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: $accent-dark;
+            background: rgba(245, 197, 24, .13);
+            border-radius: 30px;
+            padding: .28rem .9rem;
+            margin-bottom: .8rem;
+
+            &::before {
+                content: '';
+                width: 7px;
+                height: 7px;
+                border-radius: 50%;
+                background: $accent;
+            }
+        }
+    }
+}

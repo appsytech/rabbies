@@ -14,6 +14,11 @@ interface AdminRepositoryInterface
     public function findByCredential(string $credential, ?array $selectedColumns = null): ?Admin;
 
     /* ============================================================================
+    |   Fetch a single admin record by its primary ID.
+    ==============================================================================*/
+    public function find(int $id, ?array $selectedColumns = null): ?Admin;
+
+    /* ============================================================================
     |  Fetch admin with optional filters and selected columns.
     ==============================================================================*/
     public function getAdmins(?array $filterData = null, ?array $selectedcolumns = null): ?LengthAwarePaginator;

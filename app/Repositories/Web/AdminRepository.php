@@ -35,6 +35,20 @@ class AdminRepository implements AdminRepositoryInterface
     }
 
 
+    /* ============================================================================
+    |   Fetch a single admin record by its primary ID.
+    ==============================================================================*/
+    public function find(int $id, ?array $selectedColumns = null): ?Admin
+    {
+        return Admin::where('id', $id)
+            ->when(
+                isset($selectedColumns) && count($selectedColumns) >= 1,
+                function ($query) use ($selectedColumns) {
+                    return $query->select($selectedColumns);
+                }
+            )
+            ->first();
+    }
 
     /* ============================================================================
     |  Fetch admin with optional filters and selected columns.

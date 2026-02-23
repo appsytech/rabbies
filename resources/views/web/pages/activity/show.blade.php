@@ -55,7 +55,7 @@
                                 </li> -->
                             </ul>
                             <p>
-                                {{ $data['activity']->description }}
+                                {!! $data['activity']->description !!}
                             </p>
 
                             <!-- <div class="row g-4">
@@ -80,7 +80,7 @@
                     </div>
                 </div>
 
-                  <div class="col-lg-4 col-12">
+                <div class="col-lg-4 col-12">
                     <div class="main-sideber">
                         <!-- <div class="single-sidebar-widget">
                             <div class="wid-title">

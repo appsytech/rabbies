@@ -40,7 +40,7 @@
                             </h2>
                         </div>
                         <p class="text wow fadeInUp" data-wow-delay=".5s">
-                            {{ $data['aboutus']->description ?? '' }}
+                            {!! $data['aboutus']->description ?? '' !!}
                         </p>
                         @isset($data['aboutus']->images2)
                         <div class="about-image wow img-custom-anim-left" data-wow-duration="1.3s" data-wow-delay="0.3s">
@@ -70,7 +70,7 @@
                                     <div class="content">
                                         <h5>{{ $feature->title ?? '' }}</h5>
                                         <p>
-                                            {{ $feature->description ?? ''  }}
+                                            {!! $feature->description ?? '' !!}
                                         </p>
                                     </div>
                                 </div>
@@ -100,18 +100,22 @@
             @foreach($data['members'] as $member)
             <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".2s">
                 <div class="team-card-items">
-                    <div class="team-image">
+                    <a href="{{ route('web.admin.show', encrypt($member->id)) }}" class="team-image d-block">
                         @if(isset($member->profile_image))
                         <img src="{{ asset('storage/' . $member->profile_image) }}" alt="">
                         @else
                         <img src="{{ asset('assets/img/home-1/team/01.jpg') }}" alt="">
                         @endif
-                    </div>
+
+                    </a>
                     <div class="team-content">
                         <h5>
-                            <a href="#">{{ $member->name ?? '' }}</a>
+                            <a href="{{ route('web.admin.show', encrypt($member->id)) }}">{{ $member->name ?? '' }}</a>
                         </h5>
                         <p>{{ $member->position ?? '' }}</p>
+                        <p>
+                            {!! \Illuminate\Support\Str::words(strip_tags($member->description), 4, '...') !!}
+                        </p>
                         <div class="social-icon">
                             <a href="#">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">

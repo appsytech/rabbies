@@ -7,6 +7,9 @@
  * ---------------------------------------------------------------------
  */
 
+import Quill from "quill";
+import "quill/dist/quill.snow.css";
+
 /* =======================
    Module Imports
 ========================== */
@@ -44,6 +47,72 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         sessionStorage.removeItem("success_messages");
+    }
+
+    // description
+    const descriptionEditorEl = document.querySelector("#descriptionEditor");
+    let quillDescription;
+    if (descriptionEditorEl) {
+        quillDescription = new Quill(descriptionEditorEl, {
+            theme: "snow",
+        });
+
+        quillDescription.on("text-change", function () {
+            const content = document.querySelector("#description");
+            const text = quillDescription.getText().trim();
+            if (content) {
+                if (content.required && text.length === 0) {
+                    e.preventDefault();
+                    document.querySelector(".ql-container").style.borderColor =
+                        "red";
+
+                    return false;
+                }
+                content.value = quillDescription.root.innerHTML;
+            }
+        });
+    }
+
+    // mission description
+    const missionEditorEl = document.querySelector("#missionDescriptionEditor");
+    let quillMissionDescription;
+    if (missionEditorEl) {
+        quillMissionDescription = new Quill(missionEditorEl, {
+            theme: "snow",
+        });
+
+        quillMissionDescription.on("text-change", function () {
+            const missionContent = document.querySelector(
+                "#mission_description",
+            );
+
+            if (missionContent) {
+                missionContent.value = quillMissionDescription.root.innerHTML;
+            }
+        });
+    }
+
+    // content
+    const contentEditorEl = document.querySelector("#contentEditor");
+    if (contentEditorEl) {
+        let quillContent = new Quill(contentEditorEl, {
+            theme: "snow",
+        });
+
+        quillContent.on("text-change", function () {
+            const content = document.querySelector("#content");
+            const text = quillContent.getText().trim();
+            if (content) {
+                if (content.required && text.length === 0) {
+                    e.preventDefault();
+                    document.querySelector(".ql-container").style.borderColor =
+                        "red";
+
+                    return false;
+                }
+                content.value = quillContent.root.innerHTML;
+            }
+        });
     }
 });
 

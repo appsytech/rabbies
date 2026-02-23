@@ -58,14 +58,14 @@ $service = $data['service'];
                                 {{ $service->title  ?? '' }}
                             </h2>
                             <p>
-                                {{ $service->description ?? '' }}
+                                {{!!$service->description ?? '' !!}
                             </p>
                             @isset($service->mission_description)
                             <h3>
                                 Our Mission
                             </h3>
                             <p class="mt-3">
-                                {{ $service->mission_description ?? '' }}
+                                {!! $service->mission_description ?? '' !!}
                             </p>
                             @endisset
                             <!-- <div class="cause-lis-items">

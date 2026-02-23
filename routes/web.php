@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\PublicationController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Web\ActivityController as WebActivityController;
+use App\Http\Controllers\Web\AdminController as WebAdminController;
 use App\Http\Controllers\Web\BlogController;
 use App\Http\Controllers\web\InquiryController;
 use App\Http\Controllers\Web\PackageController as WebPackageController;
@@ -34,6 +35,9 @@ Route::get('contact', [PageController::class, 'contact'])->name('web.contact');
 /* ====================== Web > Activity ====================== */
 Route::get('/activities', [WebActivityController::class, 'index'])->name('web.activity.index');
 Route::get('activity/details/{id}', [WebActivityController::class, 'show'])->name('web.activity.show');
+
+/* ====================== Web > Admin ====================== */
+Route::get('member/details/{id}', [WebAdminController::class, 'show'])->name('web.admin.show');
 
 
 /* ====================== Web > Services ====================== */

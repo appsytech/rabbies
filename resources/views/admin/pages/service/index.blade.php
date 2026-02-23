@@ -176,7 +176,7 @@
 
                         {{-- Description --}}
                         <td class="p-4 text-sm text-gray-700">
-                            {{ \Illuminate\Support\Str::limit($service->description, 50) }}
+                            {!! \Illuminate\Support\Str::words(strip_tags($service->description), 20, '...') !!}
                         </td>
 
                         {{-- Location --}}
@@ -186,7 +186,7 @@
 
                         {{-- Mission Description --}}
                         <td class="p-4 text-sm text-gray-700">
-                            {{ \Illuminate\Support\Str::limit($service->mission_description, 50) }}
+                            {!! \Illuminate\Support\Str::words(strip_tags($service->mission_description), 20, '...') !!}
                         </td>
 
                         {{-- Image 1 --}}
@@ -399,11 +399,10 @@
                                 Description
                             </label>
                             <div class="relative">
-                                <textarea type="text" name="description" placeholder="Enter description..."
-                                    class="w-full px-4 py-2.5 text-sm text-gray-700 bg-white border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all shadow-sm hover:shadow-md placeholder-gray-400"></textarea>
+                                <div id="descriptionEditor" style="height: 300px;"></div>
+                                <input type="hidden" name="description" id="description">
                             </div>
                         </div>
-
 
                         <!--====== Mission Description  ======-->
                         <div class="col-span-2">
@@ -413,8 +412,8 @@
                                 Mission Description
                             </label>
                             <div class="relative">
-                                <textarea name="mission_description" placeholder="Enter mission description..."
-                                    class="w-full px-4 py-2.5 text-sm text-gray-700 bg-white border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all shadow-sm hover:shadow-md placeholder-gray-400"></textarea>
+                                <div id="missionDescriptionEditor" style="height: 300px;"></div>
+                                <input type="hidden" name="mission_description" id="mission_description">
                             </div>
                         </div>
 
@@ -495,7 +494,6 @@
 
                         </div>
 
-
                         <!--====== Status ======-->
                         <div>
                             <label class="text-xs font-semibold text-gray-700 mb-2 flex items-center gap-1.5">
@@ -515,6 +513,8 @@
                                 </div>
                             </div>
                         </div>
+
+
 
                         <!--====== Sort ======-->
                         <div>

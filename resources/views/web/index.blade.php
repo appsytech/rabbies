@@ -50,7 +50,7 @@
                                         {{ $slider->title ?? '' }}
                                     </h1>
                                     <p data-animation="fadeInUp" data-delay="1.3s">
-                                        {{ $slider->description ?? '' }}
+                                        {!! $slider->description ?? '' !!}
                                     </p>
                                     <div class="hero-button" data-animation="fadeInUp" data-delay="1.5s">
                                         <a href="{{ $jumpUrl }}" class="theme-btn">{{ $jumpTexts[$slider->jump_type] ?? 'Join with us' }} <i class="fa-solid fa-arrow-right-long"></i></a>
@@ -139,7 +139,8 @@
                             </h2>
                         </div>
                         <p class="text wow fadeInUp" data-wow-delay=".5s">
-                            {{ \Illuminate\Support\Str::words($data['aboutus']->description, 40, '...') }}
+                            {!! \Illuminate\Support\Str::words(strip_tags($data['aboutus']->description), 20, '...') !!}
+
                         </p>
                         @isset($data['aboutus']->images2)
                         <div class="about-image wow img-custom-anim-left" data-wow-duration="1.3s" data-wow-delay="0.3s">
@@ -169,7 +170,8 @@
                                     <div class="content">
                                         <h5>{{ $feature->title ?? '' }}</h5>
                                         <p>
-                                            {{ \Illuminate\Support\Str::words($feature->description, 10, '...') }}
+                                            {!! \Illuminate\Support\Str::words(strip_tags($feature->description), 10, '...') !!}
+
                                         </p>
                                     </div>
                                 </div>
@@ -215,7 +217,9 @@
                                 <a href="{{ route('web.service.show', encrypt($service->id)) }}">{{ $service->title ?? '' }}</a>
                             </h3>
                             <p>
-                                {{ \Illuminate\Support\Str::words($service->description, 10, '...') }}
+
+                                {!! \Illuminate\Support\Str::words(strip_tags($service->description), 10, '...') !!}
+
                             </p>
                             <a href="{{ route('web.service.show', encrypt($service->id)) }}" class="theme-btn">Learn More <i class="fa-solid fa-arrow-right-long"></i></a>
                         </div>
@@ -261,7 +265,8 @@
                                 <a href="{{ route('web.activity.show', encrypt($activity->id)) }}">{{ $activity->title }}</a>
                             </h4>
                             <p>
-                                {{ \Illuminate\Support\Str::words($activity->description, 20, '...') }}
+                                {!! \Illuminate\Support\Str::words(strip_tags($activity->description), 20, '...') !!}
+
                             </p>
                             <!-- <div class="pro-items">
                                         <div class="progress">
@@ -341,7 +346,8 @@
                                     <a href="#" class="gallery-trigger">{{ $firstGallery->title ?? '' }}</a>
                                 </h3>
                                 <h5>
-                                    {{ \Illuminate\Support\Str::words($firstGallery->description, 5, '...') }}
+                                    {!! \Illuminate\Support\Str::words(strip_tags($firstGallery->description), 4, '...') !!}
+
                                 </h5>
                             </div>
                             <a href="#" class="arrow-icon gallery-trigger"><i class="fa-solid fa-arrow-right-long"></i></a>
@@ -386,7 +392,8 @@
                                     <a href="#" class="gallery-trigger">{{ $scndGallery->title ?? '' }}</a>
                                 </h3>
                                 <h5>
-                                    {{ \Illuminate\Support\Str::words($scndGallery->description, 5, '...') }}
+                                    {!! \Illuminate\Support\Str::words(strip_tags($scndGallery->description), 4, '...') !!}
+
                                 </h5>
                             </div>
                             <a href="#" class="arrow-icon gallery-trigger"><i class="fa-solid fa-arrow-right-long"></i></a>
@@ -431,18 +438,21 @@
                 @foreach ($data['admins'] as $index => $admin)
                 <div class="swiper-slide">
                     <div class="team-card-items">
-                        <div class="team-image">
+                        <a href="{{ route('web.admin.show', encrypt($admin->id)) }}" class="team-image d-block">
                             @if(isset($admin->profile_image))
                             <img src="{{ asset('storage/' . $admin->profile_image) }}" alt="">
                             @else
                             <img src="{{ asset('assets/img/home-1/team/01.jpg') }}" alt="">
                             @endif
 
-                        </div>
+                        </a>
                         <div class="team-content">
-                            <h5><a href="#">{{ $admin->name ?? '' }}</a></h5>
+                            <h5><a href="{{ route('web.admin.show', encrypt($admin->id)) }}">{{ $admin->name ?? '' }}</a></h5>
                             <p>
                                 {{ $admin->position ?? '' }}
+                            </p>
+                            <p>
+                                {!! \Illuminate\Support\Str::words(strip_tags($admin->description), 4, '...') !!}
                             </p>
                             <div class="social-icon">
                                 <a href="#">
@@ -795,7 +805,7 @@
                             </a>
                         </h4>
                         <p>
-                            {{ \Illuminate\Support\Str::words($publication->description, 10, '...') }}
+                            {!! \Illuminate\Support\Str::words(strip_tags($publication->description), 10, '...') !!}
                         </p>
                         <a href="{{ route('web.blog.show') }}" class="link-btn">Read More <i class="fa-solid fa-arrow-right-long"></i></a>
                         @isset($publication->document)

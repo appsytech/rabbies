@@ -53,14 +53,10 @@ $package = $data['package'];
                                     <i class="fa-regular fa-location-dot"></i>
                                     University Campus, Animal Welfare Center
                                 </li> -->
-
-
-
                             </ul>
                             <p>
-                                {{ $package->content ?? '' }}
+                                {!! $package->content ?? '' !!}
                             </p>
-
                         </div>
                     </div>
                 </div>

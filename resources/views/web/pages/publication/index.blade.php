@@ -30,7 +30,7 @@
 <!-- News Section Start -->
 <section class="news-section section-padding fix">
     <div class="container">
-        <div class="row g-4">
+        <div class="row g-5">
             @if ($data['publications']->isNotEmpty())
             @foreach ($data['publications'] as $publication)
             <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".3s">
@@ -64,19 +64,20 @@
                             </a>
                         </h4>
                         <p>
-                            {{ \Illuminate\Support\Str::words($publication->description, 10, '...') }}
+                            {!! \Illuminate\Support\Str::words(strip_tags($publication->description), 10, '...') !!}
                         </p>
-                        
-                        <a href="{{ route('web.publication.show', encrypt($publication->id)) }}" class="link-btn">Read More <i class="fa-solid fa-arrow-right-long"></i></a>
-                        @isset($publication->document)
-                        <div class="mt-3">
+
+                        <div class="mt-3 d-flex align-items-center justify-content-start gap-4">
+                            <a href="{{ route('web.publication.show', encrypt($publication->id)) }}" class="link-btn">Read More <i class="fa-solid fa-arrow-right-long"></i></a>
+
+                            @isset($publication->document)
                             <a href="{{ asset('storage/' . $publication->document) }}"
                                 download
                                 class="download-btn">
                                 Download File
                             </a>
+                            @endisset
                         </div>
-                        @endisset
                     </div>
                 </div>
             </div>

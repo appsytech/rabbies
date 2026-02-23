@@ -169,9 +169,8 @@
 
                         <td class="p-4">
                             <p class="max-w-xs line-clamp-2 wrap-break-word overflow-hidden">
-                                {{ \Illuminate\Support\Str::words($about->description, 30, '...') }}
+                                {!! \Illuminate\Support\Str::words(strip_tags($about->description), 20, '...') !!}
                             </p>
-
                         </td>
 
                         <td class="p-4">

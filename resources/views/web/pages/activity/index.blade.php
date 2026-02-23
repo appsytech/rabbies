@@ -53,7 +53,8 @@
                                 <a href="{{ route('web.activity.show', encrypt($activity->id)) }}">{{ $activity->title }}</a>
                             </h4>
                             <p>
-                              {{ \Illuminate\Support\Str::words($activity->description, 10, '...') }} 
+                                {!! \Illuminate\Support\Str::words(strip_tags($activity->description), 10, '...') !!}
+
                             </p>
                             <!-- <div class="pro-items">
                                 <div class="progress">

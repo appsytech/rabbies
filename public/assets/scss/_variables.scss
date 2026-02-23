@@ -1,14 +1,13 @@
-
 :root {
-    
+
     --body: #fff;
     --black: #000;
     --white: #fff;
     --theme: #FFC107;
-     --theme-2: #0B4E3D;
+    --theme-2: #0B4E3D;
     --header: #122F2A;
     --text: #667471;
-     --text-2: #0B4E3D;
+    --text-2: #0B4E3D;
     --border: #C9C9C9;
     --bg: #F8F3E7;
     --bg-2: #122F2A;
@@ -27,3 +26,11 @@ $border-color: var(--border);
 $bg-color: var(--bg);
 $bg-color-2: var(--bg-2);
 $shadow: var(--pp-box-shadow);
+
+$dark-green: #1a3128;
+$mid-green: #2d5040;
+$accent: #f5c518;
+$accent-dark: #d4a010;
+$light-bg: #f7f5f0;
+$text-body: #3a3a3a;
+$text-muted: #7a8a80;

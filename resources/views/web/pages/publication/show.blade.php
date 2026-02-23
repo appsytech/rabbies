@@ -67,7 +67,7 @@ $publication = $data['publication'];
 
                             </ul>
                             <p>
-                                {{ $publication->description ?? '' }}
+                                {!! $publication->description ?? '' !!}
                             </p>
 
                         </div>
