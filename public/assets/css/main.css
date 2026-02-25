@@ -204,7 +204,7 @@ h1 {
     font-size: 50px;
   }
 }
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   h1 {
     font-size: 32px;
   }
@@ -235,7 +235,7 @@ h2 {
     font-size: 40px;
   }
 }
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   h2 {
     font-size: 35px;
   }
@@ -629,7 +629,7 @@ span {
     left: 0;
   }
 }
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .about-wrapper-3 .about-image .about-image-2 {
     top: 89px;
   }
@@ -1568,7 +1568,7 @@ span {
     font-size: 40px;
   }
 }
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .contact-wrapper .contact-content .section-title h2 {
     font-size: 35px;
   }
@@ -1740,7 +1740,7 @@ span {
     align-items: center;
   }
 }
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .contact-us-wrapper-2 .contact-us-box {
     display: grid;
   }
@@ -2621,7 +2621,7 @@ span {
     bottom: 155px;
   }
 }
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .volounteer-wrapper-3 .circle-image {
     display: none;
   }
@@ -2840,7 +2840,7 @@ span {
     width: 700px;
   }
 }
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .donation-details-wrapper .donation-details-left .donation-display {
     width: 350px;
   }
@@ -3395,7 +3395,7 @@ span {
   justify-content: space-between;
   margin-bottom: 30px;
 }
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .event-list-items {
     flex-wrap: wrap;
   }
@@ -3406,7 +3406,7 @@ span {
   border-bottom-left-radius: 20px;
   overflow: hidden;
 }
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .event-list-items .event-image {
     flex-basis: 100%;
     border-radius: 20px;
@@ -3441,7 +3441,7 @@ span {
   transform: scale(1.02);
   transition: all 1.5s ease-out;
 }
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .event-list-items .event-image img {
     border-radius: 20px;
   }
@@ -5699,7 +5699,7 @@ span {
     text-align: center;
   }
 }
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .breadcrumb-wrapper .page-heading h1 {
     font-size: 40px;
   }
@@ -6221,7 +6221,7 @@ span {
   z-index: 999;
   text-align: center;
 }
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .hero-1 .hero-content {
     text-align: center;
   }
@@ -6255,7 +6255,7 @@ span {
     gap: 30px;
   }
 }
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .hero-1 .hero-content .hero-button {
     justify-content: center;
   }
@@ -6614,7 +6614,7 @@ span {
     font-size: 40px;
   }
 }
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .hero-3 .hero-content h1 {
     font-size: 30px;
   }
@@ -6808,13 +6808,30 @@ span {
 
 .news-card-items {
   margin-top: 30px;
+  overflow: hidden;
 }
 .news-card-items .news-image {
   position: relative;
   border-radius: 20px;
   overflow: hidden;
-  max-height: 426px;
-  max-width: 420px;
+}
+@media (max-width: 450px) {
+  .news-card-items .news-image {
+    height: 200px;
+    width: 100%;
+  }
+}
+@media (max-width: 768px) {
+  .news-card-items .news-image {
+    height: 226px;
+    width: 100%;
+  }
+}
+@media (min-width: 992px) {
+  .news-card-items .news-image {
+    height: 300px;
+    width: 100%;
+  }
 }
 .news-card-items .news-image .bottom-shape {
   position: absolute;
@@ -8972,7 +8989,7 @@ span {
   z-index: 99;
   margin-bottom: 30px;
 }
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .section-title {
     margin-bottom: 0;
   }
@@ -9027,7 +9044,7 @@ span {
     font-size: 40px;
   }
 }
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .section-title.style-2 h2 {
     font-size: 35px;
   }
@@ -9060,7 +9077,7 @@ span {
     gap: 30px;
   }
 }
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .section-title-area {
     margin-bottom: 0;
   }
@@ -9115,7 +9132,7 @@ span {
     margin: 0 30px;
   }
 }
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .causes-section {
     margin: 0 15px;
   }
@@ -10268,7 +10285,7 @@ span {
     font-size: 40px;
   }
 }
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .testimonial-wrapper-2 .testimonial-content .section-title h2 {
     font-size: 35px;
   }
@@ -10379,7 +10396,7 @@ span {
     margin: 0px auto;
   }
 }
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .testimonial-wrapper-2 .testimonial-items #slider {
     height: 330px;
   }
@@ -10542,7 +10559,7 @@ span {
     font-size: 40px;
   }
 }
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .testimonial-wrapper-3 .testimonial-content .section-title h2 {
     font-size: 35px;
   }

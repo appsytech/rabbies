@@ -41,7 +41,9 @@ class GalleryController extends Controller
             'description' => 'nullable|string|max:2000',
             'status' => 'required|boolean',
             'sort' => 'required|integer|min:0',
-            'media' => ['required', 'file',
+            'media' => [
+                'required',
+                'file',
                 function ($attribute, $file, $fail) use ($request) {
                     $type = $request->type;
 
@@ -58,7 +60,8 @@ class GalleryController extends Controller
                             ['media' => 'mimetypes:video/mp4,video/quicktime,video/x-msvideo|max:15360']
                         )->validate();
                     }
-                }, ],
+                },
+            ],
 
         ]);
 
@@ -112,7 +115,9 @@ class GalleryController extends Controller
             'description' => 'nullable|string|max:2000',
             'status' => 'required|boolean',
             'sort' => 'required|integer|min:0',
-            'media' => ['nullable', 'file',
+            'media' => [
+                'nullable',
+                'file',
                 function ($attribute, $file, $fail) use ($request) {
                     $type = $request->type;
 
@@ -129,7 +134,8 @@ class GalleryController extends Controller
                             ['media' => 'mimetypes:video/mp4,video/quicktime,video/x-msvideo|max:15360']
                         )->validate();
                     }
-                }, ],
+                },
+            ],
         ]);
 
         $isUpdated = $this->galleryService->update($request);
@@ -143,10 +149,12 @@ class GalleryController extends Controller
 
     public function updateStatus(Request $request): JsonResponse
     {
-        $validator = Validator::make($request->all(),
+        $validator = Validator::make(
+            $request->all(),
             [
                 'id' => 'required|integer',
-            ]);
+            ]
+        );
 
         if ($validator->fails()) {
             return response()->json([
@@ -189,6 +197,5 @@ class GalleryController extends Controller
         } else {
             return redirect()->back()->withErrors('Something went wrong!');
         }
-
     }
 }
