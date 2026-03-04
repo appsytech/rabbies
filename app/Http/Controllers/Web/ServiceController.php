@@ -12,6 +12,7 @@ class ServiceController extends Controller
     public function __construct(
         protected ServiceService $ServiceService
     ) {}
+
     public function show(Request $request)
     {
         $service = $this->ServiceService->find($request->id);

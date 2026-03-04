@@ -58,8 +58,9 @@ $service = $data['service'];
                                 {{ $service->title  ?? '' }}
                             </h2>
                             <p>
-                                {{!!$service->description ?? '' !!}
+                                {!!$service->description ?? '' !!}
                             </p>
+
                             @isset($service->mission_description)
                             <h3>
                                 Our Mission
@@ -249,7 +250,7 @@ $service = $data['service'];
                                 </div>
                                 <div class="details-content">
                                     <h5>
-                                        <a href="donation-details.html">
+                                        <a href="{{ route('web.service.show', encrypt($service->id)) }}">
                                             {{ $service->title ?? '' }}
                                         </a>
                                     </h5>

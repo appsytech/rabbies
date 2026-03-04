@@ -55,6 +55,23 @@ document.addEventListener("DOMContentLoaded", () => {
     if (descriptionEditorEl) {
         quillDescription = new Quill(descriptionEditorEl, {
             theme: "snow",
+            modules: {
+                toolbar: [
+                    [{ header: [1, 2, 3, false] }],
+                    ["bold", "italic", "underline", "strike"],
+                    [{ color: [] }, { background: [] }],
+                    [{ list: "ordered" }, { list: "bullet" }],
+                    [{ align: [] }],
+                    ["blockquote", "code-block"],
+                    ["link", "image", "video"],
+                    ["clean"],
+                ],
+                history: {
+                    delay: 1000,
+                    maxStack: 50,
+                    userOnly: true,
+                },
+            },
         });
 
         quillDescription.on("text-change", function () {
@@ -79,6 +96,23 @@ document.addEventListener("DOMContentLoaded", () => {
     if (missionEditorEl) {
         quillMissionDescription = new Quill(missionEditorEl, {
             theme: "snow",
+            modules: {
+                toolbar: [
+                    [{ header: [1, 2, 3, false] }],
+                    ["bold", "italic", "underline", "strike"],
+                    [{ color: [] }, { background: [] }],
+                    [{ list: "ordered" }, { list: "bullet" }],
+                    [{ align: [] }],
+                    ["blockquote", "code-block"],
+                    ["link", "image", "video"],
+                    ["clean"],
+                ],
+                history: {
+                    delay: 1000,
+                    maxStack: 50,
+                    userOnly: true,
+                },
+            },
         });
 
         quillMissionDescription.on("text-change", function () {
@@ -97,6 +131,23 @@ document.addEventListener("DOMContentLoaded", () => {
     if (contentEditorEl) {
         let quillContent = new Quill(contentEditorEl, {
             theme: "snow",
+            modules: {
+                toolbar: [
+                    [{ header: [1, 2, 3, false] }],
+                    ["bold", "italic", "underline", "strike"],
+                    [{ color: [] }, { background: [] }],
+                    [{ list: "ordered" }, { list: "bullet" }],
+                    [{ align: [] }],
+                    ["blockquote", "code-block"],
+                    ["link", "image", "video"],
+                    ["clean"],
+                ],
+                history: {
+                    delay: 1000,
+                    maxStack: 50,
+                    userOnly: true,
+                },
+            },
         });
 
         quillContent.on("text-change", function () {
