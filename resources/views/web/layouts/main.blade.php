@@ -154,17 +154,16 @@
                         </h4>
                     </div>
                 </div>
-                <div class="social-icon">
-                    <a href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M18.244 2.25h3.308l-7.227 8.26L22.75 21.75h-6.57l-5.145-6.7-5.873 6.7H1.854l7.73-8.835L1.25 2.25h6.736l4.654 6.1z" />
-                        </svg>
-                    </a>
 
-                    <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
-                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
-                </div>
+                @if ($socials->isNotEmpty())
+                    <div class="social-icon">
+                        @foreach ($socials as $social)
+                            <a href="{{ $social->link ?? '#' }}">
+                                <img src="{{ asset('storage/' . $social->icon) }}">
+                            </a>
+                        @endforeach
+                    </div>
+                @endif
             </div>
         </div>
     </div>
@@ -187,7 +186,8 @@
                         </div>
                     </div>
                     <p class="text d-none d-xl-block">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint porro neque, rem beatae rerum illo ea odio nisi dolor maiores.
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint porro neque, rem beatae rerum
+                        illo ea odio nisi dolor maiores.
                     </p>
                     <div class="mobile-menu fix mb-3"></div>
                     <div class="offcanvas__contact d-xl-block">
@@ -206,7 +206,8 @@
                                     <i class="fal fa-envelope"></i>
                                 </div>
                                 <div class="offcanvas__contact-text">
-                                    <a href="mailto:info@abhingo.com"><span class="mailto:info@abhingo.com">info@abhingo.com</span></a>
+                                    <a href="mailto:info@abhingo.com"><span
+                                            class="mailto:info@abhingo.com">info@abhingo.com</span></a>
                                 </div>
                             </li>
                             <li class="d-flex align-items-center">
@@ -229,8 +230,10 @@
                         <div class="social-icon d-flex align-items-center">
                             <a href="#"><i class="fab fa-facebook-f"></i></a>
                             <a href="#">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M18.244 2.25h3.308l-7.227 8.26L22.75 21.75h-6.57l-5.145-6.7-5.873 6.7H1.854l7.73-8.835L1.25 2.25h6.736l4.654 6.1z" />
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                    fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M18.244 2.25h3.308l-7.227 8.26L22.75 21.75h-6.57l-5.145-6.7-5.873 6.7H1.854l7.73-8.835L1.25 2.25h6.736l4.654 6.1z" />
                                 </svg>
                             </a>
 
@@ -327,7 +330,6 @@
     @yield('content')
 
 
-
     <!-- Footer Section Start -->
     <footer class="footer-section header-bg fix">
         <div class="container">
@@ -351,18 +353,7 @@
                                         Contact
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa-solid fa-chevrons-right"></i>
-                                        Gallery
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa-solid fa-chevrons-right"></i>
-                                        FAQ
-                                    </a>
-                                </li>
+
                                 <li>
                                     <a href="{{ route('web.blog.index') }}">
                                         <i class="fa-solid fa-chevrons-right"></i>
@@ -378,14 +369,9 @@
                                 <h3>Explore Now</h3>
                             </div>
                             <ul class="list-area">
+
                                 <li>
-                                    <a href="#">
-                                        <i class="fa-solid fa-chevrons-right"></i>
-                                        Volunteers
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
+                                    <a href="{{ route('web.publication.index') }}">
                                         <i class="fa-solid fa-chevrons-right"></i>
                                         Publication
                                     </a>
@@ -397,9 +383,9 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="{{ route('web.package.index') }}">
                                         <i class="fa-solid fa-chevrons-right"></i>
-                                        Gallary
+                                        Packages
                                     </a>
                                 </li>
                             </ul>
@@ -445,27 +431,27 @@
                             </div>
                             <div class="footer-newsletter">
                                 <p>
-                                    Charity not only helps to reduce suffering but also fosters a sense of unity and shared responsibility in society.
+                                    Charity not only helps to reduce suffering but also fosters a sense of unity and
+                                    shared responsibility in society.
                                 </p>
                                 <form action="#">
                                     <div class="form-clt">
-                                        <input type="text" name="email" id="email" placeholder="Enter Your Email">
+                                        <input type="text" name="email" id="email"
+                                            placeholder="Enter Your Email">
                                         <button type="submit" class="theme-btn">
                                             Subscribe Now
                                         </button>
                                     </div>
                                 </form>
-                                <div class="social-icon">
-                                    <a href="#">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
-                                            <path d="M18.244 2.25h3.308l-7.227 8.26L22.75 21.75h-6.57l-5.145-6.7-5.873 6.7H1.854l7.73-8.835L1.25 2.25h6.736l4.654 6.1z" />
-                                        </svg>
-                                    </a>
-
-                                    <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
-                                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
-                                </div>
+                                @if ($socials->isNotEmpty())
+                                    <div class="social-icon">
+                                        @foreach ($socials as $social)
+                                            <a href="{{ $social->link ?? '#' }}">
+                                                <img src="{{ asset('storage/' . $social->icon) }}">
+                                            </a>
+                                        @endforeach
+                                    </div>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -473,7 +459,8 @@
             </div>
             <div class="footer-bottom">
                 <div class="footer-wrapper">
-                    <p>Copyright & Design By <span>@AbhiNGO</span></p>
+                    <p>Copyright & Design By  <a href="https://appsytech.com" target="_blank"><span>
+                           Appsytech</span></a></p>
                     <ul class="footer-bottom-list">
                         <li>
                             <a href="#">Faq</a>

@@ -9,10 +9,12 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\HomeSliderController;
 use App\Http\Controllers\Admin\InquiryController as AdminInquiryController;
+use App\Http\Controllers\Admin\LayoutConfigController;
 use App\Http\Controllers\Admin\PackageController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\PublicationController;
 use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\Admin\SocialMediaConfigController;
 use App\Http\Controllers\Web\ActivityController as WebActivityController;
 use App\Http\Controllers\Web\AdminController as WebAdminController;
 use App\Http\Controllers\Web\BlogController;
@@ -129,6 +131,24 @@ Route::post('dashboard/service/status/update', [ServiceController::class, 'updat
 Route::get('dashboard/about-us', [AboutUsController::class, 'index'])->name('about-us.index')->middleware('auth');
 Route::get('dashboard/about-us/edit/{id}', [AboutUsController::class, 'edit'])->name('about-us.edit')->middleware('auth');
 Route::put('dashboard/about-us/update', [AboutUsController::class, 'update'])->name('about-us.update')->middleware('auth');
+
+
+/* ====================== Dashboard > Social Media Config ====================== */
+Route::get('dashboard/social-media-config', [SocialMediaConfigController::class, 'index'])->name('social-media-config.index')->middleware(['auth']);
+Route::post('dashboard/social-media-config/store', [SocialMediaConfigController::class, 'store'])->name('social-media-config.store')->middleware(['auth']);
+Route::delete('dashboard/social-media-config/delete', [SocialMediaConfigController::class, 'delete'])->name('social-media-config.delete')->middleware(['auth']);
+Route::get('dashboard/social-media-config/edit/{id}', [SocialMediaConfigController::class, 'edit'])->name('social-media-config.edit')->middleware(['auth']);
+Route::put('dashboard/social-media-config/update', [SocialMediaConfigController::class, 'update'])->name('social-media-config.update')->middleware(['auth']);
+Route::post('dashboard/social-media-config/status/update', [SocialMediaConfigController::class, 'updateStatus'])->name('social-media-config.status.update')->middleware(['auth']);
+
+
+/* ====================== Dashboard > Layout Config ====================== */
+Route::get('dashboard/layout-config', [LayoutConfigController::class, 'index'])->name('layout-config.index')->middleware(['auth']);
+Route::post('dashboard/layout-config/store', [LayoutConfigController::class, 'store'])->name('layout-config.store')->middleware(['auth']);
+Route::delete('dashboard/layout-config/delete', [LayoutConfigController::class, 'delete'])->name('layout-config.delete')->middleware(['auth']);
+Route::get('dashboard/layout-config/edit/{id}', [LayoutConfigController::class, 'edit'])->name('layout-config.edit')->middleware(['auth']);
+Route::put('dashboard/layout-config/update', [LayoutConfigController::class, 'update'])->name('layout-config.update')->middleware(['auth']);
+Route::post('dashboard/layout-config/status/update', [LayoutConfigController::class, 'updateStatus'])->name('layout-config.status.update')->middleware(['auth']);
 
 
 /* ====================== Dashboard > About us feature ====================== */

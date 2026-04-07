@@ -93,7 +93,7 @@
         <!--========== Setting Config ===========-->
         <div>
             <button id="setting"
-                class="has-submenu w-full flex items-center justify-between px-4 py-3 cursor-pointer text-sm font-medium text-gray-700 rounded-lg hover:bg-[#EEF2FF] transition-all {{ Route::currentRouteName() == 'admin.index' || Route::currentRouteName() == 'admin.edit' || Route::currentRouteName() == 'homepage-slider.index' || Route::currentRouteName() == 'homepage-slider.edit' || Route::currentRouteName() == 'about-us.index' || Route::currentRouteName() == 'about-us.edit' || Route::currentRouteName() == 'about-feature.index' || Route::currentRouteName() == 'about-feature.edit' || Route::currentRouteName() == 'gallery.index' || Route::currentRouteName() == 'gallery.edit'  ? 'bg-blue-100 text-black' : 'text-gray-700' }}">
+                class="has-submenu w-full flex items-center justify-between px-4 py-3 cursor-pointer text-sm font-medium text-gray-700 rounded-lg hover:bg-[#EEF2FF] transition-all {{ Route::currentRouteName() == 'admin.index' || Route::currentRouteName() == 'admin.edit' || Route::currentRouteName() == 'homepage-slider.index' || Route::currentRouteName() == 'homepage-slider.edit' || Route::currentRouteName() == 'about-us.index' || Route::currentRouteName() == 'about-us.edit' || Route::currentRouteName() == 'about-feature.index' || Route::currentRouteName() == 'about-feature.edit' || Route::currentRouteName() == 'gallery.index' || Route::currentRouteName() == 'gallery.edit' ||  Route::currentRouteName() == 'social-media-config.index' || Route::currentRouteName() == 'social-media-config.edit' ? 'bg-blue-100 text-black' : 'text-gray-700' }}">
                 <div class="flex items-center gap-3 pointer-events-none">
                     <img src="{{ asset('assets/svg/setting.svg') }}" class="w-5 h-5 pointer-events-none">
                     <span class="sidebar-text pointer-events-none">Settings</span>
@@ -125,6 +125,10 @@
                 <a href="{{ route('gallery.index') }}" data-nav
                     class="block px-4 py-2 text-sm  rounded-lg hover:bg-[#EEF2FF] {{ Route::currentRouteName() == 'gallery.index' || Route::currentRouteName() == 'gallery.edit' ? 'bg-blue-100 text-black is_active' : 'text-gray-700' }} hover:text-gray-900 transition-colors">
                     Gallery
+                </a>
+                <a href="{{ route('social-media-config.index') }}" data-nav
+                    class="block px-4 py-2 text-sm  rounded-lg hover:bg-[#EEF2FF] {{ Route::currentRouteName() == 'social-media-config.index' || Route::currentRouteName() == 'social-media-config.edit' ? 'bg-blue-100 text-black is_active' : 'text-gray-700' }} hover:text-gray-900 transition-colors">
+                    Social Media
                 </a>
             </div>
         </div>

@@ -619,7 +619,7 @@
                             <div class="counter-item wow fadeInUp" data-wow-delay=".5s">
                                 <div class="content style-2">
                                     <h2><span class="count">35</span>k</h2>
-                                    <p>Team Suppor</p>
+                                    <p>Team Member</p>
                                 </div>
                                 <div class="content">
                                     <h2><span class="count">1</span>k+</h2>
@@ -633,7 +633,7 @@
                                 </div>
                                 <div class="content style-2">
                                     <h2><span class="count">400</span>+</h2>
-                                    <p>Monthly Donor</p>
+                                    <p>Activities</p>
                                 </div>
                             </div>
                         </div>
