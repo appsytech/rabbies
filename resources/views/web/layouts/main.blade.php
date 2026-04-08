@@ -198,7 +198,7 @@
                                     <i class="fal fa-map-marker-alt"></i>
                                 </div>
                                 <div class="offcanvas__contact-text">
-                                    <a target="_blank" href="#">Patna, Bihar</a>
+                                    <a target="_blank" href="#">Kathmandu,Nepal</a>
                                 </div>
                             </li>
                             <li class="d-flex align-items-center">
@@ -206,8 +206,8 @@
                                     <i class="fal fa-envelope"></i>
                                 </div>
                                 <div class="offcanvas__contact-text">
-                                    <a href="mailto:info@abhingo.com"><span
-                                            class="mailto:info@abhingo.com">info@abhingo.com</span></a>
+                                    <a href="mailto:info@appsytech.com"><span
+                                            class="mailto:info@appsytech.com">info@appsytech.com</span></a>
                                 </div>
                             </li>
                             <li class="d-flex align-items-center">
@@ -223,17 +223,15 @@
                                     <i class="far fa-phone"></i>
                                 </div>
                                 <div class="offcanvas__contact-text">
-                                    <a href="tel:+918340138097">+918340138097</a>
+                                    <a href="tel:+9779815418601">+9779815418601</a>
                                 </div>
                             </li>
                         </ul>
                         <div class="social-icon d-flex align-items-center">
                             <a href="#"><i class="fab fa-facebook-f"></i></a>
                             <a href="#">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                    fill="currentColor" viewBox="0 0 24 24">
-                                    <path
-                                        d="M18.244 2.25h3.308l-7.227 8.26L22.75 21.75h-6.57l-5.145-6.7-5.873 6.7H1.854l7.73-8.835L1.25 2.25h6.736l4.654 6.1z" />
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M18.244 2.25h3.308l-7.227 8.26L22.75 21.75h-6.57l-5.145-6.7-5.873 6.7H1.854l7.73-8.835L1.25 2.25h6.736l4.654 6.1z" />
                                 </svg>
                             </a>
 
