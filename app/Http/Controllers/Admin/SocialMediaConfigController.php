@@ -38,7 +38,7 @@ class SocialMediaConfigController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name'   => 'required|string|max:100',
-            'icon'   => 'required|file',
+           'type' => 'required|in:facebook,instagram,twitter,linkedin,youtube,tiktok,snapchat,pinterest,reddit,whatsapp,telegram',
             'link'   => 'required|url|max:255',
             'sort'   => 'required|integer|min:0',
             'status' => 'required|in:0,1',
@@ -81,7 +81,7 @@ class SocialMediaConfigController extends Controller
         $request->validate([
             'id' => 'required|integer',
             'name'   => 'required|string|max:100',
-            'icon'   => 'nullable|file',
+            'type' => 'required|in:facebook,instagram,twitter,linkedin,youtube,tiktok,snapchat,pinterest,reddit,whatsapp,telegram',
             'link'   => 'required|url|max:255',
             'sort'   => 'required|integer|min:0',
             'status' => 'required|in:0,1',

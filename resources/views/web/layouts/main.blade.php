@@ -156,10 +156,25 @@
                 </div>
 
                 @if ($socials->isNotEmpty())
+                    @php
+                        $socialIcons = [
+                            'facebook' => 'fab fa-facebook-f text-blue-600',
+                            'instagram' => 'fab fa-instagram text-pink-500',
+                            'twitter' => 'fab fa-twitter text-blue-400',
+                            'linkedin' => 'fab fa-linkedin-in text-blue-700',
+                            'youtube' => 'fab fa-youtube text-red-600',
+                            'tiktok' => 'fab fa-tiktok text-black',
+                            'snapchat' => 'fab fa-snapchat-ghost text-yellow-400',
+                            'pinterest' => 'fab fa-pinterest-p text-red-500',
+                            'reddit' => 'fab fa-reddit-alien text-orange-500',
+                            'whatsapp' => 'fab fa-whatsapp text-green-500',
+                            'telegram' => 'fab fa-telegram-plane text-blue-400',
+                        ];
+                    @endphp
                     <div class="social-icon">
                         @foreach ($socials as $social)
-                            <a href="{{ $social->link ?? '#' }}">
-                                <img src="{{ asset('storage/' . $social->icon) }}">
+                            <a href="{{ $social->link ?? '#' }}" target="_blank">
+                                <i class="{{ $socialIcons[strtolower($social->type)] ?? 'fas fa-globe' }}"></i>
                             </a>
                         @endforeach
                     </div>
@@ -176,7 +191,7 @@
                     <div class="offcanvas__top mb-5 d-flex justify-content-between align-items-center">
                         <div class="offcanvas__logo">
                             <a href="/">
-                                <img src="assets/img/logo/erabies-logo.png" alt="logo-img">
+                                <img src="{{ asset('assets/img/logo/erabies-logo.png') }}" alt="logo-img">
                             </a>
                         </div>
                         <div class="offcanvas__close">
@@ -230,8 +245,10 @@
                         <div class="social-icon d-flex align-items-center">
                             <a href="#"><i class="fab fa-facebook-f"></i></a>
                             <a href="#">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M18.244 2.25h3.308l-7.227 8.26L22.75 21.75h-6.57l-5.145-6.7-5.873 6.7H1.854l7.73-8.835L1.25 2.25h6.736l4.654 6.1z" />
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                    fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M18.244 2.25h3.308l-7.227 8.26L22.75 21.75h-6.57l-5.145-6.7-5.873 6.7H1.854l7.73-8.835L1.25 2.25h6.736l4.654 6.1z" />
                                 </svg>
                             </a>
 
@@ -442,10 +459,26 @@
                                     </div>
                                 </form>
                                 @if ($socials->isNotEmpty())
+                                    @php
+                                        $socialIcons = [
+                                            'facebook' => 'fab fa-facebook-f text-blue-600',
+                                            'instagram' => 'fab fa-instagram text-pink-500',
+                                            'twitter' => 'fab fa-twitter text-blue-400',
+                                            'linkedin' => 'fab fa-linkedin-in text-blue-700',
+                                            'youtube' => 'fab fa-youtube text-red-600',
+                                            'tiktok' => 'fab fa-tiktok text-black',
+                                            'snapchat' => 'fab fa-snapchat-ghost text-yellow-400',
+                                            'pinterest' => 'fab fa-pinterest-p text-red-500',
+                                            'reddit' => 'fab fa-reddit-alien text-orange-500',
+                                            'whatsapp' => 'fab fa-whatsapp text-green-500',
+                                            'telegram' => 'fab fa-telegram-plane text-blue-400',
+                                        ];
+                                    @endphp
                                     <div class="social-icon">
                                         @foreach ($socials as $social)
-                                            <a href="{{ $social->link ?? '#' }}">
-                                                <img src="{{ asset('storage/' . $social->icon) }}">
+                                            <a href="{{ $social->link ?? '#' }}" target="_blank">
+                                                <i
+                                                    class="{{ $socialIcons[strtolower($social->type)] ?? 'fas fa-globe' }}"></i>
                                             </a>
                                         @endforeach
                                     </div>
@@ -457,8 +490,8 @@
             </div>
             <div class="footer-bottom">
                 <div class="footer-wrapper">
-                    <p>Copyright & Design By  <a href="https://appsytech.com" target="_blank"><span>
-                           Appsytech</span></a></p>
+                    <p>Copyright & Design By <a href="https://appsytech.com" target="_blank"><span>
+                                Appsytech</span></a></p>
                     <ul class="footer-bottom-list">
                         <li>
                             <a href="#">Faq</a>

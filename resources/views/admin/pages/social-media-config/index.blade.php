@@ -108,7 +108,7 @@
                             </th>
 
                             <th class="h-12 px-4 text-left font-semibold">
-                                Icon
+                                Type
                             </th>
 
                             <th class="h-12 px-4 text-left font-semibold">
@@ -145,11 +145,10 @@
                                         {{ $config->name ?? '' }}
                                     </td>
                                     <td class="p-4">
-                                        @if (isset($config->icon))
-                                            <img src="{{ asset('storage/' . $config->icon) }}" alt="Profile"
-                                                class="w-10 h-10 rounded-full object-cover">
+                                        @if (isset($config->type))
+                                            <span class="capitalize">{{ $config->type }}</span>
                                         @else
-                                            --no icon--
+                                            --no type--
                                         @endif
                                     </td>
 
@@ -253,29 +252,27 @@
                             </div>
 
 
-                            {{-- ====== Icon ====== --}}
-                            <div class="col-span-2">
+                            {{-- ====== Type ====== --}}
+                            <div>
                                 <label class="text-xs font-semibold text-gray-700 mb-2 flex items-center gap-1.5">
-                                    <img src="{{ asset('assets/svg/image-plus.svg') }}" class="w-3.5 h-3.5">
-                                    Upload Icon
+                                    <img src="{{ asset('assets/svg/layout-grid.svg') }}" class="w-3.5 h-3.5 pointer-events-none"
+                                        alt="">
+                                    Type
                                 </label>
                                 <div class="relative">
-                                    <input type="file" id="imageUpload" name="icon" required
-                                        data-previewSectionId="iconPreviewContainer" accept=".svg"
-                                        class="hidden image-upload&preview" />
-                                    <label for="imageUpload"
-                                        class="flex items-center justify-center w-full px-4 py-2.5 text-sm text-gray-700 bg-white border-2 border-gray-200 rounded-lg cursor-pointer transition-all shadow-sm hover:shadow-md hover:border-blue-500 focus-within:ring-2 focus-within:ring-blue-500 focus-within:border-blue-500 group">
-                                        <img src="{{ asset('assets/svg/upload-cloud.svg') }}" class="w-5 h-5 mr-2"
-                                            alt="">
-                                        <span class="font-medium">Click to upload Icon</span>
-                                        {{-- <span class="text-gray-400 ml-1">(PNG, JPG, GIF)</span> --}}
-                                    </label>
+                                    <select name="type" required
+                                        class="w-full px-4 py-2.5 text-sm text-gray-700 bg-white border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all shadow-sm hover:shadow-md appearance-none cursor-pointer">
+                                        <option value="facebook">Facebook</option>
+                                        <option value="instagram">Instagram</option>
+                                        <option value="twitter">Twitter</option>
+                                        <option value="linkedin">Linkedin</option>
+                                        <option value="youtube">Youtube</option>
+                                    </select>
+                                    <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                                        <img src="{{ asset('assets/svg/cheveron-down.svg') }}"
+                                            class="w-4 h-4 pointer-events-none" alt="">
+                                    </div>
                                 </div>
-                            </div>
-
-                            {{-- === Icon Preview Section ==== --}}
-                            <div id="iconPreviewContainer" class="hidden col-span-2">
-
                             </div>
 
                             {{-- ====== Link ===== --}}

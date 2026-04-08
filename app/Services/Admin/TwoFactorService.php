@@ -129,7 +129,7 @@ class TwoFactorService
             return redirect()->route('dashboard')->with('success', 'Welcome To Dashboard');
         }
 
-        return redirect()->back()->withErrors('failed!.');
+        return redirect()->back()->withErrors('Invalid OTP. Please try again.');
     }
 
     public function generateSecret(): string

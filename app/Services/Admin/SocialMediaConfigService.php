@@ -28,12 +28,10 @@ class SocialMediaConfigService
             'link' => $request->link,
             'sort' => $request->sort ?? null,
             'status' => $request->status ?? null,
+            'type' => $request->type,
             'created_at' => Carbon::now()
         ];
 
-        if ($request->hasFile('icon')) {
-            $data['icon'] = $request->file('icon')->store('assets/images/social-media-config', 'public');
-        }
 
         $createdSocialMediaConfig = $this->socialMediaConfigRepo->create($data);
 
@@ -72,22 +70,15 @@ class SocialMediaConfigService
     public function update($request): array
     {
         $configId = $request->id;
-        $config = $this->socialMediaConfigRepo->find($configId, ['icon']);
 
         $data = [
             'name' => $request->name,
             'link' => $request->link,
+            'type' => $request->type,
             'sort' => $request->sort ?? null,
             'status' => $request->status ?? null,
             'updated_at' => Carbon::now()
         ];
-
-        if ($request->hasFile('icon')) {
-            if (isset($config->icon) && Storage::disk('public')->exists($config->icon)) {
-                Storage::disk('public')->delete($config->icon);
-            }
-            $data['icon'] = $request->file('icon')->store('assets/images/social-media-config', 'public');
-        }
 
 
         $isUpdated =  $this->socialMediaConfigRepo->updateColumns($configId, $data);
@@ -126,14 +117,6 @@ class SocialMediaConfigService
     ==============================================================================*/
     public function delete(int $id): bool
     {
-        $config = $this->socialMediaConfigRepo->find($id, ['icon']);
-
-        if (! empty($config->icon) && Storage::disk('public')->exists($config->icon)) {
-            Storage::disk('public')->delete($config->icon);
-        }
-
-        $isDeleted = $this->socialMediaConfigRepo->delete($id);
-
-        return $isDeleted;
+         return $this->socialMediaConfigRepo->delete($id);
     }
 }

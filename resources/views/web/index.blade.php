@@ -950,13 +950,13 @@
             <div class="row g-4 align-items-end">
                 <div class="col-lg-6">
                     <div class="contact-image wow img-custom-anim-left" data-wow-duration="1.3s" data-wow-delay="0.3s">
-                        <img src="assets/img/home-1/contact.jpg" alt="img">
+                        <img src="{{ asset('assets/img/home-1/contact.jpg') }}" alt="img">
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="contact-content">
                         <div class="logo-image">
-                            <a href="/"><img src="assets/img/logo/black-logo.png" alt="img"></a>
+                            <a href="{{ route('web.homepage') }}"><img src="{{ asset('assets/img/logo/erabies-logo.png') }}" alt="img"></a>
                         </div>
                         <div class="section-title mb-0">
                             <h2 class="sec-title text-white">
