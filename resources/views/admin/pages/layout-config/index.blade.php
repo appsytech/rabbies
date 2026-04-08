@@ -144,7 +144,12 @@
                                     </td>
 
                                     <td class="p-4 text-sm text-gray-700">
-                                        {{ $config->value ?? '' }}
+                                        @if (isset($config->type) && $config->type === 'IMAGE' && !empty($config->value))
+                                            <img src="{{ asset('storage/' . $config->value) }}" alt="Image"
+                                                class="w-16 h-16 object-cover rounded">
+                                        @else
+                                            {{ $config->value ?? '' }}
+                                        @endif
                                     </td>
 
                                     <td class="p-4">
@@ -240,7 +245,7 @@
                                     Type
                                 </label>
                                 <div class="relative">
-                                    <select name="type" required
+                                    <select id="typeSelect" name="type" required
                                         class="w-full px-4 py-2.5 text-sm text-gray-700 bg-white border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all shadow-sm hover:shadow-md appearance-none cursor-pointer">
                                         <option value="TEXT">Text</option>
                                         <option value="IMAGE">Image</option>
@@ -254,16 +259,42 @@
 
 
                             {{-- ====== Value ===== --}}
-                            <div>
+                            <div id="textInputContainer">
                                 <label class="text-xs font-semibold text-gray-700 mb-2 flex items-center gap-1.5">
                                     <img src="{{ asset('assets/svg/link.svg') }}" class="w-3.5 h-3.5 pointer-events-none"
                                         alt="">
                                     Value
                                 </label>
                                 <div class="relative">
-                                    <input type="text" placeholder="Enter Value..." name="value"
+                                    <input id="textInput" type="text" placeholder="Enter Value..." name="value"
                                         class="w-full px-4 py-2.5 text-sm text-gray-700 bg-white border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all shadow-sm hover:shadow-md placeholder-gray-400">
                                 </div>
+                            </div>
+
+
+                            <!--====== Image Value Field ======-->
+                            <div id="imageInputContainer" class="col-span-2 hidden">
+                                <label class="text-xs font-semibold text-gray-700 mb-2 flex items-center gap-1.5">
+                                    <img src="{{ asset('assets/svg/image-plus.svg') }}" class="w-3.5 h-3.5">
+                                    Upload Image
+                                </label>
+                                <div class="relative">
+                                    <input type="file" id="imageUpload" name="value"
+                                        data-previewSectionId="profileimagePreviewContainer" accept="image/*"
+                                        class="hidden image-upload&preview" />
+                                    <label for="imageUpload"
+                                        class="flex items-center justify-center w-full px-4 py-2.5 text-sm text-gray-700 bg-white border-2 border-gray-200 rounded-lg cursor-pointer transition-all shadow-sm hover:shadow-md hover:border-blue-500 focus-within:ring-2 focus-within:ring-blue-500 focus-within:border-blue-500 group">
+                                        <img src="{{ asset('assets/svg/upload-cloud.svg') }}" class="w-5 h-5 mr-2"
+                                            alt="">
+                                        <span class="font-medium">Click to upload image</span>
+                                        {{-- <span class="text-gray-400 ml-1">(PNG, JPG, GIF)</span> --}}
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!--=== Image Preview Section ====-->
+                            <div id="profileimagePreviewContainer" class="hidden col-span-2">
+
                             </div>
 
 
@@ -311,4 +342,35 @@
             </div>
         </div>
     </div>
+
+
+    <script>
+        const typeSelect = document.getElementById('typeSelect');
+        const textInputContainer = document.getElementById('textInputContainer');
+        const textInput = document.getElementById('textInput');
+        const imageInputContainer = document.getElementById('imageInputContainer');
+        const imageInput = document.getElementById('imageUpload');
+
+        typeSelect.addEventListener('change', function() {
+            if (this.value === 'TEXT') {
+                // Show text input, hide image input
+                textInputContainer.classList.remove('hidden');
+                textInput.required = true;
+
+                imageInputContainer.classList.add('hidden');
+                imageInput.required = false;
+            } else if (this.value === 'IMAGE') {
+                // Show image input, hide text input
+                imageInputContainer.classList.remove('hidden');
+                imageInput.required = true;
+
+                textInputContainer.classList.add('hidden');
+                textInput.required = false;
+            }
+        });
+
+        // Trigger change on page load in case of pre-selected value
+        typeSelect.dispatchEvent(new Event('change'));
+    </script>
+
 @endsection

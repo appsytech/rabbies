@@ -42,7 +42,7 @@ class LayoutConfigController extends Controller
         $validator = Validator::make($request->all(), [
             'key' => 'required|string|max:255',
             'type' => 'required|in:TEXT,IMAGE',
-            'value' => 'nullable|string',
+            'value' => 'required',
             'status' => 'nullable|boolean',
         ]);
 
@@ -88,7 +88,8 @@ class LayoutConfigController extends Controller
             'id' => 'required|integer',
             'key' => 'required|string|max:255',
             'type' => 'required|in:TEXT,IMAGE',
-            'value' => 'nullable|string',
+            'value' => 'required',
+
             'status' => 'nullable|boolean',
         ]);
 

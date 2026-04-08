@@ -71,6 +71,7 @@ class SocialMediaConfigService
     {
         $configId = $request->id;
 
+
         $data = [
             'name' => $request->name,
             'link' => $request->link,
@@ -117,6 +118,6 @@ class SocialMediaConfigService
     ==============================================================================*/
     public function delete(int $id): bool
     {
-         return $this->socialMediaConfigRepo->delete($id);
+        return $this->socialMediaConfigRepo->delete($id);
     }
 }

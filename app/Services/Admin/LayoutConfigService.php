@@ -6,6 +6,7 @@ use App\Models\Admin\LayoutConfig;
 use App\Repositories\Admin\Iterfaces\LayoutConfigRepositoryInterface;
 use Carbon\Carbon;
 use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Facades\Storage;
 
 class LayoutConfigService
 {
@@ -22,10 +23,17 @@ class LayoutConfigService
     ================================================================*/
     public function create($request): array
     {
+
+        $value = $request->value;
+
+        if ($request->type === 'IMAGE' && $request->hasFile('value') && $request->file('value')->isValid()) {
+            $value = $request->file('value')->store('assets/images/layout-config', 'public');
+        }
+
         $data = [
             'key' => $request->key,
             'type' => $request->type,
-            'value' => $request->value ?? null,
+            'value' => $value ?? null,
             'status' => $request->status ?? null,
             'created_at' => Carbon::now()
         ];
@@ -74,10 +82,25 @@ class LayoutConfigService
     {
         $configId = $request->id;
 
+        $value = $request->value;
+
+        if ($request->type === 'IMAGE' && $request->hasFile('value') && $request->file('value')->isValid()) {
+            $config = $this->layoutConfigRepo->find($configId);
+
+            if (isset($config->value)) {
+
+                if ($config->type  == 'IMAGE' && Storage::disk('public')->exists($config->value)) {
+                    Storage::disk('public')->delete($config->value);
+                }
+
+                $value = $request->file('value')->store('assets/images/layout-config', 'public');
+            }
+        }
+
         $data = [
             'key' => $request->key,
             'type' => $request->type,
-            'value' => $request->value ?? null,
+            'value' => $value ?? null,
             'status' => $request->status ?? null,
             'updated_at' => Carbon::now()
         ];
@@ -120,6 +143,14 @@ class LayoutConfigService
     ==============================================================================*/
     public function delete(int $id): bool
     {
+        $config = $this->layoutConfigRepo->find($id);
+
+        if (isset($config->value)) {
+            if ($config->type  == 'IMAGE' && Storage::disk('public')->exists($config->value)) {
+                Storage::disk('public')->delete($config->value);
+            }
+        }
+
         return $this->layoutConfigRepo->delete($id);
     }
 }
