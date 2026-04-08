@@ -235,7 +235,13 @@
                                     </td>
 
                                     <td class="p-4 text-sm text-gray-600">
-                                        @if (!$admin->google2fa_enabled)
+                                        @php
+                                            $isRestrictedRole = in_array($admin->admin_role, [4, 5]);
+                                        @endphp
+
+                                        @if ($isRestrictedRole)
+                                            <span class="text-xs text-gray-400 italic">2FA not available</span>
+                                        @elseif (!$admin->google2fa_enabled)
                                             <a href="{{ route('google.2fa.setup', ['id' => encrypt($admin->id)]) }}"
                                                 class="confirm-link inline-flex items-center gap-1 px-3 py-1 rounded-md border border-gray-300 cursor-pointer text-gray-500 hover:text-green-600 hover:border-green-300 hover:bg-green-50 transition"
                                                 title="Enable 2FA">
