@@ -30,13 +30,9 @@ class AuthController extends Controller
             'password' => 'required|string|min:8|max:40',
         ]);
 
-        $authenticationResponse = $this->authService->authenticate($request);
+        return $this->authService->authenticate($request);
 
-        if ($authenticationResponse['status']) {
-            return redirect()->intended(route('dashboard'))->with('success', $authenticationResponse['message']);
-        } else {
-            return redirect()->back()->withErrors($authenticationResponse['message']);
-        }
+       
     }
 
     public function logout(Request $request)
