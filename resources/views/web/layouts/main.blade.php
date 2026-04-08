@@ -176,7 +176,7 @@
                     <div class="offcanvas__top mb-5 d-flex justify-content-between align-items-center">
                         <div class="offcanvas__logo">
                             <a href="/">
-                                <img src="assets/img/logo/black-logo.png" alt="logo-img">
+                                <img src="assets/img/logo/erabies-logo.png" alt="logo-img">
                             </a>
                         </div>
                         <div class="offcanvas__close">
@@ -253,7 +253,7 @@
                     <div class="header-left">
                         <div class="logo">
                             <a href="{{ route('web.homepage') }}" class="header-logo">
-                                <img src="{{ asset('assets/img/logo/black-logo.png') }}" alt="logo-img">
+                                <img src="{{ asset('assets/img/logo/erabies-logo.png') }}" alt="logo-img">
                             </a>
                         </div>
                     </div>

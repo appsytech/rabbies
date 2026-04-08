@@ -1,5 +1,5 @@
 @extends('web.layouts.main')
-@section('title', 'Appsytech Non Profit Organization')
+@section('title', 'E rabies Non Profit Organization')
 
 @section('content')
 
