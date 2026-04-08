@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
+use App\Services\Web\LayoutConfigService;
 use App\Services\Web\PublicationService;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -10,14 +11,16 @@ use Illuminate\View\View;
 class PublicationController extends Controller
 {
     public function __construct(
-        protected PublicationService $publicationService
+        protected PublicationService $publicationService,
+        protected LayoutConfigService $layoutConfigService
     ) {}
 
 
     public function index(): View
     {
         $data = [
-            'publications' => $this->publicationService->getPublications()
+            'publications' => $this->publicationService->getPublications(),
+            'config' => $this->layoutConfigService->findByKey('publication')
         ];
 
         return view('web.pages.publication.index', compact('data'));
@@ -37,6 +40,7 @@ class PublicationController extends Controller
                 'exceptId' => $publication->id,
                 'limit' => 5,
             ], ['id', 'title', 'author', 'created_at', 'thumbnail']),
+            'config' => $this->layoutConfigService->findByKey('publication')
         ];
 
         return view('web.pages.publication.show', compact('data'));

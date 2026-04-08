@@ -2,354 +2,366 @@
 @section('title', 'Appsytech Non Profit Organization')
 
 @section('content')
-<!-- Hero Section Start -->
-<div class="breadcrumb-wrapper fix bg-cover" style="background-image: url(assets/img/inner-page/breadcrumb.png);">
-    <div class="container">
-        <div class="page-heading">
-            <div class="breadcrumb-sub-title">
-                <h1 class="wow fadeInUp" data-wow-delay=".3s">About Us</h1>
-            </div>
-            <ul class="breadcrumb-items wow fadeInUp" data-wow-delay=".5s">
-                <li>
-                    <a href="{{ route('web.homepage') }}">
-                        Home
-                    </a>
-                </li>
-                <li>
-                    <i class="fa-solid fa-chevron-right"></i>
-                </li>
-                <li>
-                    About Us
-                </li>
-            </ul>
-        </div>
-    </div>
-</div>
 
-<!-- About Section Start -->
-<section class="about-section section-padding fix">
-    <div class="container">
-        <div class="about-wrapper-2">
-            <div class="row g-4">
-                <div class="col-lg-8">
-                    <div class="about-left-item">
-                        <div class="section-title style-2 mb-0">
-                            <span class="sub-title wow fadeInUp">About Us</span>
-                            <h2 class="wow fadeInUp" data-wow-delay=".3s">
-                                {{ $data['aboutus']->title ?? '' }}
-                            </h2>
-                        </div>
-                        <p class="text wow fadeInUp" data-wow-delay=".5s">
-                            {!! $data['aboutus']->description ?? '' !!}
-                        </p>
-                        @isset($data['aboutus']->images2)
-                        <div class="about-image wow img-custom-anim-left" data-wow-duration="1.3s" data-wow-delay="0.3s">
-                            <img src="{{ asset('storage/' . $data['aboutus']->images2) }}" alt="img">
-                        </div>
-                        @endisset
-
-                    </div>
+    @php
+        $breadcrumbBg = isset($data['config']->value)
+            ? asset('storage/' . $data['config']->value)
+            : asset('assets/img/inner-page/breadcrumb.png');
+    @endphp
+    <!-- Hero Section Start -->
+    <div class="breadcrumb-wrapper fix bg-cover" style="background-image: url({{ $breadcrumbBg }});">
+        <div class="container">
+            <div class="page-heading">
+                <div class="breadcrumb-sub-title">
+                    <h1 class="wow fadeInUp" data-wow-delay=".3s">About Us</h1>
                 </div>
-                <div class="col-lg-4">
-                    <div class="about-right-item">
-                        @isset($data['aboutus']->images1)
-                        <div class="about-image wow img-custom-anim-right" data-wow-duration="1.3s" data-wow-delay="0.3s">
-                            <img src="{{ asset('storage/' . $data['aboutus']->images1) }}" alt="img">
-                        </div>
-                        @endisset
-
-                        <div class="about-icon-main-item">
-                            @if($data['aboutFeatures']->isNotEmpty())
-                            @foreach($data['aboutFeatures']->chunk(2) as $chunk)
-                            <div class="about-icon-item">
-                                @foreach($chunk as $feature)
-                                <div class="icon-item wow fadeInUp" data-wow-delay=".3s">
-                                    <div class="icon">
-                                        <img src="{{ asset('storage/'. $feature->icon) }}" alt="img">
-                                    </div>
-                                    <div class="content">
-                                        <h5>{{ $feature->title ?? '' }}</h5>
-                                        <p>
-                                            {!! $feature->description ?? '' !!}
-                                        </p>
-                                    </div>
-                                </div>
-                                @endforeach
-                            </div>
-                            @endforeach
-                            @endif
-                        </div>
-                    </div>
-                </div>
+                <ul class="breadcrumb-items wow fadeInUp" data-wow-delay=".5s">
+                    <li>
+                        <a href="{{ route('web.homepage') }}">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </li>
+                    <li>
+                        About Us
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
-</section>
 
-<!-- Team Section Start -->
-<section class="team-section fix pb-5">
-    <div class="container">
-        <div class="section-title text-center">
-            <span class="sub-title wow fadeInUp">Our Volunteers</span>
-            <h2 class="wow fadeInUp" data-wow-delay=".3s">
-                <span>M</span>eet Our Dedicated Volunteers
-            </h2>
-        </div>
-        <div class="row">
-            @if($data['members']->isNotEmpty())
-            @foreach($data['members'] as $member)
-            <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".2s">
-                <div class="team-card-items">
-                    <a href="{{ route('web.admin.show', encrypt($member->id)) }}" class="team-image d-block">
-                        @if(isset($member->profile_image))
-                        <img src="{{ asset('storage/' . $member->profile_image) }}" alt="">
-                        @else
-                        <img src="{{ asset('assets/img/home-1/team/01.jpg') }}" alt="">
-                        @endif
+    <!-- About Section Start -->
+    <section class="about-section section-padding fix">
+        <div class="container">
+            <div class="about-wrapper-2">
+                <div class="row g-4">
+                    <div class="col-lg-8">
+                        <div class="about-left-item">
+                            <div class="section-title style-2 mb-0">
+                                <span class="sub-title wow fadeInUp">About Us</span>
+                                <h2 class="wow fadeInUp" data-wow-delay=".3s">
+                                    {{ $data['aboutus']->title ?? '' }}
+                                </h2>
+                            </div>
+                            <p class="text wow fadeInUp" data-wow-delay=".5s">
+                                {!! $data['aboutus']->description ?? '' !!}
+                            </p>
+                            @isset($data['aboutus']->images2)
+                                <div class="about-image wow img-custom-anim-left" data-wow-duration="1.3s"
+                                    data-wow-delay="0.3s">
+                                    <img src="{{ asset('storage/' . $data['aboutus']->images2) }}" alt="img">
+                                </div>
+                            @endisset
 
-                    </a>
-                    <div class="team-content">
-                        <h5>
-                            <a href="{{ route('web.admin.show', encrypt($member->id)) }}">{{ $member->name ?? '' }}</a>
-                        </h5>
-                        <p>{{ $member->position ?? '' }}</p>
-                        <p>
-                            {!! \Illuminate\Support\Str::words(strip_tags($member->description), 4, '...') !!}
-                        </p>
-                        <div class="social-icon">
-                            <a href="#">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M18.244 2.25h3.308l-7.227 8.26L22.75 21.75h-6.57l-5.145-6.7-5.873 6.7H1.854l7.73-8.835L1.25 2.25h6.736l4.654 6.1z" />
-                                </svg>
-                            </a>
-
-                            <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
-                            <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                            <a href="#"><i class="fas fa-paper-plane"></i></a>
                         </div>
                     </div>
-                </div>
-            </div>
-            @endforeach
-            @endif
-        </div>
+                    <div class="col-lg-4">
+                        <div class="about-right-item">
+                            @isset($data['aboutus']->images1)
+                                <div class="about-image wow img-custom-anim-right" data-wow-duration="1.3s"
+                                    data-wow-delay="0.3s">
+                                    <img src="{{ asset('storage/' . $data['aboutus']->images1) }}" alt="img">
+                                </div>
+                            @endisset
 
-        {{ $data['members']->links('pagination::bootstrap-5') }}
-    </div>
-</section>
-
-<!-- Faq Section Start -->
-<!-- <section class="faq-section section-padding fix">
-    <div class="container">
-        <div class="faq-wrapper">
-            <div class="row g-4 align-items-center">
-                <div class="col-lg-6">
-                    <div class="faq-items">
-                        <div class="accordion" id="accordionExample">
-                            <div class="accordion-item wow fadeInUp" data-wow-delay=".3s">
-                                <h2 class="accordion-header" id="headingTwo">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                        How Can I Volunteer For Animal Rescue?
-                                    </button>
-                                </h2>
-                                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-                                    data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                        <p>
-                                            Join our university-based team by registering through our website. We provide complete training in animal handling, rescue techniques, and first aid before you start volunteering.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-item wow fadeInUp" data-wow-delay=".5s">
-                                <h2 class="accordion-header" id="headingOne">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                        What Services Do You Provide For Animals?
-                                    </button>
-                                </h2>
-                                <div id="collapseOne" class="accordion-collapse collapse show"
-                                    aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                        <p>
-                                            We provide emergency rescue, veterinary treatment, daily feeding, vaccinations, sterilization, shelter care, and adoption services for street and rescued animals.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-item wow fadeInUp" data-wow-delay=".3s">
-                                <h2 class="accordion-header" id="headingthree">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapsethree" aria-expanded="false"
-                                        aria-controls="collapsethree">
-                                        How Can I Report An Injured Animal?
-                                    </button>
-                                </h2>
-                                <div id="collapsethree" class="accordion-collapse collapse"
-                                    aria-labelledby="headingthree" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                        <p>
-                                            Contact our 24/7 emergency helpline or send us the location via WhatsApp. Our rescue team will respond immediately to help the injured animal.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-item wow fadeInUp" data-wow-delay=".5s">
-                                <h2 class="accordion-header" id="headingfour">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapsefour" aria-expanded="false"
-                                        aria-controls="collapsefour">
-                                        Can I Adopt A Rescued Animal?
-                                    </button>
-                                </h2>
-                                <div id="collapsefour" class="accordion-collapse collapse" aria-labelledby="headingfour"
-                                    data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                        <p>
-                                            Yes! We have many rescued animals ready for adoption. Visit our shelter or check our social media for available pets. Our team will guide you through the adoption process.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-item mb-0 wow fadeInUp" data-wow-delay=".3s">
-                                <h2 class="accordion-header" id="headingfive">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapsefive" aria-expanded="false"
-                                        aria-controls="collapsefive">
-                                        Do You Need Only University Students?
-                                    </button>
-                                </h2>
-                                <div id="collapsefive" class="accordion-collapse collapse" aria-labelledby="headingfive"
-                                    data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                        <p>
-                                            While we're university-based, we welcome anyone passionate about animal welfare. Students get priority for hands-on training, but community members can support through donations and awareness campaigns.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="faq-content">
-                        <div class="section-title mb-0">
-                            <span class="sub-title wow fadeInUp">Common Questions</span>
-                            <h2 class="wow fadeInUp" data-wow-delay=".3s">
-                                <span>E</span>xplore our FAQs for quick and helpful guidance
-                            </h2>
-                        </div>
-                        <p class="text wow fadeInUp" data-wow-delay=".5s">
-                            Our student-led animal welfare initiative is dedicated to rescuing and caring for street animals. We believe every life matters and through education and action, we're making a real difference in our community.
-                        </p>
-                        <div class="faq-image wow slideInRight" data-wow-delay="100ms" data-wow-duration="2500ms">
-                            <img src="assets/img/home-1/faq.jpg" alt="img">
-                            <a href="https://www.youtube.com/watch?v=Cn4G2lZ_g2I" class="video-btn ripple video-popup">
-                                <i class="fa-solid fa-play"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section> -->
-
-<!-- Testimonial Section Start -->
-<!-- <section class="testimonial-section section-padding pt-0 fix">
-    <div class="container">
-        <div class="section-title">
-            <span class="sub-title wow fadeInUp">Success Stories</span>
-            <h2 class="wow fadeInUp" data-wow-delay=".3s">
-                <span>W</span>hat People Say About Our Work
-            </h2>
-        </div>
-        <div class="testimonial-wrapper">
-            <div class="row g-4">
-                <div class="col-lg-5 wow slideInLeft" data-wow-delay="100ms" data-wow-duration="2500ms">
-                    <div class="testimonial-image">
-                        <img src="assets/img/home-1/testimonial/01.jpg" alt="img">
-                        <div class="shape">
-                            <img src="assets/img/home-1/testimonial/shape.png" alt="img">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-7">
-                    <div class="testimonial-content">
-                        <div class="swiper testimonial-slider">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <div class="content">
-                                        <div class="star">
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
+                            <div class="about-icon-main-item">
+                                @if ($data['aboutFeatures']->isNotEmpty())
+                                    @foreach ($data['aboutFeatures']->chunk(2) as $chunk)
+                                        <div class="about-icon-item">
+                                            @foreach ($chunk as $feature)
+                                                <div class="icon-item wow fadeInUp" data-wow-delay=".3s">
+                                                    <div class="icon">
+                                                        <img src="{{ asset('storage/' . $feature->icon) }}" alt="img">
+                                                    </div>
+                                                    <div class="content">
+                                                        <h5>{{ $feature->title ?? '' }}</h5>
+                                                        <p>
+                                                            {!! $feature->description ?? '' !!}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            @endforeach
                                         </div>
-                                        <p>
-                                            These amazing student volunteers rescued my injured dog from the street and provided complete medical treatment. Today, he's healthy and happy. Their dedication and compassion toward animals is truly inspiring. I'm forever grateful for their selfless service!
-                                        </p>
-                                        <h3>Amit Verma</h3>
-                                        <span>Pet Owner & Supporter</span>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="content">
-                                        <div class="star">
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                        </div>
-                                        <p>
-                                            I adopted my cat from this wonderful organization. The volunteers not only rescued and treated her, but also helped me through the entire adoption process. Their commitment to animal welfare is remarkable and every animal deserves such care!
-                                        </p>
-                                        <h3>Priya Reddy</h3>
-                                        <span>Animal Adopter</span>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="content">
-                                        <div class="star">
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                        </div>
-                                        <p>
-                                            Being part of this volunteer team has been life-changing. The training and hands-on experience have taught me so much about animal care and compassion. Together, we're making a real difference in our community, one rescue at a time!
-                                        </p>
-                                        <h3>Rahul Singh</h3>
-                                        <span>Student Volunteer</span>
+                                    @endforeach
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section Start -->
+    <section class="team-section fix pb-5">
+        <div class="container">
+            <div class="section-title text-center">
+                <span class="sub-title wow fadeInUp">Our Volunteers</span>
+                <h2 class="wow fadeInUp" data-wow-delay=".3s">
+                    <span>M</span>eet Our Dedicated Volunteers
+                </h2>
+            </div>
+            <div class="row">
+                @if ($data['members']->isNotEmpty())
+                    @foreach ($data['members'] as $member)
+                        <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".2s">
+                            <div class="team-card-items">
+                                <a href="{{ route('web.admin.show', encrypt($member->id)) }}" class="team-image d-block">
+                                    @if (isset($member->profile_image))
+                                        <img src="{{ asset('storage/' . $member->profile_image) }}" alt="">
+                                    @else
+                                        <img src="{{ asset('assets/img/home-1/team/01.jpg') }}" alt="">
+                                    @endif
+
+                                </a>
+                                <div class="team-content">
+                                    <h5>
+                                        <a
+                                            href="{{ route('web.admin.show', encrypt($member->id)) }}">{{ $member->name ?? '' }}</a>
+                                    </h5>
+                                    <p>{{ $member->position ?? '' }}</p>
+                                    <p>
+                                        {!! \Illuminate\Support\Str::words(strip_tags($member->description), 4, '...') !!}
+                                    </p>
+                                    <div class="social-icon">
+                                        <a href="#">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" viewBox="0 0 24 24">
+                                                <path
+                                                    d="M18.244 2.25h3.308l-7.227 8.26L22.75 21.75h-6.57l-5.145-6.7-5.873 6.7H1.854l7.73-8.835L1.25 2.25h6.736l4.654 6.1z" />
+                                            </svg>
+                                        </a>
+
+                                        <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                                        <a href="#"><i class="fas fa-paper-plane"></i></a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <h6>Total Animals Rescued This Year > <span>500+</span></h6>
-                        <div class="swiper brand-slider">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <div class="brand-image text-center">
-                                        <img src="assets/img/home-1/brand/01.png" alt="img">
+                    @endforeach
+                @endif
+            </div>
+
+            {{ $data['members']->links('pagination::bootstrap-5') }}
+        </div>
+    </section>
+
+    <!-- Faq Section Start -->
+    <!-- <section class="faq-section section-padding fix">
+        <div class="container">
+            <div class="faq-wrapper">
+                <div class="row g-4 align-items-center">
+                    <div class="col-lg-6">
+                        <div class="faq-items">
+                            <div class="accordion" id="accordionExample">
+                                <div class="accordion-item wow fadeInUp" data-wow-delay=".3s">
+                                    <h2 class="accordion-header" id="headingTwo">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                            How Can I Volunteer For Animal Rescue?
+                                        </button>
+                                    </h2>
+                                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                                        data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <p>
+                                                Join our university-based team by registering through our website. We provide complete training in animal handling, rescue techniques, and first aid before you start volunteering.
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="swiper-slide">
-                                    <div class="brand-image text-center">
-                                        <img src="assets/img/home-1/brand/02.png" alt="img">
+                                <div class="accordion-item wow fadeInUp" data-wow-delay=".5s">
+                                    <h2 class="accordion-header" id="headingOne">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                            What Services Do You Provide For Animals?
+                                        </button>
+                                    </h2>
+                                    <div id="collapseOne" class="accordion-collapse collapse show"
+                                        aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <p>
+                                                We provide emergency rescue, veterinary treatment, daily feeding, vaccinations, sterilization, shelter care, and adoption services for street and rescued animals.
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="swiper-slide">
-                                    <div class="brand-image text-center">
-                                        <img src="assets/img/home-1/brand/03.png" alt="img">
+                                <div class="accordion-item wow fadeInUp" data-wow-delay=".3s">
+                                    <h2 class="accordion-header" id="headingthree">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapsethree" aria-expanded="false"
+                                            aria-controls="collapsethree">
+                                            How Can I Report An Injured Animal?
+                                        </button>
+                                    </h2>
+                                    <div id="collapsethree" class="accordion-collapse collapse"
+                                        aria-labelledby="headingthree" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <p>
+                                                Contact our 24/7 emergency helpline or send us the location via WhatsApp. Our rescue team will respond immediately to help the injured animal.
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="swiper-slide">
-                                    <div class="brand-image text-center">
-                                        <img src="assets/img/home-1/brand/04.png" alt="img">
+                                <div class="accordion-item wow fadeInUp" data-wow-delay=".5s">
+                                    <h2 class="accordion-header" id="headingfour">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapsefour" aria-expanded="false"
+                                            aria-controls="collapsefour">
+                                            Can I Adopt A Rescued Animal?
+                                        </button>
+                                    </h2>
+                                    <div id="collapsefour" class="accordion-collapse collapse" aria-labelledby="headingfour"
+                                        data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <p>
+                                                Yes! We have many rescued animals ready for adoption. Visit our shelter or check our social media for available pets. Our team will guide you through the adoption process.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item mb-0 wow fadeInUp" data-wow-delay=".3s">
+                                    <h2 class="accordion-header" id="headingfive">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapsefive" aria-expanded="false"
+                                            aria-controls="collapsefive">
+                                            Do You Need Only University Students?
+                                        </button>
+                                    </h2>
+                                    <div id="collapsefive" class="accordion-collapse collapse" aria-labelledby="headingfive"
+                                        data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <p>
+                                                While we're university-based, we welcome anyone passionate about animal welfare. Students get priority for hands-on training, but community members can support through donations and awareness campaigns.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="faq-content">
+                            <div class="section-title mb-0">
+                                <span class="sub-title wow fadeInUp">Common Questions</span>
+                                <h2 class="wow fadeInUp" data-wow-delay=".3s">
+                                    <span>E</span>xplore our FAQs for quick and helpful guidance
+                                </h2>
+                            </div>
+                            <p class="text wow fadeInUp" data-wow-delay=".5s">
+                                Our student-led animal welfare initiative is dedicated to rescuing and caring for street animals. We believe every life matters and through education and action, we're making a real difference in our community.
+                            </p>
+                            <div class="faq-image wow slideInRight" data-wow-delay="100ms" data-wow-duration="2500ms">
+                                <img src="assets/img/home-1/faq.jpg" alt="img">
+                                <a href="https://www.youtube.com/watch?v=Cn4G2lZ_g2I" class="video-btn ripple video-popup">
+                                    <i class="fa-solid fa-play"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Testimonial Section Start -->
+    <!-- <section class="testimonial-section section-padding pt-0 fix">
+        <div class="container">
+            <div class="section-title">
+                <span class="sub-title wow fadeInUp">Success Stories</span>
+                <h2 class="wow fadeInUp" data-wow-delay=".3s">
+                    <span>W</span>hat People Say About Our Work
+                </h2>
+            </div>
+            <div class="testimonial-wrapper">
+                <div class="row g-4">
+                    <div class="col-lg-5 wow slideInLeft" data-wow-delay="100ms" data-wow-duration="2500ms">
+                        <div class="testimonial-image">
+                            <img src="assets/img/home-1/testimonial/01.jpg" alt="img">
+                            <div class="shape">
+                                <img src="assets/img/home-1/testimonial/shape.png" alt="img">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="testimonial-content">
+                            <div class="swiper testimonial-slider">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <div class="content">
+                                            <div class="star">
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                            </div>
+                                            <p>
+                                                These amazing student volunteers rescued my injured dog from the street and provided complete medical treatment. Today, he's healthy and happy. Their dedication and compassion toward animals is truly inspiring. I'm forever grateful for their selfless service!
+                                            </p>
+                                            <h3>Amit Verma</h3>
+                                            <span>Pet Owner & Supporter</span>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="content">
+                                            <div class="star">
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                            </div>
+                                            <p>
+                                                I adopted my cat from this wonderful organization. The volunteers not only rescued and treated her, but also helped me through the entire adoption process. Their commitment to animal welfare is remarkable and every animal deserves such care!
+                                            </p>
+                                            <h3>Priya Reddy</h3>
+                                            <span>Animal Adopter</span>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="content">
+                                            <div class="star">
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                            </div>
+                                            <p>
+                                                Being part of this volunteer team has been life-changing. The training and hands-on experience have taught me so much about animal care and compassion. Together, we're making a real difference in our community, one rescue at a time!
+                                            </p>
+                                            <h3>Rahul Singh</h3>
+                                            <span>Student Volunteer</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <h6>Total Animals Rescued This Year > <span>500+</span></h6>
+                            <div class="swiper brand-slider">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <div class="brand-image text-center">
+                                            <img src="assets/img/home-1/brand/01.png" alt="img">
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="brand-image text-center">
+                                            <img src="assets/img/home-1/brand/02.png" alt="img">
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="brand-image text-center">
+                                            <img src="assets/img/home-1/brand/03.png" alt="img">
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="brand-image text-center">
+                                            <img src="assets/img/home-1/brand/04.png" alt="img">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -358,7 +370,6 @@
                 </div>
             </div>
         </div>
-    </div>
-</section> -->
+    </section> -->
 
 @endsection

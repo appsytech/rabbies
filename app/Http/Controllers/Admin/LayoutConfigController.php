@@ -40,7 +40,7 @@ class LayoutConfigController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'key' => 'required|string|max:255',
+            'key' => 'required|string|max:255|unique:layout_config,key',
             'type' => 'required|in:TEXT,IMAGE',
             'value' => 'required',
             'status' => 'nullable|boolean',
@@ -86,10 +86,9 @@ class LayoutConfigController extends Controller
     {
         $request->validate([
             'id' => 'required|integer',
-            'key' => 'required|string|max:255',
+            'key' => 'required|string|max:255|unique:layout_config,key,' . $request->id,
             'type' => 'required|in:TEXT,IMAGE',
             'value' => 'required',
-
             'status' => 'nullable|boolean',
         ]);
 

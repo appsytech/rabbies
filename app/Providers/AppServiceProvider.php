@@ -38,10 +38,12 @@ use App\Repositories\Web\Interface\ActivityRepositoryInterface as InterfaceActiv
 use App\Repositories\Web\Interface\AdminRepositoryInterface as InterfaceAdminRepositoryInterface;
 use App\Repositories\Web\Interface\GalleryRepositoryInterface as InterfaceGalleryRepositoryInterface;
 use App\Repositories\Web\Interface\InquiryRepositoryInterface as InterfaceInquiryRepositoryInterface;
+use App\Repositories\Web\Interface\LayoutConfigRepositoryInterface as InterfaceLayoutConfigRepositoryInterface;
 use App\Repositories\Web\Interface\PackageRepositoryInterface as InterfacePackageRepositoryInterface;
 use App\Repositories\Web\Interface\PublicationRepositoryInterface as InterfacePublicationRepositoryInterface;
 use App\Repositories\Web\Interface\ServiceRepositoryInterface as InterfaceServiceRepositoryInterface;
 use App\Repositories\Web\Interface\SocialMediaConfigRepositoryInterface as InterfaceSocialMediaConfigRepositoryInterface;
+use App\Repositories\Web\LayoutConfigRepository as WebLayoutConfigRepository;
 use App\Repositories\Web\PackageRepository as WebPackageRepository;
 use App\Repositories\Web\PublicationRepository as WebPublicationRepository;
 use App\Repositories\Web\ServiceRepository as WebServiceRepository;
@@ -81,7 +83,8 @@ class AppServiceProvider extends ServiceProvider
             InterfaceGalleryRepositoryInterface::class => WebGalleryRepository::class,
             InterfaceInquiryRepositoryInterface::class => WebInquiryRepository::class,
             InterfacePackageRepositoryInterface::class => WebPackageRepository::class,
-            InterfaceSocialMediaConfigRepositoryInterface::class => WebSocialMediaConfigRepository::class
+            InterfaceSocialMediaConfigRepositoryInterface::class => WebSocialMediaConfigRepository::class,
+            InterfaceLayoutConfigRepositoryInterface::class => WebLayoutConfigRepository::class
         ];
 
         foreach ($bindings as $interface => $repository) {

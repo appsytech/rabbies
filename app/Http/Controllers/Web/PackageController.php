@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
+use App\Services\Web\LayoutConfigService;
 use App\Services\Web\PackageService;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -10,7 +11,8 @@ use Illuminate\View\View;
 class PackageController extends Controller
 {
     public function __construct(
-        protected PackageService $packageService
+        protected PackageService $packageService,
+        protected LayoutConfigService $layoutConfigService
     ) {}
 
     public function index(): View
@@ -18,7 +20,8 @@ class PackageController extends Controller
         $data = [
             'packages' => $this->packageService->getPackages([
                 'paginateLimit' => 6
-            ])
+            ]),
+            'config' => $this->layoutConfigService->findByKey('package')
         ];
 
         return view('web.pages.package.index', compact('data'));
@@ -38,6 +41,7 @@ class PackageController extends Controller
                 'exceptId' => $package->id,
                 'limit' => 5,
             ], ['id', 'title', 'author', 'created_at', 'image']),
+            'config' => $this->layoutConfigService->findByKey('package')
         ];
 
         return view('web.pages.package.show', compact('data'));

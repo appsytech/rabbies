@@ -9,6 +9,7 @@ use App\Services\Web\AboutUsService;
 use App\Services\Web\ActivityService;
 use App\Services\Web\AdminService;
 use App\Services\Web\GalleryService;
+use App\Services\Web\LayoutConfigService;
 use App\Services\Web\PublicationService;
 use App\Services\Web\ServiceService;
 use Illuminate\View\View;
@@ -24,7 +25,8 @@ class PageController extends Controller
         protected ServiceService $serviceService,
         protected AboutUsService $aboutUsService,
         protected AboutFeatureService $aboutFeatureService,
-        protected GalleryService $galleryService
+        protected GalleryService $galleryService,
+        protected LayoutConfigService $layoutConfigService
     ) {}
 
     public function home(): View
@@ -38,7 +40,7 @@ class PageController extends Controller
                 'type' => 'CURRENT'
             ]),
             'admins' => $this->adminService->getAdmins([
-                'roles' => [4,5]
+                'roles' => [4, 5]
             ], ['id', 'profile_image', 'name', 'position', 'description']),
             'publications' => $this->publicationService->getPublications([
                 'paginateLimit' => 6
@@ -61,7 +63,8 @@ class PageController extends Controller
             'aboutFeatures' => $this->aboutFeatureService->getAboutFeatures([
                 'limit' =>  4
             ]),
-            'members' => $this->adminService->getAdmins([], ['id', 'profile_image', 'name', 'position', 'description'])
+            'members' => $this->adminService->getAdmins([], ['id', 'profile_image', 'name', 'position', 'description']),
+            'config' => $this->layoutConfigService->findByKey('about')
         ];
 
 
@@ -70,7 +73,10 @@ class PageController extends Controller
 
     public function contact(): View
     {
-        $data = [];
+        $data = [
+            'config' => $this->layoutConfigService->findByKey('contact')
+
+        ];
 
         return view('web.pages.contact', compact('data'));
     }
