@@ -121,7 +121,7 @@
     <div class="header-top-section">
         <div class="container-fluid">
             <div class="header-top-wrapper">
-                <div class="icon-items">
+                {{-- <div class="icon-items">
                     <div class="icon">
                         <i class="fa-regular fa-location-dot"></i>
                     </div>
@@ -142,7 +142,7 @@
                             <a href="tel:++9779815418601">+9779815418601</a>
                         </h5>
                     </div>
-                </div>
+                </div> --}}
                 <div class="icon-items">
                     <div class="icon">
                         <i class="fa-regular fa-envelope"></i>
