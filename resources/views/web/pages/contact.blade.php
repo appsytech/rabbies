@@ -69,6 +69,9 @@
             : asset('assets/img/inner-page/breadcrumb.png');
     @endphp
 
+<div id="popup-container" class="position-fixed top-0 end-0 p-3 d-flex flex-column gap-2" style="z-index: 1050;">
+</div>
+
     <!-- Hero Section Start -->
     <div class="breadcrumb-wrapper fix bg-cover" style="background-image: url({{ $breadcrumbBg }});">
         <div class="container">
