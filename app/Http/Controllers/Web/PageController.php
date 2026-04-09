@@ -63,7 +63,10 @@ class PageController extends Controller
             'aboutFeatures' => $this->aboutFeatureService->getAboutFeatures([
                 'limit' =>  4
             ]),
-            'members' => $this->adminService->getAdmins([], ['id', 'profile_image', 'name', 'position', 'description']),
+            'members' => $this->adminService->getAdmins([
+                'roles' => [4, 5]
+
+            ], ['id', 'profile_image', 'name', 'position', 'description']),
             'config' => $this->layoutConfigService->findByKey('about')
         ];
 
