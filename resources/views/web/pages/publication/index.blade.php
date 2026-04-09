@@ -68,12 +68,12 @@
                                             By : {{ $publication->author ?? '' }}
                                         </li>
                                         <!-- <li>
-                                                    <i class="fa-regular fa-comment"></i>
-                                                    45 Comments
-                                                </li> -->
+                                                        <i class="fa-regular fa-comment"></i>
+                                                        45 Comments
+                                                    </li> -->
                                     </ul>
                                     <h4>
-                                        <a href="{{ route('web.blog.show') }}">
+                                        <a href="{{ route('web.publication.show', encrypt($publication->id)) }}">
                                             {{ $publication->title ?? '' }}
                                         </a>
                                     </h4>
