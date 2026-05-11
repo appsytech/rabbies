@@ -270,7 +270,6 @@
                             </div>
                         </div>
 
-
                         <!--==== status ====-->
                         <div>
                             <label class=" text-xs font-semibold text-gray-700 mb-2 flex items-center gap-1.5">
@@ -314,7 +313,7 @@
                                 Image
                             </label>
                             <div class="relative">
-                                <input type="file" name="image" id="image"
+                                <input type="file" name="image" id="image" required
                                     data-previewSectionId="image-preview" accept="image/*"
                                     class="hidden image-upload&preview" />
                                 <label for="image"

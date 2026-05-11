@@ -598,7 +598,8 @@
             <div class="row g-4 align-items-center">
                 <div class="col-lg-6">
                     <div class="counter-image">
-                        <img src="assets/img/home-1/feature/01.jpg" alt="img">
+                        <!-- <img src="assets/img/home-1/feature/01.jpg" alt="img"> -->
+                        <img src="https://img.freepik.com/premium-photo/banner-three-happy-puppy-dogs-smiling-isolated-yellow-background_1028938-403131.jpg" alt="img">
                         <div class="shape">
                             <img src="assets/img/home-1/feature/shape-1.png" alt="img">
                         </div>
@@ -800,14 +801,14 @@
                             </li> -->
                         </ul>
                         <h4>
-                            <a href="{{ route('web.blog.show') }}">
+                            <a href="{{ route('web.publication.show', encrypt($publication->id)) }}">
                                 {{ $publication->title ?? '' }}
                             </a>
                         </h4>
                         <p>
                             {!! \Illuminate\Support\Str::words(strip_tags($publication->description), 10, '...') !!}
                         </p>
-                        <a href="{{ route('web.blog.show') }}" class="link-btn">Read More <i class="fa-solid fa-arrow-right-long"></i></a>
+                        <a href="{{ route('web.publication.show', encrypt($publication->id)) }}" class="link-btn">Read More <i class="fa-solid fa-arrow-right-long"></i></a>
                         @isset($publication->document)
                         <div class="mt-3">
                             <a href="{{ asset('storage/' . $publication->document) }}"
@@ -950,7 +951,7 @@
             <div class="row g-4 align-items-end">
                 <div class="col-lg-6">
                     <div class="contact-image wow img-custom-anim-left" data-wow-duration="1.3s" data-wow-delay="0.3s">
-                        <img src="{{ asset('assets/img/home-1/contact.jpg') }}" alt="img">
+                        <img src="{{ asset('assets/img/footer.png') }}" alt="img">
                     </div>
                 </div>
                 <div class="col-lg-6">

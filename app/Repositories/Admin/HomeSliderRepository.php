@@ -48,7 +48,7 @@ class HomeSliderRepository implements HomeSliderRepositoryInterface
         return HomeSlider::when(
             isset($filterData['type']),
             function ($query) use ($filterData) {
-                $query->where('type', 'LIKE', '%' . $filterData['type'] . '%');
+                $query->where('device_type', 'LIKE', '%' . $filterData['type'] . '%');
             }
         )
             ->when(

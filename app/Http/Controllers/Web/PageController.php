@@ -33,7 +33,8 @@ class PageController extends Controller
     {
         $data = [
             'sliders' => $this->homeSliderService->getHomeSliders([
-                'deviceType' => 0,
+                'type' => 0,
+                'status' => 1
             ]),
             'activities' => $this->activityService->getActivities([
                 'paginateLimit' => 4,
