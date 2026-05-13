@@ -133,7 +133,7 @@
                                     <span>Email Address</span>
                                     <h5>
                                         <a href="mailto:example@email.com">example@email.com</a> <br>
-                                        <a href="mailto:abhi@email.com">abhi@email.com</a>
+                                        <a href="mailto:appsytech@email.com">appsytech@email.com</a>
                                     </h5>
                                 </div>
                             </div>
