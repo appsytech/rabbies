@@ -120,7 +120,7 @@
     <!-- Header-Top Start -->
     <div class="header-top-section">
         <div class="container-fluid">
-            <div class="header-top-wrapper">
+            <div class="header-top-wrapper d-flex justify-content-end">
                 {{-- <div class="icon-items">
                     <div class="icon">
                         <i class="fa-regular fa-location-dot"></i>

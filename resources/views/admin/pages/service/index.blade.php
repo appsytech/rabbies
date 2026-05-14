@@ -220,16 +220,16 @@
                         </td>
 
                         {{-- Status --}}
-                        <td class="p-4 text-sm">
-                            @if($service->status == 1)
-                            <span class="px-2 py-1 text-xs bg-green-100 text-green-700 rounded">
-                                Active
-                            </span>
-                            @else
-                            <span class="px-2 py-1 text-xs bg-red-100 text-red-700 rounded">
-                                Inactive
-                            </span>
-                            @endif
+                        <td class="p-4">
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input data-targetUrl="{{ route('service.status.update') }}"
+                                    data-targetId="{{ $service->id }}" data-csrf="{{ csrf_token() }}"
+                                    type="checkbox" class="sr-only peer status-toggle"
+                                    data-id="{{ $service->id }}" {{ $service->status ? 'checked' : '' }}>
+                                <div
+                                    class="w-11 h-6 bg-red-200 peer-focus:outline-none rounded-full peer  peer-checked:bg-green-600 after:content-[''] after:absolute after:top-0.5 after:left-0.5  after:bg-white after:h-5 after:w-5 after:rounded-full after:transition-all peer-checked:after:translate-x-full">
+                                </div>
+                            </label>
                         </td>
 
                         {{-- Sort --}}
