@@ -41,13 +41,13 @@ class ServiceController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'title'               => 'required|string|max:255',
-            'icon'                => 'required|file',
+            'icon'                => 'required|file|max:51200',
             'description'         => 'nullable|string',
             'location'            => 'nullable|string|max:255',
             'mission_description' => 'nullable|string',
-            'images1'             => 'nullable|file',
-            'images2'             => 'nullable|file',
-            'images3'             => 'nullable|file',
+            'images1'             => 'nullable|file|max:51200',
+            'images2'             => 'nullable|file|max:51200',
+            'images3'             => 'nullable|file|max:51200',
             'status'              => 'required|integer|in:0,1',
             'sort'               => 'required|integer|min:0'
         ]);
@@ -79,13 +79,13 @@ class ServiceController extends Controller
         $request->validate([
             'id' => 'required|integer',
             'title'               => 'required|string|max:255',
-            'icon'                => 'nullable|file',
+            'icon'                => 'nullable|file|max:51200',
             'description'         => 'nullable|string',
             'location'            => 'nullable|string|max:255',
             'mission_description' => 'nullable|string',
-            'images1'             => 'nullable|file',
-            'images2'             => 'nullable|file',
-            'images3'             => 'nullable|file',
+            'images1'             => 'nullable|file|max:51200',
+            'images2'             => 'nullable|file|max:51200',
+            'images3'             => 'nullable|file|max:51200',
             'status'              => 'required|integer|in:0,1',
             'sort'               => 'required|integer|min:0'
         ]);

@@ -40,7 +40,7 @@ class PackageController extends Controller
             'title' => 'required|string|max:255',
             'content' => 'required|string',
             'status' => 'required|in:-1,0,1',
-            'image' => 'nullable|file',
+            'image' => 'nullable|file|max:51200',
             'sort'  => 'required|integer|min:0'
         ]);
 
@@ -93,7 +93,7 @@ class PackageController extends Controller
             'title' => 'required|string|max:255',
             'content' => 'required|string',
             'status' => 'required|in:-1,0,1',
-            'image' => 'nullable|file',
+            'image' => 'nullable|file|max:51200',
             'sort'    => 'required|integer|min:0'
         ]);
 

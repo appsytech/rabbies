@@ -41,7 +41,7 @@ class AboutFeatureController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'title'               => 'required|string|max:255',
-            'icon'                => 'required|file',
+            'icon'                => 'required|file|max:51200',
             'description'         => 'required|string',
             'status'              => 'required|string|in:ACTIVE,INACTIVE',
             'sort'    => 'required|int|min:0'
@@ -74,7 +74,7 @@ class AboutFeatureController extends Controller
         $request->validate([
             'id' => 'required|integer',
             'title'               => 'required|string|max:255',
-            'icon'                => 'nullable|file',
+            'icon'                => 'nullable|file|max:51200',
             'description'         => 'required|string',
             'status'              => 'required|string|in:ACTIVE,INACTIVE',
             'sort'    => 'required|int|min:0'

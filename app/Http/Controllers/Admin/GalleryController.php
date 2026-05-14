@@ -50,14 +50,14 @@ class GalleryController extends Controller
                     if ($type === 'images') {
                         validator(
                             ['media' => $file],
-                            ['media' => 'image|max:2048']
+                            ['media' => 'image|max:51200']
                         )->validate();
                     }
 
                     if ($type === 'video') {
                         validator(
                             ['media' => $file],
-                            ['media' => 'mimetypes:video/mp4,video/quicktime,video/x-msvideo|max:15360']
+                            ['media' => 'mimetypes:video/mp4,video/quicktime,video/x-msvideo|max:51200']
                         )->validate();
                     }
                 },
@@ -124,14 +124,14 @@ class GalleryController extends Controller
                     if ($type === 'images') {
                         validator(
                             ['media' => $file],
-                            ['media' => 'image|max:2048']
+                            ['media' => 'image|max:51200']
                         )->validate();
                     }
 
                     if ($type === 'video') {
                         validator(
                             ['media' => $file],
-                            ['media' => 'mimetypes:video/mp4,video/quicktime,video/x-msvideo|max:15360']
+                            ['media' => 'mimetypes:video/mp4,video/quicktime,video/x-msvideo|max:51200']
                         )->validate();
                     }
                 },

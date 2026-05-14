@@ -38,7 +38,7 @@ class HomeSliderController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'title' => 'required|string|max:255',
-            'images' => 'required|file',
+            'images' => 'required|file|max:51200',
             'type' => 'required|string|max:50',
             'status' => 'required|boolean',
             'device_type' => 'required|integer|in:0,1,2', // 0 = web , 1 = android 2 = h5
@@ -93,7 +93,7 @@ class HomeSliderController extends Controller
         $request->validate([
             'id' => 'required|integer',
             'title' => 'required|string|max:255',
-            'images' => 'nullable|file',
+            'images' => 'nullable|file|max:51200',
             'type' => 'required|string|max:50',
             'status' => 'required|boolean',
             'device_type' => 'required|integer|in:0,1,2', // 0 = web , 1 = android 2 = h5

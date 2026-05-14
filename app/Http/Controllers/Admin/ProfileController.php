@@ -43,7 +43,7 @@ class ProfileController extends Controller
             'password' => 'nullable|string|min:8|confirmed',
             'admin_role' => 'required|in:1,2,3',
             'status' => 'required|in:0,1',
-            'profile_image' => 'nullable',
+            'profile_image' => 'nullable|max:51200',
         ]);
 
         $isUpdated = $this->adminService->update($request);

@@ -40,8 +40,8 @@ class PublicationController extends Controller
             'title' => 'required|string|max:255',
             'type' => 'required|string|max:30',
             'status' => 'required|in:0,1',
-            'document' => 'nullable|file',
-            'thumbnail' => 'required|file',
+            'document' => 'nullable|file|max:51200',
+            'thumbnail' => 'required|file|max:51200',
             'description' => 'nullable|string',
             'sort'               => 'required|integer|min:0'
         ]);
@@ -95,8 +95,8 @@ class PublicationController extends Controller
             'title' => 'required|string|max:255',
             'type' => 'required|string|max:30',
             'status' => 'required|in:0,1',
-            'document' => 'nullable|file',
-            'thumbnail' => 'nullable|file',
+            'document' => 'nullable|file|max:51200',
+            'thumbnail' => 'nullable|file|max:51200',
             'description' => 'nullable|string',
             'sort'               => 'required|integer|min:0'
         ]);

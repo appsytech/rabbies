@@ -43,7 +43,7 @@ class ActivityController extends Controller
             'type' => 'required|in:UPCOMING,CURRENT',
             'status' => 'required|in:0,1',
             'description' => 'required|string',
-            'images' => 'required',
+            'images' => 'required|file||max:51200',
             'sort' => 'required|integer',
         ]);
 
@@ -97,7 +97,7 @@ class ActivityController extends Controller
             'type' => 'required|in:UPCOMING,CURRENT',
             'status' => 'required|in:0,1',
             'description' => 'required|string',
-            'images' => 'nullable',
+            'images' => 'nullable|max:51200',
             'sort' => 'required|integer',
         ]);
 
@@ -112,10 +112,12 @@ class ActivityController extends Controller
 
     public function updateStatus(Request $request): JsonResponse
     {
-        $validator = Validator::make($request->all(),
+        $validator = Validator::make(
+            $request->all(),
             [
                 'id' => 'required|integer',
-            ]);
+            ]
+        );
 
         if ($validator->fails()) {
             return response()->json([
@@ -158,6 +160,5 @@ class ActivityController extends Controller
         } else {
             return redirect()->back()->withErrors('Something went wrong!');
         }
-
     }
 }

@@ -49,8 +49,8 @@ class AboutUsController extends Controller
             'title'       => 'required|string|max:255',
             'author'      => 'required|string|max:150',
             'description' => 'required|string',
-            'images1'     => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
-            'images2'     => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
+            'images1'     => 'nullable|image|mimes:jpg,jpeg,png,webp||max:51200',
+            'images2'     => 'nullable|image|mimes:jpg,jpeg,png,webp||max:51200',
         ]);
 
         $isUpdated = $this->aboutUsService->update($request);
