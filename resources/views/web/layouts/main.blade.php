@@ -66,25 +66,25 @@
             <div class="spinner">
             </div>
             <div class="txt-loading">
-                <span data-text-preloader="A" class="letters-loading">
+                <span data-text-preloader="R" class="letters-loading">
                     A
                 </span>
-                <span data-text-preloader="B" class="letters-loading">
+                <span data-text-preloader="A" class="letters-loading">
                     P
                 </span>
-                <span data-text-preloader="H" class="letters-loading">
+                <span data-text-preloader="B" class="letters-loading">
                     P
                 </span>
                 <span data-text-preloader="I" class="letters-loading">
                     S
                 </span>
-                <span data-text-preloader="N" class="letters-loading">
+                <span data-text-preloader="E" class="letters-loading">
                     Y
                 </span>
-                <span data-text-preloader="G" class="letters-loading">
+                <span data-text-preloader="S" class="letters-loading">
                     TE
                 </span>
-                <span data-text-preloader="O" class="letters-loading">
+                <span data-text-preloader="" class="letters-loading">
                     CH
                 </span>
             </div>
@@ -143,7 +143,7 @@
                         </h5>
                     </div>
                 </div> --}}
-                <div class="icon-items">
+                <!-- <div class="icon-items">
                     <div class="icon">
                         <i class="fa-regular fa-envelope"></i>
                     </div>
@@ -153,7 +153,7 @@
                             <a href="mailto:info@appsytech.com">info@appsytech.com</a>
                         </h4>
                     </div>
-                </div>
+                </div> -->
 
                 @if ($socials->isNotEmpty())
                 @php
