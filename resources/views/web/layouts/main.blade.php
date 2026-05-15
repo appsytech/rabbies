@@ -67,25 +67,25 @@
             </div>
             <div class="txt-loading">
                 <span data-text-preloader="R" class="letters-loading">
-                    A
+                    e
                 </span>
                 <span data-text-preloader="A" class="letters-loading">
-                    P
+                    R
                 </span>
                 <span data-text-preloader="B" class="letters-loading">
-                    P
+                    a
                 </span>
                 <span data-text-preloader="I" class="letters-loading">
-                    S
+                    b
                 </span>
                 <span data-text-preloader="E" class="letters-loading">
-                    Y
+                    i
                 </span>
                 <span data-text-preloader="S" class="letters-loading">
-                    TE
+                    e
                 </span>
                 <span data-text-preloader="" class="letters-loading">
-                    CH
+                    s
                 </span>
             </div>
             <p class="text-center">Loading</p>
@@ -128,7 +128,7 @@
                     <div class="content">
                         <span>Locate Address</span>
                         <h5>
-                            Kathmandu,Nepal
+                            Kampala, Uganda
                         </h5>
                     </div>
                 </div>
@@ -388,13 +388,13 @@
                                 <li>
                                     <a href="{{ route('web.publication.index') }}">
                                         <i class="fa-solid fa-chevrons-right"></i>
-                                        Publication
+                                        Publications
                                     </a>
                                 </li>
                                 <li>
                                     <a href="{{ route('web.activity.index') }}">
                                         <i class="fa-solid fa-chevrons-right"></i>
-                                        Activity
+                                        Activities
                                     </a>
                                 </li>
                                 <li>

@@ -14,7 +14,7 @@
         <div class="container">
             <div class="page-heading">
                 <div class="breadcrumb-sub-title">
-                    <h1 class="wow fadeInUp" data-wow-delay=".3s">Activity</h1>
+                    <h1 class="wow fadeInUp" data-wow-delay=".3s">Activities</h1>
                 </div>
                 <ul class="breadcrumb-items wow fadeInUp" data-wow-delay=".5s">
                     <li>
@@ -26,7 +26,7 @@
                         <i class="fa-solid fa-chevron-right"></i>
                     </li>
                     <li>
-                        Activity
+                        Activities
                     </li>
                 </ul>
             </div>
