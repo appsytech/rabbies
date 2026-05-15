@@ -26,7 +26,7 @@
                         <i class="fa-solid fa-chevron-right"></i>
                     </li>
                     <li>
-                        Package
+                        Packages
                     </li>
                 </ul>
             </div>

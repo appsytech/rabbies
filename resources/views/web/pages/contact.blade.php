@@ -203,7 +203,7 @@
                             <div class="map-badge">
                                 <div class="map-badge-icon"><i class="fa-solid fa-map-pin"></i></div>
                                 <div class="map-badge-text">
-                                    <strong>Kathmandu, Nepal</strong>
+                                    <strong>Kampala, Uganda</strong>
                                     Our Head Office
                                 </div>
                             </div>

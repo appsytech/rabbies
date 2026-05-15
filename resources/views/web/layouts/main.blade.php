@@ -213,10 +213,10 @@
                                     <i class="fal fa-map-marker-alt"></i>
                                 </div>
                                 <div class="offcanvas__contact-text">
-                                    <a target="_blank" href="#">Kathmandu,Nepal</a>
+                                    <a target="_blank" href="#">Kampala,Uganda</a>
                                 </div>
                             </li>
-                            <li class="d-flex align-items-center">
+                            <!-- <li class="d-flex align-items-center">
                                 <div class="offcanvas__contact-icon mr-15">
                                     <i class="fal fa-envelope"></i>
                                 </div>
@@ -224,7 +224,7 @@
                                     <a href="mailto:info@appsytech.com"><span
                                             class="mailto:info@appsytech.com">info@appsytech.com</span></a>
                                 </div>
-                            </li>
+                            </li> -->
                             <li class="d-flex align-items-center">
                                 <div class="offcanvas__contact-icon mr-15">
                                     <i class="fal fa-clock"></i>
@@ -233,14 +233,14 @@
                                     <a target="_blank" href="#">Mod-friday, 09am -05pm</a>
                                 </div>
                             </li>
-                            <li class="d-flex align-items-center">
+                            <!-- <li class="d-flex align-items-center">
                                 <div class="offcanvas__contact-icon mr-15">
                                     <i class="far fa-phone"></i>
                                 </div>
                                 <div class="offcanvas__contact-text">
                                     <a href="tel:+9779815418601">+9779815418601</a>
                                 </div>
-                            </li>
+                            </li> -->
                         </ul>
                         <div class="social-icon d-flex align-items-center">
                             <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -288,12 +288,12 @@
                                     </li>
                                     <li class="has-dropdown">
                                         <a href="{{ route('web.activity.index') }}">
-                                            Activity
+                                            Activities
                                         </a>
                                     </li>
                                     <li>
                                         <a href="{{ route('web.publication.index') }}">
-                                            Publication
+                                            Publications
                                         </a>
                                     </li>
                                     <li>
