@@ -83,10 +83,10 @@ Route::get('package/details/{id}', [WebPackageController::class, 'show'])->name(
 Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware(['auth', '2fa.verified']);
 
 /* ======================Dashboard > Auth ====================== */
-Route::get('login', [AuthController::class, 'login'])->name('login');
-Route::post('logout', [AuthController::class, 'logout'])->name('logout')->middleware(['auth', '2fa.verified']);
-Route::post('login/proceed', [AuthController::class, 'authenticate'])->name('login.proceed');
-Route::post('logout', [AuthController::class, 'logout'])->name('logout')->middleware(['auth', '2fa.verified']);
+Route::get('system/login', [AuthController::class, 'login'])->name('login');
+Route::post('system/logout', [AuthController::class, 'logout'])->name('logout')->middleware(['auth', '2fa.verified']);
+Route::post('system/login/proceed', [AuthController::class, 'authenticate'])->name('login.proceed');
+Route::post('system/logout', [AuthController::class, 'logout'])->name('logout')->middleware(['auth', '2fa.verified']);
 
 /* ====================== Dashboard > Activity====================== */
 Route::get('dashboard/activity', [ActivityController::class, 'index'])->name('activity.index')->middleware(['auth', '2fa.verified']);
