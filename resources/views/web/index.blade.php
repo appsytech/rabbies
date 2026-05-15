@@ -421,7 +421,7 @@
 </div>
 
 <!-- Team Section Start -->
-<section class="team-section section-padding fix ">
+<!-- <section class="team-section section-padding fix ">
     <div class="container">
 
         <div class="section-title text-center">
@@ -479,7 +479,7 @@
 
         </div>
     </div>
-</section>
+</section> -->
 
 <!-- Testimonial Section Start -->
 
