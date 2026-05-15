@@ -101,7 +101,7 @@
                 <span class="sub-title wow fadeInUp">Our Members</span>
                 <h2 class="wow fadeInUp" data-wow-delay=".3s">
                     <span>M</span>eet Our Team Members
-                </h2>
+                </h2> 
             </div>
             <div class="row">
                 @if ($data['members']->isNotEmpty())
