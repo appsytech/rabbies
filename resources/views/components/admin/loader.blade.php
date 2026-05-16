@@ -6,8 +6,8 @@
         <div class="flex flex-col items-center gap-3">
             <div class="flex gap-2">
                 <span class="h-2 w-2 rounded-full bg-indigo-600 animate-bounce [animation-delay:oms]"></span>
-                <span class="h-2 w-2 rounded-full bg-indigo-600 animate-bounce [animation-delay:150ms]"></span>
-                <span class="h-2 w-2 rounded-full bg-indigo-600 animate-bounce [animation-delay:300ms]"></span>
+                <span class="h-2 w-2 rounded-full bg-indigo-600 animate-bounce [animation-delay:100ms]"></span>
+                <span class="h-2 w-2 rounded-full bg-indigo-600 animate-bounce [animation-delay:200ms]"></span>
             </div>
         </div>
 

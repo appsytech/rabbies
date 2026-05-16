@@ -67,25 +67,25 @@
             </div>
             <div class="txt-loading">
                 <span data-text-preloader="R" class="letters-loading">
-                    A
+                    e
                 </span>
                 <span data-text-preloader="A" class="letters-loading">
-                    P
+                    R
                 </span>
                 <span data-text-preloader="B" class="letters-loading">
-                    P
+                    a
                 </span>
                 <span data-text-preloader="I" class="letters-loading">
-                    S
+                    b
                 </span>
                 <span data-text-preloader="E" class="letters-loading">
-                    Y
+                    i
                 </span>
                 <span data-text-preloader="S" class="letters-loading">
-                    TE
+                    e
                 </span>
                 <span data-text-preloader="" class="letters-loading">
-                    CH
+                    s
                 </span>
             </div>
             <p class="text-center">Loading</p>
@@ -129,7 +129,7 @@
                     <div class="content">
                         <span>Locate Address</span>
                         <h5>
-                            Kathmandu,Nepal
+                            Kampala, Uganda
                         </h5>
                     </div>
                 </div>
@@ -214,10 +214,10 @@
                                     <i class="fal fa-map-marker-alt"></i>
                                 </div>
                                 <div class="offcanvas__contact-text">
-                                    <a target="_blank" href="#">Kathmandu,Nepal</a>
+                                    <a target="_blank" href="#">Kampala,Uganda</a>
                                 </div>
                             </li>
-                            <li class="d-flex align-items-center">
+                            <!-- <li class="d-flex align-items-center">
                                 <div class="offcanvas__contact-icon mr-15">
                                     <i class="fal fa-envelope"></i>
                                 </div>
@@ -225,7 +225,7 @@
                                     <a href="mailto:info@appsytech.com"><span
                                             class="mailto:info@appsytech.com">info@appsytech.com</span></a>
                                 </div>
-                            </li>
+                            </li> -->
                             <li class="d-flex align-items-center">
                                 <div class="offcanvas__contact-icon mr-15">
                                     <i class="fal fa-clock"></i>
@@ -234,14 +234,14 @@
                                     <a target="_blank" href="#">Mod-friday, 09am -05pm</a>
                                 </div>
                             </li>
-                            <li class="d-flex align-items-center">
+                            <!-- <li class="d-flex align-items-center">
                                 <div class="offcanvas__contact-icon mr-15">
                                     <i class="far fa-phone"></i>
                                 </div>
                                 <div class="offcanvas__contact-text">
                                     <a href="tel:+9779815418601">+9779815418601</a>
                                 </div>
-                            </li>
+                            </li> -->
                         </ul>
                         <div class="social-icon d-flex align-items-center">
                             <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -286,9 +286,33 @@
                                             {{ $navigation->title ?? '' }}
                                         </a>
                                     </li>
+<<<<<<< HEAD
                                     @endforeach
                                     @endif
 
+=======
+                                    <li>
+                                        <a href="{{ route('web.about-us') }}">About Us</a>
+                                    </li>
+                                    <li class="has-dropdown">
+                                        <a href="{{ route('web.activity.index') }}">
+                                            Activities
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('web.publication.index') }}">
+                                            Publications
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('web.package.index') }}">
+                                            Packages
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('web.contact') }}">Contact Us</a>
+                                    </li>
+>>>>>>> f2832bd3c8575b9afca92d0e2ab36a4865763d0b
                                 </ul>
                             </nav>
                         </div>
@@ -373,13 +397,13 @@
                                 <li>
                                     <a href="{{ route('web.publication.index') }}">
                                         <i class="fa-solid fa-chevrons-right"></i>
-                                        Publication
+                                        Publications
                                     </a>
                                 </li>
                                 <li>
                                     <a href="{{ route('web.activity.index') }}">
                                         <i class="fa-solid fa-chevrons-right"></i>
-                                        Activity
+                                        Activities
                                     </a>
                                 </li>
                                 <li>

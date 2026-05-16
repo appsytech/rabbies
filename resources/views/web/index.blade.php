@@ -421,7 +421,7 @@
 </div>
 
 <!-- Team Section Start -->
-<section class="team-section section-padding fix ">
+<!-- <section class="team-section section-padding fix ">
     <div class="container">
 
         <div class="section-title text-center">
@@ -479,7 +479,7 @@
 
         </div>
     </div>
-</section>
+</section> -->
 
 <!-- Testimonial Section Start -->
 
@@ -619,7 +619,7 @@
                         <div class="counter-main-item">
                             <div class="counter-item wow fadeInUp" data-wow-delay=".5s">
                                 <div class="content style-2">
-                                    <h2><span class="count">35</span>k</h2>
+                                    <h2><span class="count">3</span>k</h2>
                                     <p>Team Member</p>
                                 </div>
                                 <div class="content">
@@ -629,11 +629,11 @@
                             </div>
                             <div class="counter-item style-border wow fadeInUp" data-wow-delay=".3s">
                                 <div class="content">
-                                    <h2><span class="count">15</span>k+</h2>
+                                    <h2><span class="count">1</span>k+</h2>
                                     <p>Incredible Volunteers</p>
                                 </div>
                                 <div class="content style-2">
-                                    <h2><span class="count">400</span>+</h2>
+                                    <h2><span class="count">50</span>+</h2>
                                     <p>Activities</p>
                                 </div>
                             </div>
