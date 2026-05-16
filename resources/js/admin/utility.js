@@ -26,6 +26,20 @@ function printRow(event) {
     printWindow.close();
 }
 
+function togglePasswordField(target) {
+    const targetFieldId = event.target.getAttribute("data-targetId");
+    const targetField = document.getElementById(`${targetFieldId}`);
+
+    if (!targetField) return;
+    const icon = target.querySelector(".toggle-password-icon");
+    const isPassword = targetField.type === "password";
+    targetField.type = isPassword ? "text" : "password";
+
+    if (icon) {
+        icon.src = isPassword ? target.dataset.eyeoff : target.dataset.eye;
+    }
+}
+
 function togglePasswordSection(roleValue) {
     const password = document.getElementById("password");
     const confirmPassword = document.getElementById("password_confirmation");
@@ -217,4 +231,5 @@ export {
     handleAjaxForm,
     showAlert,
     togglePasswordSection,
+    togglePasswordField
 };

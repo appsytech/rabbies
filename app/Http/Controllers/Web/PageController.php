@@ -10,6 +10,7 @@ use App\Services\Web\ActivityService;
 use App\Services\Web\AdminService;
 use App\Services\Web\GalleryService;
 use App\Services\Web\LayoutConfigService;
+use App\Services\Web\NavigationMenuService;
 use App\Services\Web\PublicationService;
 use App\Services\Web\ServiceService;
 use Illuminate\View\View;
@@ -26,7 +27,7 @@ class PageController extends Controller
         protected AboutUsService $aboutUsService,
         protected AboutFeatureService $aboutFeatureService,
         protected GalleryService $galleryService,
-        protected LayoutConfigService $layoutConfigService
+        protected LayoutConfigService $layoutConfigService,
     ) {}
 
     public function home(): View

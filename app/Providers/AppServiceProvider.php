@@ -16,12 +16,14 @@ use App\Repositories\Admin\Interfaces\AdminRepositoryInterface;
 use App\Repositories\Admin\Interfaces\GalleryRepositoryInterface;
 use App\Repositories\Admin\Interfaces\HomeSliderRepositoryInterface;
 use App\Repositories\Admin\Interfaces\InquiryRepositoryInterface;
+use App\Repositories\Admin\Interfaces\NavigationMenuRepositoryInterface;
 use App\Repositories\Admin\Interfaces\PackageRepositoryInterface;
 use App\Repositories\Admin\Interfaces\PublicationRepositoryInterface;
 use App\Repositories\Admin\Interfaces\ServiceRepositoryInterface;
 use App\Repositories\Admin\Interfaces\SocialMediaConfigRepositoryInterface;
 use App\Repositories\Admin\Iterfaces\LayoutConfigRepositoryInterface;
 use App\Repositories\Admin\LayoutConfigRepository;
+use App\Repositories\Admin\NavigationMenuRepository;
 use App\Repositories\Admin\PackageRepository;
 use App\Repositories\Admin\PublicationRepository;
 use App\Repositories\Admin\ServiceRepository;
@@ -39,11 +41,13 @@ use App\Repositories\Web\Interface\AdminRepositoryInterface as InterfaceAdminRep
 use App\Repositories\Web\Interface\GalleryRepositoryInterface as InterfaceGalleryRepositoryInterface;
 use App\Repositories\Web\Interface\InquiryRepositoryInterface as InterfaceInquiryRepositoryInterface;
 use App\Repositories\Web\Interface\LayoutConfigRepositoryInterface as InterfaceLayoutConfigRepositoryInterface;
+use App\Repositories\Web\Interface\NavigationMenuRepositoryInterface as InterfaceNavigationMenuRepositoryInterface;
 use App\Repositories\Web\Interface\PackageRepositoryInterface as InterfacePackageRepositoryInterface;
 use App\Repositories\Web\Interface\PublicationRepositoryInterface as InterfacePublicationRepositoryInterface;
 use App\Repositories\Web\Interface\ServiceRepositoryInterface as InterfaceServiceRepositoryInterface;
 use App\Repositories\Web\Interface\SocialMediaConfigRepositoryInterface as InterfaceSocialMediaConfigRepositoryInterface;
 use App\Repositories\Web\LayoutConfigRepository as WebLayoutConfigRepository;
+use App\Repositories\Web\NavigationMenuRepository as WebNavigationMenuRepository;
 use App\Repositories\Web\PackageRepository as WebPackageRepository;
 use App\Repositories\Web\PublicationRepository as WebPublicationRepository;
 use App\Repositories\Web\ServiceRepository as WebServiceRepository;
@@ -72,6 +76,7 @@ class AppServiceProvider extends ServiceProvider
             InquiryRepositoryInterface::class => InquiryRepository::class,
             SocialMediaConfigRepositoryInterface::class => SocialMediaConfigRepository::class,
             LayoutConfigRepositoryInterface::class => LayoutConfigRepository::class,
+            NavigationMenuRepositoryInterface::class => NavigationMenuRepository::class,
 
             /* ============ Web bindings ============ */
             InterfaceActivityRepositoryInterface::class => WebActivityRepository::class,
@@ -84,7 +89,8 @@ class AppServiceProvider extends ServiceProvider
             InterfaceInquiryRepositoryInterface::class => WebInquiryRepository::class,
             InterfacePackageRepositoryInterface::class => WebPackageRepository::class,
             InterfaceSocialMediaConfigRepositoryInterface::class => WebSocialMediaConfigRepository::class,
-            InterfaceLayoutConfigRepositoryInterface::class => WebLayoutConfigRepository::class
+            InterfaceLayoutConfigRepositoryInterface::class => WebLayoutConfigRepository::class,
+            InterfaceNavigationMenuRepositoryInterface::class => WebNavigationMenuRepository::class
         ];
 
         foreach ($bindings as $interface => $repository) {

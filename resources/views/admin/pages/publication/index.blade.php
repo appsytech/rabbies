@@ -106,13 +106,13 @@
                             Title
                         </th>
 
-                        <th class="h-12 px-4 text-left font-semibold">
+                        <!-- <th class="h-12 px-4 text-left font-semibold">
                             Document
                         </th>
 
                         <th class="h-12 px-4 text-left font-semibold">
                             Thumbnail
-                        </th>
+                        </th> -->
 
                         <th class="h-12 px-4 text-left font-semibold">
                             Type
@@ -154,7 +154,7 @@
                         </td>
 
                         <!-- Document -->
-                        <td class="p-4 text-sm">
+                        <!-- <td class="p-4 text-sm">
                             @if ($publication->document)
                             <a href="{{ asset('storage/' . $publication->document) }}" target="_blank"
                                 class="text-blue-600 hover:underline">
@@ -163,10 +163,10 @@
                             @else
                             <span class="text-gray-400">N/A</span>
                             @endif
-                        </td>
+                        </td> -->
 
                         {{-- Thumbnail Image --}}
-                        <td class="p-4 font-medium">
+                        <!-- <td class="p-4 font-medium">
                             @if (!empty($publication->thumbnail))
                             <a href="{{ asset('storage/' . $publication->thumbnail) }}" target="_blank">
                                 <img src="{{ asset('storage/' . $publication->thumbnail) }}" alt="publication Image"
@@ -175,7 +175,7 @@
                             @else
                             -no image-
                             @endif
-                        </td>
+                        </td> -->
 
                         <!-- Type -->
                         <td class="p-4 text-sm text-gray-700">
@@ -294,7 +294,6 @@
 
 
 
-
                         <!--====== Status ======-->
                         <div>
                             <label class="text-xs font-semibold text-gray-700 mb-2 flex items-center gap-1.5">
@@ -329,7 +328,7 @@
                         </div>
 
                         <!--====== Thumbnail Field ======-->
-                        <div class="lg:col-span-2">
+                        <!-- <div class="lg:col-span-2">
                             <label class="text-xs font-semibold text-gray-700 mb-2 flex items-center gap-1.5">
                                 <img src="{{ asset('assets/svg/image-plus.svg') }}" class="w-3.5 h-3.5">
                                 Upload Thumbnail
@@ -346,16 +345,16 @@
                                     <span class="text-gray-400 ml-1">(PNG, JPG, GIF)</span>
                                 </label>
                             </div>
-                        </div>
+                        </div> -->
 
                         <!--=== Image Preview Section ====-->
-                        <div id="thumbnail-preview-container" class="hidden lg:col-span-2">
+                        <!-- <div id="thumbnail-preview-container" class="hidden lg:col-span-2">
 
-                        </div>
+                        </div> -->
 
 
                         <!--====== Document Field ======-->
-                        <div class="lg:col-span-2">
+                        <!-- <div class="lg:col-span-2">
                             <label class="text-xs font-semibold text-gray-700 mb-2 flex items-center gap-1.5">
                                 <img src="{{ asset('assets/svg/image-plus.svg') }}" class="w-3.5 h-3.5">
                                 Upload Document
@@ -372,12 +371,12 @@
                                     <span class="text-gray-400 ml-1">(PNG, JPG, GIF)</span>
                                 </label>
                             </div>
-                        </div>
+                        </div> -->
 
                         <!--=== Image Preview Section ====-->
-                        <div id="document-preview-container" class="hidden lg:col-span-2">
+                        <!-- <div id="document-preview-container" class="hidden lg:col-span-2">
 
-                        </div>
+                        </div> -->
 
                         <!--====== Description Field ======-->
                         <div class="col-span-2">

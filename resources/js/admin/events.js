@@ -28,6 +28,7 @@ import {
     handleAlertAutoDismiss,
     printRow,
     showAlert,
+    togglePasswordField,
     togglePasswordSection,
     updateStatus,
 } from "./utility";
@@ -203,6 +204,10 @@ document.addEventListener("click", function (event) {
 
     if (event.target.classList.contains("toggle-video")) {
         playVideo(event.target);
+    }
+
+    if (event.target.classList.contains("toggle-password-field")) {
+        togglePasswordField(event.target);
     }
 });
 

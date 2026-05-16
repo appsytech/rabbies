@@ -118,7 +118,7 @@
                     </div>
 
                     <!--====== Thumbnal Field ======-->
-                    <div class="lg:col-span-2">
+                    <!-- <div class="lg:col-span-2">
                         <label class="text-xs font-semibold text-gray-700 mb-2 flex items-center gap-1.5">
                             <img src="{{ asset('assets/svg/image-plus.svg') }}" class="w-3.5 h-3.5">
                             Upload Thumbnail
@@ -134,10 +134,10 @@
                                 <span class="text-gray-400 ml-1">(PNG, JPG, GIF)</span>
                             </label>
                         </div>
-                    </div>
+                    </div> -->
 
                     <!--=== Image Preview Section ====-->
-                    <div id="image-preview-container"
+                    <!-- <div id="image-preview-container"
                         class="{{ isset($data['publication']->thumbnail) ? '' : 'hidden' }} lg:col-span-2">
                         <div class="relative inline-flex gap-2 items-center">
                             <a href="{{ asset('storage/' . $data['publication']->thumbnail) }}" target="_blank">
@@ -146,10 +146,10 @@
                             </a>
 
                         </div>
-                    </div>
+                    </div> -->
 
                     <!--====== Document Field ======-->
-                    <div class="lg:col-span-2">
+                    <!-- <div class="lg:col-span-2">
                         <label class="text-xs font-semibold text-gray-700 mb-2 flex items-center gap-1.5">
                             <img src="{{ asset('assets/svg/image-plus.svg') }}" class="w-3.5 h-3.5">
                             Upload Document
@@ -166,10 +166,10 @@
                                 <span class="text-gray-400 ml-1">(PNG, JPG, GIF)</span>
                             </label>
                         </div>
-                    </div>
+                    </div> -->
 
                     <!--=== Document Preview Section ====-->
-                    <div id="document-preview-container"
+                    <!-- <div id="document-preview-container"
                         class="{{ isset($data['publication']->document) ? '' : 'hidden' }} lg:col-span-2">
                         @if (!empty($data['publication']->document))
                         @php
@@ -196,7 +196,7 @@
                             @endif
                         </div>
                         @endif
-                    </div>
+                    </div> -->
 
                     <!--====== Description Field ======-->
 
@@ -222,7 +222,7 @@
 
                 <!--=== Action Buttons ===-->
                 <div class="flex gap-3 pt-2">
-                    <a href="{{ route('admin.index') }}"
+                    <a href="{{ route('publication.index') }}"
                         class="relative cursor-pointer flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-gray-700 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-50 hover:border-gray-300 hover:shadow-md hover:-translate-y-1 transition-all duration-200">
                         <img src="{{ asset('assets/svg/corner-up-left.svg') }}" class="w-4 h-4 pointer-events-none"
                             alt="">

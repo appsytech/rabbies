@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\HomeSliderController;
 use App\Http\Controllers\Admin\InquiryController as AdminInquiryController;
 use App\Http\Controllers\Admin\LayoutConfigController;
+use App\Http\Controllers\Admin\NavigationMenuController;
 use App\Http\Controllers\Admin\PackageController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\PublicationController;
@@ -164,6 +165,13 @@ Route::delete('dashboard/layout-config/delete', [LayoutConfigController::class, 
 Route::get('dashboard/layout-config/edit/{id}', [LayoutConfigController::class, 'edit'])->name('layout-config.edit')->middleware(['auth']);
 Route::put('dashboard/layout-config/update', [LayoutConfigController::class, 'update'])->name('layout-config.update')->middleware(['auth']);
 Route::post('dashboard/layout-config/status/update', [LayoutConfigController::class, 'updateStatus'])->name('layout-config.status.update')->middleware(['auth']);
+
+
+/* ====================== Dashboard > Navgation Menu ====================== */
+Route::get('dashboard/navigation-menu', [NavigationMenuController::class, 'index'])->name('navigation-menu.index')->middleware(['auth']);
+Route::get('dashboard/navigation-menu/edit/{id}', [NavigationMenuController::class, 'edit'])->name('navigation-menu.edit')->middleware(['auth']);
+Route::put('dashboard/navigation-menu/update', [NavigationMenuController::class, 'update'])->name('navigation-menu.update')->middleware(['auth']);
+Route::post('dashboard/navigation-menu/status/update', [NavigationMenuController::class, 'updateStatus'])->name('navigation-menu.status.update')->middleware(['auth']);
 
 
 /* ====================== Dashboard > About us feature ====================== */

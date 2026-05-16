@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Services\Web\NavigationMenuService;
 use App\Services\Web\SocialMediaConfigService;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
@@ -22,14 +23,18 @@ class ViewServiceProvider extends ServiceProvider
      */
     public function boot(
         SocialMediaConfigService $socialMediaConfigService,
+        NavigationMenuService $navigationMenuService
     ): void {
         View::composer('web.layouts.main', function ($view) use (
             $socialMediaConfigService,
+            $navigationMenuService,
         ) {
             $socials = $socialMediaConfigService->getSocialMediaConfigs();
 
             $view->with([
-                'socials' => $socials
+                'socials' => $socials,
+                'navigations' => $navigationMenuService->getNavigationMenus([], ['title', 'route'])
+
             ]);
         });
     }

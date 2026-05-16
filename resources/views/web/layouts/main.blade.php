@@ -118,6 +118,7 @@
     <div class="mouseCursor cursor-inner"></div>
 
     <!-- Header-Top Start -->
+    @if ($socials->isNotEmpty())
     <div class="header-top-section">
         <div class="container-fluid">
             <div class="header-top-wrapper d-flex justify-content-end py-2">
@@ -155,7 +156,6 @@
                     </div>
                 </div> -->
 
-                @if ($socials->isNotEmpty())
                 @php
                 $socialIcons = [
                 'facebook' => 'fab fa-facebook-f text-blue-600',
@@ -178,10 +178,11 @@
                     </a>
                     @endforeach
                 </div>
-                @endif
             </div>
         </div>
     </div>
+    @endif
+
 
     <!-- Offcanvas Area Start -->
     <div class="fix-area">
@@ -278,32 +279,16 @@
                         <div class="main-menu">
                             <nav id="mobile-menu">
                                 <ul>
+                                    @if($navigations)
+                                    @foreach($navigations as $navigation)
                                     <li class="has-dropdown active menu-thumb">
-                                        <a href="{{ route('web.homepage') }}">
-                                            Home
+                                        <a href="{{ route($navigation->route) }}">
+                                            {{ $navigation->title ?? '' }}
                                         </a>
                                     </li>
-                                    <li>
-                                        <a href="{{ route('web.about-us') }}">About Us</a>
-                                    </li>
-                                    <li class="has-dropdown">
-                                        <a href="{{ route('web.activity.index') }}">
-                                            Activity
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ route('web.publication.index') }}">
-                                            Publication
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ route('web.package.index') }}">
-                                            Packages
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ route('web.contact') }}">Contact Us</a>
-                                    </li>
+                                    @endforeach
+                                    @endif
+
                                 </ul>
                             </nav>
                         </div>
