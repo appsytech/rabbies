@@ -9,35 +9,12 @@ $breadcrumbBg = isset($data['config']->value)
 : asset('assets/img/inner-page/breadcrumb.png');
 @endphp
 
-<<<<<<< HEAD
 <!-- Hero Section Start -->
 <div class="breadcrumb-wrapper fix bg-cover" style="background-image: url({{ $breadcrumbBg }});">
     <div class="container">
         <div class="page-heading">
             <div class="breadcrumb-sub-title">
                 <h1 class="wow fadeInUp" data-wow-delay=".3s">Publication Grid</h1>
-=======
-    <!-- Hero Section Start -->
-    <div class="breadcrumb-wrapper fix bg-cover" style="background-image: url({{ $breadcrumbBg }});">
-        <div class="container">
-            <div class="page-heading">
-                <div class="breadcrumb-sub-title">
-                    <h1 class="wow fadeInUp" data-wow-delay=".3s">Publication Grid</h1>
-                </div>
-                <ul class="breadcrumb-items wow fadeInUp" data-wow-delay=".5s">
-                    <li>
-                        <a href="{{ route('web.homepage') }}">
-                            Home
-                        </a>
-                    </li>
-                    <li>
-                        <i class="fa-solid fa-chevron-right"></i>
-                    </li>
-                    <li>
-                        Publications
-                    </li>
-                </ul>
->>>>>>> f2832bd3c8575b9afca92d0e2ab36a4865763d0b
             </div>
             <ul class="breadcrumb-items wow fadeInUp" data-wow-delay=".5s">
                 <li>

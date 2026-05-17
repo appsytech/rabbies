@@ -286,33 +286,9 @@
                                             {{ $navigation->title ?? '' }}
                                         </a>
                                     </li>
-<<<<<<< HEAD
                                     @endforeach
                                     @endif
 
-=======
-                                    <li>
-                                        <a href="{{ route('web.about-us') }}">About Us</a>
-                                    </li>
-                                    <li class="has-dropdown">
-                                        <a href="{{ route('web.activity.index') }}">
-                                            Activities
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ route('web.publication.index') }}">
-                                            Publications
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ route('web.package.index') }}">
-                                            Packages
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ route('web.contact') }}">Contact Us</a>
-                                    </li>
->>>>>>> f2832bd3c8575b9afca92d0e2ab36a4865763d0b
                                 </ul>
                             </nav>
                         </div>
